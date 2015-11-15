@@ -6,6 +6,6 @@ log.txt
 *.rpyc
 
 # Directories
-/tmp
-/game/cache
-/game/saves
+tmp/
+game/cache/
+game/saves/
