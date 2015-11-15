@@ -1,0 +1,11 @@
+# Logs
+log.txt
+
+# Files
+*.rpy.bak
+*.rpyc
+
+# Directories
+/tmp
+/game/cache
+/game/saves
