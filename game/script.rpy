@@ -12,6 +12,7 @@
         return False
     
     # Array of NPCs
+    # NPC is defined in NPC.rpy
     npc = [NPC("King", "#ffffff"), # White
            NPC("Queen", "#ff0000"), # Red
            NPC("Bishop", "#00ff00"), # Green
@@ -42,6 +43,7 @@ label start:
 label starting_hub: # Jump here to go back to the selection menu
 menu:
     "Investigate a room.":
+        # investigate_room is defined in investigate_room.rpy
         jump investigate_room
     "Talk to a suspect.":
         jump talk_suspect
