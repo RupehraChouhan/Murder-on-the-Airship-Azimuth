@@ -1,7 +1,5 @@
-# Logs
-log.txt
-
 # Files
+*.txt
 *.rpy.bak
 *.rpyc
 
