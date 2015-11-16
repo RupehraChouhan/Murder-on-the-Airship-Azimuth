@@ -11,11 +11,6 @@
         if input == "exit": return True
         return False
     
-    class NPC:
-        def __init__(self, name, color):
-            self.name = name
-            self.npc = Character(name, kind=nvl, color=color)
-    
     # Array of NPCs
     npc = [NPC("King", "#ffffff"), # White
            NPC("Queen", "#ff0000"), # Red
@@ -55,41 +50,19 @@ menu:
     "Solve the case.":
         jump solve_case
 
-label investigate_room:
-    python:
-        input = renpy.input("What room do you want to investigate?")
-        action = -1
-        destination = ""
-        for x in room:
-            if input.lower() == x.name.lower():
-                destination = input
-                action = 1
-        if checkQuit(input.lower()):
-            action = 0
-    
-    if action == 1:
-        jump room_found
-    if action == 0:
-        jump starting_hub
-    
-    "I don't know what [input] means."
-    jump investigate_room
-    
-label room_found:
-    python:
-        input = renpy.input("Here we are in the [destination]! What a big room.")
-        action = -1
-        if checkQuit(input.lower()):
-            action = 0
-    
-    if action == 0:
-        jump starting_hub
-    
-    "I don't know what [input] means."
-    jump room_found
-
 label talk_suspect:
-
+    npc[0].npc "Hello World!"
+    python:
+        action = -1
+        input = renpy.input("")
+        if checkQuit(input.lower()):
+            action = 0
+    
+    if action == 0:
+        jump starting_hub
+    else:
+        npc[0].npc "[input]"
+    
     jump starting_hub
 
 label look_notepad:

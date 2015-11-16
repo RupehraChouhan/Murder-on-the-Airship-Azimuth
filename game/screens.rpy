@@ -109,9 +109,9 @@ init -2:
 
 screen input(prompt):
 
-    window style "nvl_window":
+    window style "window":
         has vbox:
-            style "nvl_vbox"
+            style "vbox"
 
         text prompt style "input_prompt"
         input id "input" style "input_text"
