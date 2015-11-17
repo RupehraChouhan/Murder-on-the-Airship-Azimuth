@@ -53,7 +53,7 @@ menu:
         jump solve_case
 
 label talk_suspect:
-    npc[0].npc "Hello World!"
+    npc[1].npc "Hello World!"
     python:
         action = -1
         input = renpy.input("")
