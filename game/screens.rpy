@@ -110,8 +110,24 @@ init -2:
 screen input(prompt):
 
     window style "window":
-        has vbox:
-            style "vbox"
+        has vbox
+
+        text prompt style "input_prompt"
+        input id "input" style "input_text"
+
+    use quick_menu
+
+##############################################################################
+# CUSTOM
+# NVL Input
+#
+# Screen that's used to display renpy.input() in NVL mode
+# http://www.renpy.org/doc/html/screen_special.html#input
+
+screen nvl_input(prompt):
+
+    window style "nvl_window":
+        has vbox
 
         text prompt style "input_prompt"
         input id "input" style "input_text"
@@ -559,4 +575,3 @@ init -2:
         selected_idle_color "#cc08"
         selected_hover_color "#cc0"
         insensitive_color "#4448"
-

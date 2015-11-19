@@ -1,76 +1,56 @@
-﻿init python:
-    # Change to nvl, fullscreen text mode
-    menu = nvl_menu
-    narrator = Character(None, kind=nvl)
+﻿init 0 python:
+    # NPC, array of NPCs, and constants defined in NPC.rpy
+    NPC.npc[NPC.KING] = NPC("King", None, "#ffffff", []) # White
+    NPC.npc[NPC.QUEEN] = NPC("Queen", "t_queen", "#ff0000", []) # Red
+    NPC.npc[NPC.BISHOP] = NPC("Bishop", "t_bishop", "#00ff00", []) # Green
+    NPC.npc[NPC.KNIGHT] = NPC("Knight", "t_knight", "#0000ff", []) # Blue
+    NPC.npc[NPC.ROOK] = NPC("Rook", "t_rook", "#ffff00", []) # Yellow
+    NPC.npc[NPC.PAWN] = NPC("Pawn", "t_pawn", "#00ffff", []) # Cyan
     
-    # Automatically check player input against predetermined quit commands
-    def checkQuit(input):
-        if input == "q": return True
-        if input == "quit": return True
-        if input == "e": return True
-        if input == "exit": return True
-        return False
-    
-    # Array of NPCs
-    # NPC is defined in NPC.rpy
-    npc = [NPC("King", "#ffffff"), # White
-           NPC("Queen", "#ff0000"), # Red
-           NPC("Bishop", "#00ff00"), # Green
-           NPC("Knight", "#0000ff"), # Blue
-           NPC("Rook", "#ffff00"), # Yellow
-           NPC("Pawn", "#00ffff")] # Cyan
-    
-    class Room:
-        def __init__(self, name, x, y):
-            self.name = name
-            self.x = x
-            self.y = y
-    
-    # Array of rooms
-    room = [Room("Passenger Cabins", 0, 0),
-            Room("Dining Room", 1, 0),
-            Room("Galley", 2, 0),
-            Room("Baths", 0, 1),
-            Room("Passenger Lounge", 1, 1),
-            Room("Bar", 2, 1),
-            Room("Cargo Hold", 0, 2),
-            Room("Cockpit", 1, 2),
-            Room("Engine Room", 2, 2)]
+    # Room, array of rooms, and constants defined in Room.rpy
+    Room.room[Room.CABIN] = Room("Passenger Cabins", "i_cabin", 0, 0, [])
+    Room.room[Room.DINING] = Room("Dining Room", "i_dining", 1, 0, [])
+    Room.room[Room.GALLEY] = Room("Galley", "i_galley", 2, 0, [])
+    Room.room[Room.BATHS] = Room("Baths", "i_baths", 0, 1, [])
+    Room.room[Room.LOUNGE] = Room("Passenger Lounge", "i_lounge", 1, 1, [])
+    Room.room[Room.BAR] = Room("Bar", "i_bar", 2, 1, [])
+    Room.room[Room.CARGO] = Room("Cargo Hold", "i_cargo", 0, 2, [])
+    Room.room[Room.COCKPIT] = Room("Cockpit", "i_cockpit", 1, 2, [])
+    Room.room[Room.ENGINE] = Room("Engine Room", "i_engine", 2, 2, [])
 
-# The game starts here.
+# The game starts here
 label start:
+    python:
+        button = nvl_menu([("Investigate a room.", 0), ("Talk to a suspect.", 1), ("Look at your notepad.", 2), ("Solve the case.", 3)])
+        if button == 0: Game.jump("investigate_room")
+        if button == 1: Game.jump("talk_suspect")
+        if button == 2: Game.jump("look_notepad")
+        if button == 3: Game.jump("solve_case")
 
-label starting_hub: # Jump here to go back to the selection menu
-menu:
-    "Investigate a room.":
-        # investigate_room is defined in investigate_room.rpy
-        jump investigate_room
-    "Talk to a suspect.":
-        jump talk_suspect
-    "Look at your notepad.":
-        jump look_notepad
-    "Solve the case.":
-        jump solve_case
+label investigate_room:
+    python:
+        Game.inputNVL("What room do you want to investigate?")
+        Game.checkQuit()
+        for r in Room.room:
+            if r.match(Game.input):
+                Game.jump(r.label)
+        NPC.speakNVL(NPC.NARRATOR, "I don't know what room \"[Game.input]\" is.")
+        Game.jump("investigate_room")
 
 label talk_suspect:
-    npc[1].npc "Hello World!"
     python:
-        action = -1
-        input = renpy.input("")
-        if checkQuit(input.lower()):
-            action = 0
-    
-    if action == 0:
-        jump starting_hub
-    else:
-        npc[0].npc "[input]"
-    
-    jump starting_hub
+        Game.inputNVL("Which suspect do you want to talk to?")
+        Game.checkQuit()
+        for n in NPC.npc:
+            if n.match(Game.input) and n.label: # We can't talk to them if they don't have a label to jump to
+                Game.jump(n.label)
+        NPC.speakNVL(NPC.NARRATOR, "I don't know which suspect \"[Game.input]\" is.")
+        Game.jump("talk_suspect")
 
 label look_notepad:
-
-    jump starting_hub
+    python:
+        Game.jump("start")
 
 label solve_case:
-
-    jump starting_hub
+    python:
+        Game.jump("start")
