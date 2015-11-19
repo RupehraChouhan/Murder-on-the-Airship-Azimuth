@@ -4,7 +4,7 @@ init -998 python: # Other classes are given first priority to load, after Game c
         NUM = 9
         room = [None] * NUM
         
-        # Room constants
+        # Room constants for array index
         CABIN = 0
         DINING = 1
         GALLEY = 2
@@ -17,13 +17,13 @@ init -998 python: # Other classes are given first priority to load, after Game c
         
         # Default matching strings is an empty list
         def __init__(self, name, label, x, y, matches=[]):
-            self.name = name
-            self.label = label
-            self.x = x
-            self.y = y
+            self.name = name # Name of Room
+            self.label = label # Label to jump to to begin inspection, cannot be None
+            self.x = x # x-coordinate of Room in spatial layout
+            self.y = y # y-coordinate of Room in spatial layout
             
             self.matches = [] # List of strings that can be used to match this Room
-            if name:
+            if name: # Name only included if given one
                 self.matches += [name.lower()]
             for m in matches:
                 self.matches += [m.lower()]

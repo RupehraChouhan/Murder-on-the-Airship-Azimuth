@@ -1,4 +1,5 @@
 init -999 python: # Game class must be given first priority to load
+    # Game is a purely static class, and does not need to be instantiated
     class Game:
         input = "" # Static(ish) variable player text input is put into
         
@@ -18,7 +19,7 @@ init -999 python: # Game class must be given first priority to load
             renpy.jump(label)
         
         # Automatically check last player input against predetermined quit commands, and jump to label if one matches
-        # Default label is the start of the game
+        # Default label is the start menu of the game
         @staticmethod
         def checkQuit(label="start"):
             target = Game.input.lower()

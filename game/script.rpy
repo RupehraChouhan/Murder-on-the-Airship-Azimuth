@@ -26,6 +26,7 @@ label start:
         if button == 1: Game.jump("talk_suspect")
         if button == 2: Game.jump("look_notepad")
         if button == 3: Game.jump("solve_case")
+        Game.jump("start")
 
 label investigate_room:
     python:

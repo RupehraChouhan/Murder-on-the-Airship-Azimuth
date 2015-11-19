@@ -4,8 +4,8 @@ init -998 python: # Other classes are given first priority to load, after Game c
         NUM = 6
         npc = [None] * NUM
         
-        # NPC constants
-        NARRATOR = -1
+        # NPC constants for array index, more can be added if we desire non-suspect NPCs
+        NARRATOR = -1 # Narrator is not in the array
         KING = 0
         QUEEN = 1
         BISHOP = 2
@@ -15,14 +15,14 @@ init -998 python: # Other classes are given first priority to load, after Game c
         
         #  Default color is white, default matching strings is an empty list
         def __init__(self, name, label, color="#ffffff", matches=[]):
-            self.name = name
-            self.label = label
-            self.color = color
+            self.name = name # Name of NPC
+            self.label = label # Label to jump to to begin conversation, None if no conversation
+            self.color = color # Color of NPC name
             self.adv = Character(name, kind=adv, color=color)
             self.nvl = Character(name, kind=nvl, color=color)
             
             self.matches = [] # List of strings that can be used to match this NPC
-            if name:
+            if name: # Name only included if given one
                 self.matches += [name.lower()]
             for m in matches:
                 self.matches += [m.lower()]
