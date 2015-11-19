@@ -2,7 +2,7 @@ init -999 python: # Game class must be given first priority to load
     # Game is a purely static class, and does not need to be instantiated
     class Game:
         input = "" # Static(ish) variable player text input is put into
-        moves = 0 # Numbers of moves player has made
+        __moves = 0 # Numbers of moves player has made
         notes = [] # List of states player has reached, for determining game progress and notebook entries
         
         # Get player input in ADV mode
@@ -29,3 +29,13 @@ init -999 python: # Game class must be given first priority to load
             if target == "quit": Game.jump(label)
             if target == "e": Game.jump(label)
             if target == "exit": Game.jump(label)
+            
+        # Increment the number of moves, and check if anything needs to happen
+        @staticmethod
+        def incrementMoves():
+            Game.__moves += 1
+            # checks would be done here
+            
+        @staticmethod
+        def getMoves():
+            return Game.__moves

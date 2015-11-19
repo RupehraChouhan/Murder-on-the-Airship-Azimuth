@@ -34,7 +34,7 @@ label investigate_room:
         Game.checkQuit()
         for r in Room.room:
             if r.match(Game.input):
-                Game.moves += 1 # Heading to a room counts as a move
+                Game.incrementMoves() # Heading to a room counts as a move
                 Game.jump(r.label)
         NPC.speakNVL(NPC.NARRATOR, "I don't know what room \"[Game.input]\" is.")
         Game.jump("investigate_room")
@@ -45,14 +45,15 @@ label talk_suspect:
         Game.checkQuit()
         for n in NPC.npc:
             if n.match(Game.input) and n.label: # We can't talk to them if they don't have a label to jump to
-                Game.moves += 1 # Talking to a suspect counts as a move
+                Game.incrementMoves() # Talking to a suspect counts as a move
                 Game.jump(n.label)
         NPC.speakNVL(NPC.NARRATOR, "I don't know which suspect \"[Game.input]\" is.")
         Game.jump("talk_suspect")
 
 label look_notepad:
     python:
-        NPC.speakNVL(NPC.NARRATOR, "You've made [Game.moves] move(s).")
+        moves = Game.getMoves()
+        NPC.speakNVL(NPC.NARRATOR, "You've made [moves] move(s).")
         Game.jump("start")
 
 label solve_case:
