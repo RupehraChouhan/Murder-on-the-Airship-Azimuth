@@ -4,6 +4,7 @@ init -999 python: # Game class must be given first priority to load
         input = "" # Static(ish) variable player text input is put into
         __moves = 0 # Numbers of moves player has made
         notes = [] # List of states player has reached, for determining game progress and notebook entries
+        zeppelinName = "Azimuth"
         
         # Array of npcs
         NPC_NUM = 6
@@ -30,13 +31,14 @@ init -999 python: # Game class must be given first priority to load
         ROOM_ENGINE = 8
         
         # Narrator for narrating
-        __Narrator = Character(None, kind=adv)
+        __NarratorADV = Character(None, kind=adv)
+        __NarratorNVL = Character(None, kind=nvl)
         
         # Set the initial state of the game
         @staticmethod
         def initialize():
             # NPC defined in NPC.rpy
-            Game.npcs[Game.NPC_KING] = NPC("King", None, "#ffffff", []) # White
+            Game.npcs[Game.NPC_KING] = NPC("King", None, "#ffffff", [], alive=False) # White, dead
             Game.npcs[Game.NPC_QUEEN] = NPC("Queen", "t_queen", "#ff0000", []) # Red
             Game.npcs[Game.NPC_BISHOP] = NPC("Bishop", "t_bishop", "#00ff00", []) # Green
             Game.npcs[Game.NPC_KNIGHT] = NPC("Knight", "t_knight", "#0000ff", []) # Blue
@@ -92,4 +94,8 @@ init -999 python: # Game class must be given first priority to load
             
         @staticmethod
         def narrate(line):
-            renpy.say(Game.__Narrator, line)
+            renpy.say(Game.__NarratorADV, line)
+        
+        @staticmethod
+        def narrateNVL(line):
+            renpy.say(Game.__NarratorNVL, line)

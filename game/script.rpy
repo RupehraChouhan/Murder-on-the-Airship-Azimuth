@@ -13,7 +13,13 @@ label start:
 
 label investigate_room:
     python:
-        Game.inputNVL("What room do you want to investigate?")
+        prompt = "The [Game.zeppelinName] has 9 rooms:\n"
+        for room in Game.rooms:
+            prompt = prompt + "  " + room.name + "\n"
+        prompt = prompt + "\nWhat room do you want to investigate?"
+        
+        Game.inputNVL(prompt)
+        
         Game.checkQuit()
         for r in Game.rooms:
             if r.match(Game.input):
@@ -24,7 +30,14 @@ label investigate_room:
 
 label talk_suspect:
     python:
-        Game.inputNVL("Which suspect do you want to talk to?")
+        prompt = "The suspects are:\n"
+        for npc in Game.npcs:
+            if npc.alive:
+                prompt =  prompt + "  " + npc.name + "\n"
+        prompt = prompt + "\nWhich suspect do you want to talk to?"
+        
+        Game.inputNVL(prompt)
+        
         Game.checkQuit()
         for n in Game.npcs:
             if n.match(Game.input) and n.label: # We can't talk to them if they don't have a label to jump to

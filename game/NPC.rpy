@@ -2,12 +2,13 @@ init -998 python: # Other classes are given first priority to load, after Game c
     class NPC:
         
         #  Default color is white, default matching strings is an empty list
-        def __init__(self, name, label, color="#ffffff", matches=[]):
+        def __init__(self, name, label, color="#ffffff", matches=[], alive=True):
             self.name = name # Name of NPC
             self.label = label # Label to jump to to begin conversation, None if no conversation
             self.color = color # Color of NPC name
             self.adv = Character(name, kind=adv, color=color)
             self.nvl = Character(name, kind=nvl, color=color)
+            self.alive = alive # is the npc alive?
             
             self.matches = [] # List of strings that can be used to match this NPC
             if name: # Name only included if given one
