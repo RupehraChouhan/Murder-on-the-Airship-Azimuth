@@ -45,15 +45,15 @@ init -999 python: # Game class must be given first priority to load
             
               
             # Room defined in Room.rpy
-            Game.rooms[Game.ROOM_CABIN] = Room("Passenger Cabins", "i_cabin", 0, 0, [])
-            Game.rooms[Game.ROOM_DINING] = Room("Dining Room", "i_dining", 1, 0, [])
+            Game.rooms[Game.ROOM_CABIN] = Room("Passenger Cabins", "i_cabin", 0, 0, ["Cabins", "Cabin"])
+            Game.rooms[Game.ROOM_DINING] = Room("Dining Room", "i_dining", 1, 0, ["Dining"])
             Game.rooms[Game.ROOM_GALLEY] = Room("Galley", "i_galley", 2, 0, [])
-            Game.rooms[Game.ROOM_BATHS] = Room("Baths", "i_baths", 0, 1, [])
-            Game.rooms[Game.ROOM_LOUNGE] = Room("Passenger Lounge", "i_lounge", 1, 1, [])
+            Game.rooms[Game.ROOM_BATHS] = Room("Baths", "i_baths", 0, 1, ["Bath"])
+            Game.rooms[Game.ROOM_LOUNGE] = Room("Passenger Lounge", "i_lounge", 1, 1, ["Lounge"])
             Game.rooms[Game.ROOM_BAR] = Room("Bar", "i_bar", 2, 1, [])
-            Game.rooms[Game.ROOM_CARGO] = Room("Cargo Hold", "i_cargo", 0, 2, [])
+            Game.rooms[Game.ROOM_CARGO] = Room("Cargo Hold", "i_cargo", 0, 2, ["Cargo", "Hold"])
             Game.rooms[Game.ROOM_COCKPIT] = Room("Cockpit", "i_cockpit", 1, 2, [])
-            Game.rooms[Game.ROOM_ENGINE] = Room("Engine Room", "i_engine", 2, 2, [])
+            Game.rooms[Game.ROOM_ENGINE] = Room("Engine Room", "i_engine", 2, 2, ["Engine"])
         
         # Get player input in ADV mode
         @staticmethod
