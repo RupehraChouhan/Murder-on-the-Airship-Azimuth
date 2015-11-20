@@ -1,20 +1,5 @@
 init -998 python: # Other classes are given first priority to load, after Game class
     class Room:
-        # Static(ish) array of Rooms
-        NUM = 9
-        room = [None] * NUM
-        
-        # Room constants for array index
-        CABIN = 0
-        DINING = 1
-        GALLEY = 2
-        BATHS = 3
-        LOUNGE = 4
-        BAR = 5
-        CARGO = 6
-        COCKPIT = 7
-        ENGINE = 8
-        
         # Default matching strings is an empty list
         def __init__(self, name, label, x, y, matches=[]):
             self.name = name # Name of Room

@@ -1,7 +1,11 @@
 label t_rook:
     python:
-        NPC.speakADV(NPC.ROOK, "What do you want to say to me?")
+        # character you are talking to
+        character = Game.npcs[Game.NPC_ROOK]
+        
+        # NPC speaks
+        character.speakADV("What do you want to say to me?")
         Game.inputADV("Say something:")
         Game.checkQuit()
-        NPC.speakADV(NPC.ROOK, "You said \"[Game.input]\"")
-        Game.jump("t_rook")
+        character.speakADV("You said \"[Game.input]\"")
+        Game.jump(character.label)

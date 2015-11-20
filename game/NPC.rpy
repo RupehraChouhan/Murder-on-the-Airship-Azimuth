@@ -1,17 +1,5 @@
 init -998 python: # Other classes are given first priority to load, after Game class
     class NPC:
-        # Static(ish) array of NPCs
-        NUM = 6
-        npc = [None] * NUM
-        
-        # NPC constants for array index, more can be added if we desire non-suspect NPCs
-        NARRATOR = -1 # Narrator is not in the array
-        KING = 0
-        QUEEN = 1
-        BISHOP = 2
-        KNIGHT = 3
-        ROOK = 4
-        PAWN = 5
         
         #  Default color is white, default matching strings is an empty list
         def __init__(self, name, label, color="#ffffff", matches=[]):
@@ -36,17 +24,15 @@ init -998 python: # Other classes are given first priority to load, after Game c
             return False
         
         # Says a line of dialogue from the given npc in ADV mode
-        @staticmethod
-        def speakADV(npc, dialogue):
-            if npc == NPC.NARRATOR:
-                renpy.say(Character(None, kind=adv), dialogue)
-            else:
-                renpy.say(NPC.npc[npc].adv, dialogue)
+        def speakADV(self, dialogue):
+            #if npc == NPC.NARRATOR:
+                #renpy.say(Character(None, kind=adv), dialogue)
+            #else:
+                renpy.say(self.adv, dialogue)
         
         # Says a line of dialogue from the given npc in NVL mode
-        @staticmethod
-        def speakNVL(npc, dialogue):
-            if npc == NPC.NARRATOR:
-                renpy.say(Character(None, kind=nvl), dialogue)
-            else:
-                renpy.say(NPC.npc[npc].nvl, dialogue)
+        def speakNVL(self, dialogue):
+            #if npc == NPC.NARRATOR:
+            #    renpy.say(Character(None, kind=nvl), dialogue)
+            #else:
+                renpy.say(self.nvl, dialogue)
