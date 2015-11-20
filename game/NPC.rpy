@@ -25,14 +25,8 @@ init -998 python: # Other classes are given first priority to load, after Game c
         
         # Says a line of dialogue from the given npc in ADV mode
         def speakADV(self, dialogue):
-            #if npc == NPC.NARRATOR:
-                #renpy.say(Character(None, kind=adv), dialogue)
-            #else:
-                renpy.say(self.adv, dialogue)
+            renpy.say(self.adv, dialogue)
         
         # Says a line of dialogue from the given npc in NVL mode
         def speakNVL(self, dialogue):
-            #if npc == NPC.NARRATOR:
-            #    renpy.say(Character(None, kind=nvl), dialogue)
-            #else:
-                renpy.say(self.nvl, dialogue)
+            renpy.say(self.nvl, dialogue)
