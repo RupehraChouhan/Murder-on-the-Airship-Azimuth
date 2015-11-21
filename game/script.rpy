@@ -19,13 +19,13 @@ label investigate_room:
         prompt = prompt + "\nWhat room do you want to investigate?"
         
         Game.inputNVL(prompt)
-        
         Game.checkQuit()
+        
         for r in Game.rooms:
-            if r.match(Game.input):
+            if r.match(Game.input) and r.label: # If matching, must have a label
                 Game.incrementMoves() # Heading to a room counts as a move
                 Game.jump(r.label)
-        Game.narrate("I don't know what room \"[Game.input]\" is.")
+        Game.narrateNVL("I don't know what room \"[Game.input]\" is.")
         Game.jump("investigate_room")
 
 label talk_suspect:
@@ -37,19 +37,19 @@ label talk_suspect:
         prompt = prompt + "\nWhich suspect do you want to talk to?"
         
         Game.inputNVL(prompt)
-        
         Game.checkQuit()
+        
         for n in Game.npcs:
-            if n.match(Game.input) and n.label: # We can't talk to them if they don't have a label to jump to
+            if n.match(Game.input) and n.label and n.alive: # If matching, must have a label and be alive
                 Game.incrementMoves() # Talking to a suspect counts as a move
                 Game.jump(n.label)
-        Game.narrate("I don't know which suspect \"[Game.input]\" is.")
+        Game.narrateNVL("I don't know which suspect \"[Game.input]\" is.")
         Game.jump("talk_suspect")
 
 label look_notepad:
     python:
         moves = Game.getMoves()
-        Game.narrate("You've made [moves] move(s).")
+        Game.narrateNVL("You've made [moves] move(s).")
         Game.jump("start")
 
 label solve_case:

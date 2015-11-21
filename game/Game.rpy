@@ -93,7 +93,7 @@ init -999 python: # Game class must be given first priority to load
             return Game.__moves
             
         @staticmethod
-        def narrate(line):
+        def narrateADV(line):
             renpy.say(Game.__NarratorADV, line)
         
         @staticmethod
