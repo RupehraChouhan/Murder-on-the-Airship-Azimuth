@@ -58,14 +58,35 @@ init -999 python: # Game class must be given first priority to load
             Game.rooms[Game.ROOM_ENGINE] = Room("Engine Room", "i_engine", 2, 2, ["Engine"])
         
         # Get player input in ADV mode
+        # Several choices can be optionally added
+        #   Each choice will display a number, and the string for the choice
+        #   Input is received in the same way
+        #   The user will expect number inputs, so PROCESS NUMBER STRINGS
         @staticmethod
-        def inputADV(prompt):
-            Game.input = renpy.input(prompt)
+        def inputADV(prompt, choices = []):
+            endPrompt = prompt + "\n";
+            
+            if len(choices) > 0:
+                for i in range(0,len(choices)):
+                    endPrompt = endPrompt + "  " + str(i) + ". " + choices[i] + "\n"
+                    
+            Game.input = renpy.input(endPrompt)
         
         # Get player input in NVL mode
+        # Several choices can be optionally added
+        #   Each choice will display a number, and the string for the choice
+        #   Input is received in the same way
+        #   The user will expect number inputs, so PROCESS NUMBER STRINGS
         @staticmethod
-        def inputNVL(prompt):
-            Game.input = renpy.call_screen("nvl_input", prompt)
+        def inputNVL(prompt, choices = []):
+            endPrompt = prompt + "\n";
+            
+            if len(choices) > 0:
+                for i in range(0,len(choices)):
+                    endPrompt = endPrompt + "  " + str(i) + ". " + choices[i] + "\n"
+                    
+            Game.input = renpy.call_screen("nvl_input", endPrompt)
+            
         
         # Facade method for jumping to labels in Ren'Py, if anything needs to be done every jump it can be done here
         @staticmethod

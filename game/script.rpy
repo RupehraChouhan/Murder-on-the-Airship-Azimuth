@@ -4,22 +4,44 @@
 # The game starts here
 label start:
     python:
-        button = nvl_menu([("Investigate a room.", 0), ("Talk to a suspect.", 1), ("Look at your notepad.", 2), ("Solve the case.", 3)])
-        if button == 0: Game.jump("investigate_room")
-        if button == 1: Game.jump("talk_suspect")
-        if button == 2: Game.jump("look_notepad")
-        if button == 3: Game.jump("solve_case")
+        prompt = "What would you like to do?\n"
+        choices = ["Investigate a room", "Talk to a suspect", "Look at your notepad", "Solve the case"]
+        
+        Game.inputNVL(prompt, choices)
+        
+        try:
+            option = int(Game.input)
+            
+            if option == 0: Game.jump("investigate_room")
+            if option == 1: Game.jump("talk_suspect")
+            if option == 2: Game.jump("look_notepad")
+            if option == 3: Game.jump("solve_case")
+            
+            # if no options are chosen
+            Game.narrateNVL("I didn't understand \"[Game.input]\"")
+        except ValueError:
+            Game.narrateNVL("\"[Game.input]\" is not a number")
+            
+        # if we make it this far, the input was not understood
         Game.jump("start")
 
 label investigate_room:
     python:
-        prompt = "The [Game.zeppelinName] has 9 rooms:\n"
+        prompt = "The [Game.zeppelinName] has 9 rooms.\nWhich would you like to investigate?\n"
+        choices = []
         for room in Game.rooms:
-            prompt = prompt + "  " + room.name + "\n"
-        prompt = prompt + "\nWhat room do you want to investigate?"
+            choices.append(room.name);
         
-        Game.inputNVL(prompt)
+        Game.inputNVL(prompt, choices)
         Game.checkQuit()
+        
+        # check for integer input
+        try:
+            index = int(Game.input)
+            Game.input = choices[index]
+        except:
+            # do nothing with error
+            pass
         
         for r in Game.rooms:
             if r.match(Game.input) and r.label: # If matching, must have a label
@@ -30,14 +52,22 @@ label investigate_room:
 
 label talk_suspect:
     python:
-        prompt = "The suspects are:\n"
+        prompt = "Which suspect would you like to talk to?\n"
+        choices = []
+        
         for npc in Game.npcs:
             if npc.alive:
-                prompt =  prompt + "  " + npc.name + "\n"
-        prompt = prompt + "\nWhich suspect do you want to talk to?"
+                choices.append(npc.name)
         
-        Game.inputNVL(prompt)
+        Game.inputNVL(prompt, choices)
         Game.checkQuit()
+        
+        try:
+            index = int(Game.input)
+            Game.input = choices[index]
+        except:
+            # do nothing with exceptions
+            pass
         
         for n in Game.npcs:
             if n.match(Game.input) and n.label and n.alive: # If matching, must have a label and be alive
