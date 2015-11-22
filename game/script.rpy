@@ -10,7 +10,7 @@ label start:
         Game.inputNVL(prompt, choices)
         
         try:
-            option = int(Game.input)
+            option = int(Game.input) - 1
             
             if option == 0: Game.jump("investigate_room")
             if option == 1: Game.jump("talk_suspect")
@@ -37,7 +37,7 @@ label investigate_room:
         
         # check for integer input
         try:
-            index = int(Game.input)
+            index = int(Game.input) - 1
             Game.input = choices[index]
         except:
             # do nothing with error
@@ -63,7 +63,7 @@ label talk_suspect:
         Game.checkQuit()
         
         try:
-            index = int(Game.input)
+            index = int(Game.input) - 1
             Game.input = choices[index]
         except:
             # do nothing with exceptions

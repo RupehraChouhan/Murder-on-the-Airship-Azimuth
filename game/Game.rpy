@@ -70,7 +70,7 @@ init -999 python: # Game class must be given first priority to load
             
             if len(choices) > 0:
                 for i in range(0,len(choices)):
-                    endPrompt = endPrompt + "  " + str(i) + ". " + choices[i] + "\n"
+                    endPrompt = endPrompt + "  " + str(i+1) + ". " + choices[i] + "\n"
                     
             Game.input = renpy.input(endPrompt)
         
@@ -85,7 +85,7 @@ init -999 python: # Game class must be given first priority to load
             
             if len(choices) > 0:
                 for i in range(0,len(choices)):
-                    endPrompt = endPrompt + "  " + str(i) + ". " + choices[i] + "\n"
+                    endPrompt = endPrompt + "  " + str(i+1) + ". " + choices[i] + "\n"
                     
             Game.input = renpy.call_screen("nvl_input", endPrompt)
             
