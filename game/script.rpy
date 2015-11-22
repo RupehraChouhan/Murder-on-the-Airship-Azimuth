@@ -79,7 +79,8 @@ label talk_suspect:
 label look_notepad:
     python:
         moves = Game.getMoves()
-        Game.narrateNVL("You've made [moves] move(s).")
+        time = Game.timeString()
+        Game.narrateNVL("You've made [moves] move(s). It is now [time].")
         Game.jump("start")
 
 label solve_case:
