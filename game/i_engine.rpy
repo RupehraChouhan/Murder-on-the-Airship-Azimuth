@@ -1,4 +1,6 @@
 label i_engine:
+    scene bg engineImage
+    with fade 
     python:
         room = Game.rooms[Game.ROOM_ENGINE]
         

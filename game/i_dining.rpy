@@ -1,4 +1,6 @@
 label i_dining:
+    scene bg diningImage
+    with fade
     python:
         room = Game.rooms[Game.ROOM_DINING]
         

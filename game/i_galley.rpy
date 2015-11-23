@@ -1,4 +1,6 @@
 label i_galley:
+    scene bg galleyImage
+    with fade
     python:
         room = Game.rooms[Game.ROOM_GALLEY]
         

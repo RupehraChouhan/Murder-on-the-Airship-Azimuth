@@ -1,4 +1,6 @@
 label i_cockpit:
+    scene bg cockPitImage
+    with fade
     python:
         room = Game.rooms[Game.ROOM_COCKPIT]
         

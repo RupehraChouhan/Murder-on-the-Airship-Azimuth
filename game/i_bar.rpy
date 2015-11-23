@@ -1,4 +1,6 @@
 label i_bar:
+    scene bg barImage
+
     python:
         room = Game.rooms[Game.ROOM_BAR]
         

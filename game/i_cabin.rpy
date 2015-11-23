@@ -1,4 +1,6 @@
 label i_cabin:
+    scene bg cabinImage
+    with dissolve
     python:
         room = Game.rooms[Game.ROOM_CABIN]
         

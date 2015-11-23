@@ -2,7 +2,25 @@
     Game.initialize()
 
 # The game starts here
+
+image bg detectiveImage = "DetectiveSketch1.jpg"
+image bg barImage  = "BarSketch1.jpg"
+image bg bathImage = "BathSketch1.jpg"
+image bg cargoHoldImage = "CargoHoldSketch1.jpg"
+image bg cockPitImage = "CockPitSketch1.jpg"
+image bg diningImage = "DiningSketch1.jpg"
+image bg engineImage = "EngineSketch1.jpg"
+image bg galleyImage = "GalleySketch1.jpg"
+image bg notepadImage = "NotepadSketch1.jpg"
+image bg cabinImage = "PassengerCabinSketch1.jpg"
+image bg loungeImage = "PassengerLoungeSketch1.jpg"
+
 label start:
+    
+    #background image for the main page 
+    scene bg detectiveImage
+    with fade 
+    
     python:
         prompt = "What would you like to do?\n"
         choices = ["Investigate a room", "Talk to a suspect", "Look at your notepad", "Solve the case"]
@@ -77,6 +95,9 @@ label talk_suspect:
         Game.jump("talk_suspect")
 
 label look_notepad:
+    
+    scene bg notepadImage
+    
     python:
         moves = Game.getMoves()
         time = Game.timeString()

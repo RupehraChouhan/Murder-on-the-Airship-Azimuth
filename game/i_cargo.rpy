@@ -1,4 +1,6 @@
 label i_cargo:
+    scene bg cargoHoldImage
+    with fade
     python:
         room = Game.rooms[Game.ROOM_CARGO]
         
