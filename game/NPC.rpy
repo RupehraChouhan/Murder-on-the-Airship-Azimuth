@@ -31,3 +31,31 @@ init -998 python: # Other classes are given first priority to load, after Game c
         # Says a line of dialogue from the given npc in NVL mode
         def speakNVL(self, dialogue):
             renpy.say(self.nvl, dialogue)
+            
+        def inputADV(self, dialogue, choices = []):
+            # color and bold name
+            endPrompt = "{b}{color=" + self.color + "}" + self.name + ": {/color}{/b}"
+            # add dialogue
+            endPrompt += dialogue + "\n";
+            
+            # add choices
+            if len(choices) > 0:
+                for i in range(0,len(choices)):
+                    endPrompt += "  " + str(i+1) + ". " + choices[i] + "\n"
+                    
+            # prompt user
+            Game.input = renpy.input(endPrompt)
+            
+        def inputNVL(self, dialogue, choices = []):
+            # color and bold name
+            endPrompt = "{b}{color=" + self.color + "}" + self.name + ": {/color}{/b}"
+            # add dialogue
+            endPrompt += dialogue + "\n";
+            
+            # add choices
+            if len(choices) > 0:
+                for i in range(0,len(choices)):
+                    endPrompt += "  " + str(i+1) + ". " + choices[i] + "\n"
+                    
+            # prompt user
+            Game.input = renpy.call_screen("nvl_input", endPrompt)

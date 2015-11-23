@@ -3,7 +3,7 @@ init -999 python: # Game class must be given first priority to load
     class Game:
         input = "" # Static(ish) variable player text input is put into
         __moves = 0 # Numbers of moves player has made
-        __startTime = [7, 0]
+        __startTime = [19, 0]
         __moveTime = [0, 30]
         notes = [] # List of states player has reached, for determining game progress and notebook entries
         zeppelinName = "Azimuth"
@@ -128,7 +128,7 @@ init -999 python: # Game class must be given first priority to load
         def time():
             time = [0, 0]
             # calc hours
-            time[0] = Game.__startTime[0] + time[0] + (moves * Game.__moveTime[0]) + (moves * Game.__moveTime[1] // 60)
+            time[0] = (Game.__startTime[0] + time[0] + (moves * Game.__moveTime[0]) + (moves * Game.__moveTime[1] // 60) ) % 24
             # calc minutes
             time[1] = Game.__startTime[1] + time[1] + (moves * Game.__moveTime[1] % 60)
             
@@ -138,4 +138,4 @@ init -999 python: # Game class must be given first priority to load
         @staticmethod
         def timeString():
             time = Game.time()
-            return "{hours:d}:{minutes:02d}".format(hours=time[0], minutes=time[1])
+            return "{hours:02d}:{minutes:02d}".format(hours=time[0], minutes=time[1])
