@@ -8,8 +8,18 @@ label t_queen:
         character = Game.npcs[Game.NPC_QUEEN]
         
         # NPC speaks
-        character.speakADV("What do you want to say to me?")
-        Game.inputADV("Say something:")
+        line = "What do you want me to say"
+        choices = ["Hello", "Hello", "I don't know why you say goodbye", "I say hello"]
+        
+        character.speakADV(line)
+        character.inputADV(line, choices)
         Game.checkQuit()
-        character.speakADV("You said \"[Game.input]\"")
+        
+        try:
+            index = int(Game.input) - 1
+            choice = choices[index]
+            character.speakADV(choice)
+        except:
+            character.speakADV("I don't know what you mean")
+        
         Game.jump(character.label)
