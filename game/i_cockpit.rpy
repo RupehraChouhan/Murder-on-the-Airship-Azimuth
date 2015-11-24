@@ -1,6 +1,9 @@
 label i_cockpit:
     scene bg cockPitImage
     with fade
+    stop music
+    play sound "click.ogg"
+
     python:
         room = Game.rooms[Game.ROOM_COCKPIT]
         

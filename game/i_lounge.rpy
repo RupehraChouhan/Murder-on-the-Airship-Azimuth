@@ -1,6 +1,9 @@
 label i_lounge:
     scene bg loungeImage
     with fade 
+    stop music
+    play sound "click.ogg"
+
     python:
         room = Game.rooms[Game.ROOM_LOUNGE]
         

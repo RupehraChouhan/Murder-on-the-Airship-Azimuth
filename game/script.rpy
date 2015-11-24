@@ -27,7 +27,8 @@ label start:
     scene bg detectiveImage
     with fade 
     
-    play music "IntroMusic.ogg" noloop 
+    play music "IntroMusic.ogg"  fadeout 2 fadein 2
+    #play music
     
     python:
         prompt = "What would you like to do?\n"

@@ -1,6 +1,9 @@
 label i_cargo:
     scene bg cargoHoldImage
     with fade
+    stop music
+    play sound "click.ogg"
+
     python:
         room = Game.rooms[Game.ROOM_CARGO]
         

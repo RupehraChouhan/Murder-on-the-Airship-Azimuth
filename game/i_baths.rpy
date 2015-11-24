@@ -1,6 +1,8 @@
 label i_baths:
     scene bg bathImage
-    
+    stop music
+    play sound "click.ogg"
+
     python:
         room = Game.rooms[Game.ROOM_BATHS]
         

@@ -1,6 +1,9 @@
 label i_galley:
     scene bg galleyImage
     with fade
+    stop music
+    play sound "click.ogg"
+
     python:
         room = Game.rooms[Game.ROOM_GALLEY]
         

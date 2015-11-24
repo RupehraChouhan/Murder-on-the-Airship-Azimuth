@@ -1,5 +1,7 @@
 label i_bar:
     scene bg barImage
+    stop music
+    play sound "click.ogg"
 
     python:
         room = Game.rooms[Game.ROOM_BAR]

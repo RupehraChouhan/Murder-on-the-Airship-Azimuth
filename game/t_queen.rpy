@@ -2,6 +2,8 @@ label t_queen:
     scene bg whiteImage
     show queen
     with fade 
+    stop music
+    
      
     python:
         # character you are talking to

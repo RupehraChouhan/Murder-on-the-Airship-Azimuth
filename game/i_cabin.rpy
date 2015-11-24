@@ -1,6 +1,9 @@
 label i_cabin:
     scene bg cabinImage
     with dissolve
+    stop music
+    play sound "click.ogg"
+
     python:
         room = Game.rooms[Game.ROOM_CABIN]
         
