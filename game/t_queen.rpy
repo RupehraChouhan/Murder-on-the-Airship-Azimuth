@@ -1,4 +1,8 @@
 label t_queen:
+    scene bg whiteImage
+    show queen
+    with fade 
+     
     python:
         # character you are talking to
         character = Game.npcs[Game.NPC_QUEEN]

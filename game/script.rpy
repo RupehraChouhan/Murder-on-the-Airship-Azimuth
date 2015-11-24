@@ -14,12 +14,20 @@ image bg galleyImage = "GalleySketch1.jpg"
 image bg notepadImage = "NotepadSketch1.jpg"
 image bg cabinImage = "PassengerCabinSketch1.jpg"
 image bg loungeImage = "PassengerLoungeSketch1.jpg"
+image bg whiteImage = "white.jpg"
+image queen = "queen2.jpg"
+image pawn = "servant.jpg"
+
+
+
 
 label start:
     
     #background image for the main page 
     scene bg detectiveImage
     with fade 
+    
+    play music "IntroMusic.ogg" noloop 
     
     python:
         prompt = "What would you like to do?\n"
