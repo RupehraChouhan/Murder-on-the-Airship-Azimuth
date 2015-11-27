@@ -4,8 +4,7 @@ init 0 python: # set up clues and commands in room
 label i_engine:
     scene bg engineImage
     with fade 
-    stop music
-    play sound "click.ogg"
+    stop music fadeout 2
     
     python:
         room = Game.rooms[Game.ROOM_ENGINE]

@@ -2,7 +2,7 @@ label t_queen:
     scene bg whiteImage
     show queen
     with fade 
-    stop music
+    stop music fadeout 2
     
      
     python:
