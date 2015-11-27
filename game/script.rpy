@@ -14,7 +14,7 @@ image bg loungeImage = "PassengerLoungeSketch1.jpg"
 image bg whiteImage = "white.jpg"
 image queen = "queen2.jpg"
 image pawn = "servant.jpg"
-image map = "mapSmallSize.jpg"
+image map = "map.jpg"
 
 
 
@@ -51,6 +51,7 @@ label start:
         Game.jump("start")
 
 label investigate_room:
+    scene bg map
    
     python:
         prompt = "The [Game.zeppelinName] has 9 rooms.\nWhich would you like to investigate?\n"
