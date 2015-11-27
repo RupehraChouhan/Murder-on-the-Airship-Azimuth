@@ -17,6 +17,7 @@ init 0 python: # set up clues and commands in room
     # clean up namespace
     del look
     del drink
+    del eat
     del bottle
 
 label i_bar:
@@ -27,7 +28,7 @@ label i_bar:
     python:
         room = Game.rooms[Game.ROOM_BAR]
         Game.inputADV("Here we are in the [room.name]! What do you want to do?")
-        Game.jump("i_bar_in")
+        Game.jump(room.label + "_in")
         
 label i_bar_in:        
     python:
@@ -43,4 +44,4 @@ label i_bar_in:
                 Game.narrateADV("I don't know what \"[Game.input]\" means.")
                 Game.inputADV( Game.prevPrompt )
         
-        Game.jump("i_bar_in")
+        Game.jump(room.label + "_in")
