@@ -2,6 +2,10 @@ init 0 python: # set up clues and commands in room
     room = Game.rooms[Game.ROOM_BAR]
     
     def look():
+        Game.inputADV( "These glasses appear to belong to the bishop *changeme*" )
+    glasses = Clue( "glasses", [ "look" ], [ look ] )
+    
+    def look():
         Game.inputADV( "It's a bottle of fine wine!" )
     def drink(): 
         Game.inputADV( "Now is no time to drink, there's a murderer to catch!" )

@@ -1,5 +1,15 @@
 init 0 python: # set up clues and commands in room
     room = Game.rooms[Game.ROOM_LOUNGE]
+    
+    def look():
+        Game.inputADV( "These documents look important" )
+        # change flag
+    documents = Clue( "documents", [ "look", "read" ], [ look, look ] )
+    
+    room.addClue(documents)
+    
+    del look
+    del documents
 
 label i_lounge:
     scene bg loungeImage

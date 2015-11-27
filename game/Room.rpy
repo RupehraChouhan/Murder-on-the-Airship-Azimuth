@@ -33,9 +33,10 @@ init -998 python: # Other classes are given first priority to load, after Game c
         # execute bottle.do("look")
         def do(self, command):
             parts = command.split()
+            
+            doPart = parts[0]
+            cluePart = " ".join(parts[1:])
             if len(parts) == 1:
-                self.functions[parts[0]]()
-            elif len(parts) == 2:
-                self.clues[parts[1]].do(parts[0])
+                self.functions[doPart]()
             else:
-                raise SyntaxError("Invalid command syntax")
+                self.clues[cluePart].do(doPart)

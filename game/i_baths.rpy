@@ -1,5 +1,35 @@
 init 0 python: # set up clues and commands in room
     room = Game.rooms[Game.ROOM_BATHS]
+    
+    def look():
+        Game.inputADV( "The body of Henry Augustus Algernon Royaume is in a pool of blood from the wound on his head. He is still in his evening wear, lying face down. " )
+    def turn():
+        Game.inputADV( "You flip over the body. It looks like there is something in his pocket." )
+    body = Clue( "body", [ "look", "turn" ], [ look, turn ] )
+    
+    def look():
+        Game.inputADV( "The wound appears to be caused by a heavy metal object." )
+        # Change flag
+    wound = Clue( "wound" , [ "look" ], [ look ])
+    
+    def look():
+        Game.inputADV( "There is something small and round in his pocket, and possibly some glass shards" )
+    def open():
+        Game.inputADV( "Inside his pocket is a silver pocket watch. It must have broken when he fell. The face reads 8:42" )
+        # Change flag
+    pocket = Clue( "pocket", [ "look", "open" ], [ look, open ] )
+    
+    room.addClue(body)
+    room.addClue(wound)
+    room.addClue(pocket)
+    
+    def look():
+        Game.inputADV( "There's the body" )
+    room.addCommand( "look", look )
+    
+    # clean namespace
+    del look
+    del body
 
 label i_baths:
     scene bg bathImage
