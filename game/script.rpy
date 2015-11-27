@@ -1,7 +1,4 @@
-﻿init 0 python:  
-    Game.initialize()
-
-# The game starts here
+﻿# The game starts here
 
 image bg detectiveImage = "DetectiveSketch1.jpg"
 image bg barImage  = "BarSketch1.jpg"

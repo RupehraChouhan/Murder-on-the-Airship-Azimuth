@@ -2,8 +2,9 @@ init -999 python: # Game class must be given first priority to load
     # Game is a purely static class, and does not need to be instantiated
     class Game:
         input = "" # Static(ish) variable player text input is put into
+        prevPrompt = "" # Stores the previous prompt for input
         __moves = 0 # Numbers of moves player has made
-        __startTime = [19, 0]
+        __startTime = [0, 0]
         __moveTime = [0, 30]
         notes = [] # List of states player has reached, for determining game progress and notebook entries
         zeppelinName = "Azimuth"
@@ -72,6 +73,7 @@ init -999 python: # Game class must be given first priority to load
                 for i in range(0,len(choices)):
                     endPrompt = endPrompt + "  " + str(i+1) + ". " + choices[i] + "\n"
                     
+            Game.prevPrompt = endPrompt[:-1] # remove new line at end
             Game.input = renpy.input(endPrompt)
         
         # Get player input in NVL mode
@@ -87,6 +89,7 @@ init -999 python: # Game class must be given first priority to load
                 for i in range(0,len(choices)):
                     endPrompt = endPrompt + "  " + str(i+1) + ". " + choices[i] + "\n"
                     
+            Game.prevPrompt = endPrompt[:-1] # remove newline at end
             Game.input = renpy.call_screen("nvl_input", endPrompt)
             
         
@@ -139,3 +142,7 @@ init -999 python: # Game class must be given first priority to load
         def timeString():
             time = Game.time()
             return "{hours:02d}:{minutes:02d}".format(hours=time[0], minutes=time[1])
+    
+# initialize the game state after other classes
+init -997 python:
+    Game.initialize()
