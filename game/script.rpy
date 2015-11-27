@@ -5,9 +5,9 @@
 
 image bg detectiveImage = "DetectiveSketch1.jpg"
 image bg barImage  = "BarSketch1.jpg"
-image bg bathImage = "BathSketch1.jpg"
+image bg bathImage = "BathSketch2.jpg"
 image bg cargoHoldImage = "CargoHoldSketch1.jpg"
-image bg cockPitImage = "CockPitSketch1.jpg"
+image bg cockPitImage = "CockPitSketch2.jpg"
 image bg diningImage = "DiningSketch1.jpg"
 image bg engineImage = "EngineSketch1.jpg"
 image bg galleyImage = "GalleySketch1.jpg"

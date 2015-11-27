@@ -1,6 +1,6 @@
 label i_cabin:
     scene bg cabinImage
-    with dissolve
+    #with fade
     stop music
     play sound "click.ogg"
 
