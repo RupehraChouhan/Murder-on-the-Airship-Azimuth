@@ -2,7 +2,7 @@ label t_pawn:
     scene bg whiteImage
     show pawn
     with fade 
-    
+    stop music fadeout 2
     python:
         # character you are talking to
         character = Game.npcs[Game.NPC_PAWN]

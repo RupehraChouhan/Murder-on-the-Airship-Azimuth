@@ -2,9 +2,9 @@
 
 image bg detectiveImage = "DetectiveSketch1.jpg"
 image bg barImage  = "BarSketch1.jpg"
-image bg bathImage = "BathSketch1.jpg"
+image bg bathImage = "BathSketch2.jpg"
 image bg cargoHoldImage = "CargoHoldSketch1.jpg"
-image bg cockPitImage = "CockPitSketch1.jpg"
+image bg cockPitImage = "CockPitSketch2.jpg"
 image bg diningImage = "DiningSketch1.jpg"
 image bg engineImage = "EngineSketch1.jpg"
 image bg galleyImage = "GalleySketch1.jpg"
@@ -14,6 +14,7 @@ image bg loungeImage = "PassengerLoungeSketch1.jpg"
 image bg whiteImage = "white.jpg"
 image queen = "queen2.jpg"
 image pawn = "servant.jpg"
+image map = "map.jpg"
 
 
 
@@ -50,6 +51,8 @@ label start:
         Game.jump("start")
 
 label investigate_room:
+    scene bg map
+   
     python:
         prompt = "The [Game.zeppelinName] has 9 rooms.\nWhich would you like to investigate?\n"
         choices = []
