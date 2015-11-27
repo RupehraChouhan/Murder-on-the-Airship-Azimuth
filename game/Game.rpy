@@ -9,9 +9,12 @@ init -999 python: # Game class must be given first priority to load
         __moveTime = [0, 10]
         notes = [] # List of states player has reached, for determining game progress and notebook entries
         zeppelinName = "Azimuth"
+
+        # You as a speaker
+        YOU
         
         # Array of npcs
-        NPC_NUM = 6
+        NPC_NUM = 7
         npcs = [None] * NPC_NUM
         NPC_KING = 0
         NPC_QUEEN = 1
@@ -19,6 +22,7 @@ init -999 python: # Game class must be given first priority to load
         NPC_KNIGHT = 3
         NPC_ROOK = 4
         NPC_PAWN = 5
+        NPC_CAPTAIN = 6
         
         # Array of rooms
         # Static(ish) array of Rooms
@@ -41,6 +45,9 @@ init -999 python: # Game class must be given first priority to load
         # Set the initial state of the game
         @staticmethod
         def initialize():
+            # make a speaker for you
+            Game.YOU = NPC("You", None, "#777777", [], alive=False) # 50% Grey, dead for all purposes
+
             # NPC defined in NPC.rpy
             Game.npcs[Game.NPC_KING] = NPC("King", None, "#ffffff", [], alive=False) # White, dead
             Game.npcs[Game.NPC_QUEEN] = NPC("Queen", "t_queen", "#ff0000", []) # Red
@@ -48,6 +55,7 @@ init -999 python: # Game class must be given first priority to load
             Game.npcs[Game.NPC_KNIGHT] = NPC("Knight", "t_knight", "#0000ff", []) # Blue
             Game.npcs[Game.NPC_ROOK] = NPC("Rook", "t_rook", "#ffff00", []) # Yellow
             Game.npcs[Game.NPC_PAWN] = NPC("Pawn", "t_pawn", "#00ffff", []) # Cyan
+            Game.npcs[Game.NPC_CAPTAIN] = NPC("Captain", "t_captain", "#ff00ff", []) # Magenta
             
               
             # Room defined in Room.rpy
