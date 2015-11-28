@@ -92,8 +92,10 @@ init -999 python: # Game class must be given first priority to load
                         num = int(Game.input)
                         if num > 0 and num <= len(choices):
                             done = True
+                        else:
+                            raise Error()
                     except:
-                        pass
+                        Game.narrateADV("I don't know what you mean.")
                 else:
                     done = True
         
@@ -120,8 +122,10 @@ init -999 python: # Game class must be given first priority to load
                         num = int(Game.input)
                         if num > 0 and num <= len(choices):
                             done = True
+                        else:
+                            raise Error()
                     except:
-                        pass
+                        Game.narrateNVL("I don't know what you mean.")
                 else:
                     done = True
             
