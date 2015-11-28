@@ -32,30 +32,18 @@ init -998 python: # Other classes are given first priority to load, after Game c
         def speakNVL(self, dialogue):
             renpy.say(self.nvl, dialogue)
             
-        def inputADV(self, dialogue, choices = []):
+        def inputADV(self, dialogue, choices = [], forceValidNumber = True):
             # color and bold name
             endPrompt = "{b}{color=" + self.color + "}" + self.name + ": {/color}{/b}"
             # add dialogue
             endPrompt += dialogue + "\n";
             
-            # add choices
-            if len(choices) > 0:
-                for i in range(0,len(choices)):
-                    endPrompt += "  " + str(i+1) + ". " + choices[i] + "\n"
-                    
-            # prompt user
-            Game.input = renpy.input(endPrompt)
+            Game.inputADV(endPrompt, choices, forceValidNumber)
             
-        def inputNVL(self, dialogue, choices = []):
+        def inputNVL(self, dialogue, choices = [], forceValidNumber = True):
             # color and bold name
             endPrompt = "{b}{color=" + self.color + "}" + self.name + ": {/color}{/b}"
             # add dialogue
             endPrompt += dialogue + "\n";
             
-            # add choices
-            if len(choices) > 0:
-                for i in range(0,len(choices)):
-                    endPrompt += "  " + str(i+1) + ". " + choices[i] + "\n"
-                    
-            # prompt user
-            Game.input = renpy.call_screen("nvl_input", endPrompt)
+            Game.inputNVL(endPrompt, choices, forceValidNumber)

@@ -11,7 +11,7 @@ init -999 python: # Game class must be given first priority to load
         zeppelinName = "Azimuth"
 
         # You as a speaker
-        YOU
+        YOU = None
         
         # Array of npcs
         NPC_NUM = 7
@@ -75,7 +75,7 @@ init -999 python: # Game class must be given first priority to load
         #   Input is received in the same way
         #   The user will expect number inputs, so PROCESS NUMBER STRINGS
         @staticmethod
-        def inputADV(prompt, choices = []):
+        def inputADV(prompt, choices = [], forceValidNumber = False):
             endPrompt = prompt + "\n";
             
             if len(choices) > 0:
@@ -83,7 +83,19 @@ init -999 python: # Game class must be given first priority to load
                     endPrompt = endPrompt + "  " + str(i+1) + ". " + choices[i] + "\n"
                     
             Game.prevPrompt = endPrompt[:-1] # remove new line at end
-            Game.input = renpy.input(endPrompt)
+            done = False
+            while not done:
+                Game.input = renpy.input(endPrompt)
+                
+                if forceValidNumber:
+                    try:
+                        num = int(Game.input)
+                        if num > 0 and num <= len(choices):
+                            done = True
+                    except:
+                        pass
+                else:
+                    done = True
         
         # Get player input in NVL mode
         # Several choices can be optionally added
@@ -91,7 +103,7 @@ init -999 python: # Game class must be given first priority to load
         #   Input is received in the same way
         #   The user will expect number inputs, so PROCESS NUMBER STRINGS
         @staticmethod
-        def inputNVL(prompt, choices = []):
+        def inputNVL(prompt, choices = [], forceValidNumber = False):
             endPrompt = prompt + "\n";
             
             if len(choices) > 0:
@@ -99,7 +111,19 @@ init -999 python: # Game class must be given first priority to load
                     endPrompt = endPrompt + "  " + str(i+1) + ". " + choices[i] + "\n"
                     
             Game.prevPrompt = endPrompt[:-1] # remove newline at end
-            Game.input = renpy.call_screen("nvl_input", endPrompt)
+            done = False
+            while not done:
+                Game.input = renpy.call_screen("nvl_input", endPrompt)
+                
+                if forceValidNumber:
+                    try:
+                        num = int(Game.input)
+                        if num > 0 and num <= len(choices):
+                            done = True
+                    except:
+                        pass
+                else:
+                    done = True
             
         
         # Facade method for jumping to labels in Ren'Py, if anything needs to be done every jump it can be done here
