@@ -9,6 +9,13 @@ init -999 python: # Game class must be given first priority to load
         __moveTime = [0, 10]
         notes = [] # List of states player has reached, for determining game progress and notebook entries
         zeppelinName = "Azimuth"
+        
+        # Dictionary for tracking state
+        state = {}
+        
+        # Dictionary for tracking clues
+        # Name should be the one displayed
+        cluesFound = {}
 
         # You as a speaker
         YOU = None
@@ -25,7 +32,6 @@ init -999 python: # Game class must be given first priority to load
         NPC_CAPTAIN = 6
         
         # Array of rooms
-        # Static(ish) array of Rooms
         ROOM_NUM = 9
         rooms = [None] * ROOM_NUM
         ROOM_CABIN = 0
@@ -37,6 +43,8 @@ init -999 python: # Game class must be given first priority to load
         ROOM_CARGO = 6
         ROOM_COCKPIT = 7
         ROOM_ENGINE = 8
+        
+        MUSIC_INTRO = "audio/IntroMusic.ogg"
         
         # Narrator for narrating
         __NarratorADV = Character(None, kind=adv)
@@ -57,7 +65,6 @@ init -999 python: # Game class must be given first priority to load
             Game.npcs[Game.NPC_PAWN] = NPC("Pawn", "t_pawn", "#00ffff", []) # Cyan
             Game.npcs[Game.NPC_CAPTAIN] = NPC("Captain", "t_captain", "#ff00ff", []) # Magenta
             
-              
             # Room defined in Room.rpy
             Game.rooms[Game.ROOM_CABIN] = Room("Passenger Cabins", "i_cabin", 0, 0, ["Cabins", "Cabin"])
             Game.rooms[Game.ROOM_DINING] = Room("Dining Room", "i_dining", 1, 0, ["Dining"])

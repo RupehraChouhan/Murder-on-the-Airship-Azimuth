@@ -3,12 +3,12 @@ init 0 python: # set up clues and commands in room
     
 label i_cabin:
     scene bg cabinImage
-    #with fade
+    with fade
     stop music fadeout 2
 
     python:
         room = Game.rooms[Game.ROOM_CABIN]
-        Game.inputADV("Here we are in the [room.name]! What do you want to do?")
+        Game.inputADV("Here we are in the [room.name]! Some people went back to their cabins after dinner. What do you want to do?")
         Game.jump(room.label + "_in")
         
 label i_cabin_in:        
