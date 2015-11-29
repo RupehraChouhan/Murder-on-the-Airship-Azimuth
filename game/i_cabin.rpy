@@ -8,7 +8,7 @@ label i_cabin:
 
     python:
         room = Game.rooms[Game.ROOM_CABIN]
-        Game.inputADV("Here we are in the [room.name]! What do you want to do?")
+        Game.inputADV("Here we are in the [room.name]! Some people went back to their cabins after dinner. What do you want to do?")
         Game.jump(room.label + "_in")
         
 label i_cabin_in:        
