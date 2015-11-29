@@ -55,7 +55,7 @@ label t_rook_vic:
         index = int(Game.input) - 1
         if index == 0:
             Game.YOU.speakADV("With Mr. Royaume's passing, do I understand correctly that control over the business passes solely to you?")
-            Game.narrateADV("(i)de la Rocque looks taken aback.(/i)")
+            Game.narrateADV("{i}de la Rocque looks taken aback.{/i}")
             character.speakADV("Well, yes, but that's hardly reason to kill him! Henry was an excellent public face for the firm, something I've no talent for. It will take ages to recover from this!")
             character.speakADV("Though I am, of course, far more distraught over the loss of my friend. *Harrumph*.")
         elif index == 1:
@@ -63,10 +63,10 @@ label t_rook_vic:
         Game.jump(character.label + "_loop")
 label t_rook_saw:
     python:
-        character.speakADV(" After dinner, that storm was still raging, so I went to see how the crew was coping. It's one thing to read an engineer's blueprint, another to see it in action, you know? I wanted to have a word with the captain, but she was not in a position to speak at the time. She had the vessel well in hand, though.")
+        character.speakADV("After dinner, that storm was still raging, so I went to see how the crew was coping. It's one thing to read an engineer's blueprint, another to see it in action, you know? I wanted to have a word with the captain, but she was not in a position to speak at the time. She had the vessel well in hand, though.")
         character.speakADV("I retired to the passenger lounge and went over some papers until the storm passed. At 9, the storm had blown over, and I spoke with Captain Winfarthing. She will, of course, corroborate this. I then enjoyed the nuts and coffee in the dining room with Rector Esgob - much more composed, thankfully - until we heard that dreadful scream and went running.")
         choices = ["Pressure","Ask something else"]
-        character.inputADV(choices)
+        character.inputADV(Game.prevNarrate, choices)
 
         index = int(Game.input) - 1
         if index ==0:
@@ -75,6 +75,7 @@ label t_rook_saw:
         elif index ==1:
             pass
         Game.jump(character.label + "_loop")
+
 label t_rook_found:
     python:
         line = "Ask about what?"
@@ -82,15 +83,15 @@ label t_rook_found:
 
         for clueName, found in Game.cluesFound.items():
             if found:
-                choices.append(cluename)
+                choices.append(clueName)
         choices.append("Ask something else")
 
         Game.inputADV(line, choices, True)
 
         index = int(Game.input) - 1
-        cluename = choices[index]
+        clueName = choices[index]
         if clueName == Game.BATHS_WOUND:
-            line = "Something heavy, eh? Unless a passenger brought the weapon aboard, it would have to be one of the pipe wrenches. They keep them in the engine room, and they're (i)supposed(/i) to all be locked up when not in use. Aside from that, I can't think of anything that fits the description. No extra weight on a Royaume ship! Well, except..."
+            line = "Something heavy, eh? Unless a passenger brought the weapon aboard, it would have to be one of the pipe wrenches. They keep them in the engine room, and they're {i}supposed{/i} to all be locked up when not in use. Aside from that, I can't think of anything that fits the description. No extra weight on a Royaume ship! Well, except..."
             choices = ["Pressure", "Ask someone else"]
 
             character.inputADV(line,choices)
@@ -98,7 +99,7 @@ label t_rook_found:
             if index == 0:
                 Game.YOU.speakADV("Except what?")
                 character.speakADV("The engineers did insist that we install some redundancy in one of the machines. The responso-something baro-whatever. The names those people come up with.")
-                Game.narrateADV("(i)Mr. de la Rocque shakes his head bemusedly.(/i)")
+                Game.narrateADV("{i}Mr. de la Rocque shakes his head bemusedly.{/i}")
                 Game.YOU.speakADV("Anyway, that thing has a few more pipes than it needs to keep running. On the inside, though.")
                 Game.jump("start")
             elif index == 1:
@@ -115,7 +116,7 @@ label t_rook_found:
             elif index == 1:
                 pass
         elif clueName == Game.GALLEY_PIPE:
-            Game.narrateADV("(i)de la Rocque's face twists uncomfortably(/i)")
+            Game.narrateADV("{i}de la Rocque's face twists uncomfortably{/i}")
             character.speakADV("How dreadful.")
 
             choices = ["Pressure", "Ask something else"]
@@ -135,8 +136,8 @@ label t_rook_found:
             index = int(Game.input) - 1
             if index == 0:
                 Game.YOU.speakADV("Are you quite sure?")
-                Game.narrateADV("(i)de la Rocque narrows his eyes.(/i)")
-                character.speakADV("I would have thought the words, \"I'd stake my reputation on it\" were quite clear. After all, (i)your(/i) reputation is the only reason we're putting up with these invasive questions.[END]")
+                Game.narrateADV("{i}de la Rocque narrows his eyes.{/i}")
+                character.speakADV("I would have thought the words, \"I'd stake my reputation on it\" were quite clear. After all, {i}your{/i} reputation is the only reason we're putting up with these invasive questions.[END]")
                 Game.jump(character.label + "_loop")
             elif index == 1:
                 pass
@@ -215,7 +216,7 @@ label t_rook_other:
 label t_rook_bishop:
     python:
         character.speakADV("This is confidential, yes? I have a dim view of Rector Nathaniel Esgob's reputation. His calls for compassionate reform, so-called, have led to pickets and stoppages at some of our factories. But we have to maintain the appearance that we entertain his outlandish schemes to coddle our workers. Otherwise, the Singerists get involved, and instead of pickets and stoppages, it's sabotage and firebombings. Madness.")
-        character.speakADV("Anyway, a dozen or more tradesmen's federations put up the money to fund him on a speaking tour of the industrial towns down south, and we simply (i)had(/i) to agree. Naturally, though, it wasn't long before he started spouting his noxious opinions, and Henry had to set him straight.")
+        character.speakADV("Anyway, a dozen or more tradesmen's federations put up the money to fund him on a speaking tour of the industrial towns down south, and we simply {i}had{/i} to agree. Naturally, though, it wasn't long before he started spouting his noxious opinions, and Henry had to set him straight.")
         
         choices = ["Pressure", "Ask something else"]
         character.inputADV(Game.prevNarrate, choices)
@@ -233,7 +234,7 @@ label t_rook_knight:
         character.speakADV("I asked Sergeant-Major Ritter to attend personally. He wrote to my office when he heard rumour of our dealings with the government. We are in the final stages of drafting this contract for Her Infallible Majesty's Admiralty, and I thought the advice of a decorated military man in dealing with those officers could prove useful, so I invited him along.")
         character.speakADV("Actually, if it's not too much trouble, could you permit him to join me here? We didn't finish our review of the contracts before dinner, and I'd quite like to reach the end before we land.")
         Game.YOU.speakADV("Everyone is under suspicion, Mr. de la Rocque. Nobody leaves their cabins.")
-        Game.narrateADV("(i)The gravity of the situation kills the momentary light in de la Rocque's eyes. He clears his throat and looks down at his shoes.(/i)")
+        Game.narrateADV("{i}The gravity of the situation kills the momentary light in de la Rocque's eyes. He clears his throat and looks down at his shoes.{/i}")
         character.speakADV("Quite right, quite right. Yes, of course.")
 
         choices = ["Pressure", "Ask something else"]
@@ -254,7 +255,7 @@ label t_rook_pawn:
         index = int(Game.input) - 1
         if index == 0:
             Game.YOU.speakADV("Do you think she could have any connection to the murder?")
-            Game.narrateADV("(i)de la Rocque nods gravely.(/i)")
+            Game.narrateADV("{i}de la Rocque nods gravely.{/i}")
             character.speakADV("We have to consider it. All these other so-called suspects are gentlemen, after all. I couldn't believe they would do such a thing. But her?")
         elif index == 1:
             pass
@@ -269,6 +270,6 @@ label t_rook_queen:
         if index == 0:
             Game.YOU.speakADV("Truly, a romance for the ages.")
             character.speakADV("How dare you, Detective!")
-            Game.narrateADV("(i)de la Roque pauses, and the indignance fades from his face.(/i)")
+            Game.narrateADV("{i}de la Roque pauses, and the indignance fades from his face.{/i}")
             character.speakADV("Though, you are right. No one could accuse theirs of being a loving marriage. It was as political for her as it was for him; a lot of those old families are paying off generations worth of debts. And Henry - his personal fortune was quite large. Even though control of his company falls to me - I hate to think it, but Lady Eleanora could live out her days quite comfortably on her inheritance.")
         Game.jump(character.label + "_loop")
