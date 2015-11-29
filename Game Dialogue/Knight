@@ -1,0 +1,108 @@
+[Tell me about yourself.]
+	K: Sergeant-Major Angus P. Ritter, Her Infallible Majesty's Ninth Overland Rifle Brigade, retired. 
+[What is your connection to the victim?]
+	K: We'd never met before this voyage.
+	[Pressure]
+		Y: Anything you'd like to add?
+		K: I was invited by Mr. Royaume's solicitor, Mr. de la Rocque, to consult on the finer points of Royaume's contracts with the Admiralty. Mr. Royaume was surprised by my presence. It seems Mr. de la Rocque handles the business.
+	[Ask something else.]
+[What did you see last night?]
+	K: I left the dining table at eight o'clock precisely. I recovered a book from my luggage in the hold, then returned to my cabin, where I remained until 9:30. At that time, I visited the observation deck near the cockpit, where I encountered Lady Royaume. We observed the night sky in silence until Airman Newport discovered the body.
+	[Pressure]
+		Y: That was very succinct, thank you.
+		N: (i)Ritter nods sharply.(/i)
+		Y: Anything else?
+		K: No.
+		Y: Alright then.
+	[Ask something else]
+[Ask about a discovery.]
+	[Wound]
+		K: From the look I got, I'd agree. A decent length of steel, you don't need much strength to crack a man's skull.
+		[Pressure]
+			Y: You seem to know a lot about this.
+			K: I was a soldier, Detective. I've seen killing. War's not clean, like they make it look in the paintings.
+			N: (i)Ritter gives you a long, level stare.(/i)
+			R: I didn't kill him, Detective. I didn't even know him.
+		[Ask something else.]
+	[Time of Death]
+		K: Between 8:30 and 9 I was in my cabin. Alone.
+		[Pressure]
+			Y: Did you see anything, hear anything?
+			K: No, I'm afraid not, Detective.
+		[Ask something else]
+	[Weapon]
+		K: Found it, did you?
+		[Pressure]
+			Y: You seem awfully collected about this whole affair.
+			K: How precisely should I react, Detective? I've seen men die before. More even than you in your illustrious career. If suspicious insinuations and your intuitions about character are the extent of your investigative skills, I am appalled that your reputation is as great as it is.
+		[Ask something else]
+
+	[Hiding Places]
+		K: I will say this for Royaume's ships - they are efficient. Very little wasted space and material, even in these ostentatious luxury decks. I haven't noticed anywere one could hide a weapon, Detective, I'm sorry.
+		[Pressure]
+			Y: Indulge me for a moment, Sergeant-Major. Imagine I'm the murderer. I strike Mr. Royaume in the baths, there's blood on my hands, I search around for a hiding place. Where do I look?
+			K: I'm afraid I can't help you. Cowardly attacks such as this are not a soldier's specialty. I suggest you ask these questions of someone with something to gain from Mr. Royaume's death. [END]
+		[Ask something else]
+	[Bishop's Spectacles]
+		K: Esgob's spectacles. What of them?
+		[Pressure]
+			Y: When you saw him, was he wearing them?
+			K: At dinner, yes. I didn't see him again until the body was found.
+		[Ask something else]
+
+	[Rook's Contracts]
+		K: I've already seen these. Mr. de la Rocque asked me to consult on the language, you know. He thought the sponsorship of a decorated soldier might aid him in dealing with the Admiralty.
+		[Pressure]
+			Y: Confidentially, is there anything untoward about this deal?
+			K: I think it's misguided. I think it's naked profiteering. But it's entirely above-board, legally speaking. 
+			Y: Did you mention your reservations to Royaume?
+			K: Based on those documents, it's de la Rocque to whom I should have brought them. He wrote near
+		[Ask something else]
+	[Pawn's Political Tracts]
+		K: That repulsive drivel that plays so well with the underclasses actually capable of reading? I don't see what that has to do with me. Besides, I'm personally thankful that Mr. Singer has drawn the ire of the masses toward the capitalists and away from the aristocracy. 
+		[Pressure]
+			Y: It might have something to do with your husband's death. Would any of your fellow passengers be at all receptive to this kind of ideology?
+			N: (i)Lady Eleanora considers your question for a moment.(/i)
+			K: Well, Esgob is a crass populist at heart, but I doubt he's this radical. Ritter's misadventures in service to the Crown have not dulled his patriotism at all. And de la Rocque is the precise kind of industrialist this screed incites violence against. It is crafted to appeal with the lowest among us, Detective. 
+		[Ask something else]
+	[Knight's Service Record]
+		K: Thanks to an aristocratic education, if there's one subject I'd like to peruse less than geneaology, it's records of military accomplishments.
+		[Pressure]
+			Y: Did you know that Col. Ritter's decorations arise from surviving a bombing facilitated by one of your husband's zeppelins?
+			N: (i)Lady Eleanora is silent for a moment.(/i)
+			K: I did not. Perhaps you should speak to him about this.
+		[Ask something else]
+	[Rook's Body]
+		K: A grave tragedy. To lose my husband and a dear family friend all in one evening. Detective, I implore you, find this killer. I fear I may be next.
+		[Pressure]
+			Y: With your husband and his business partner now dead, I understand control of Mr. Royaume's company falls to you...
+			K: Your implications are frankly insulting, Detective! I have entertained your tedious questions long enough! Go and earn your reputation instead of pestering your betters. Leave my presence at once! [END]
+		[Ask something else]
+
+[Ask about another suspect.]
+	[Rook]
+		K: de la Rocque? My husband's solicitor and business partner. From how I understand it, Henry handled the large-scale direction and public image of the firm, while Mr. de la Rocque fussed with sums and the tiresome minutiae. 
+		K: They've been colleagues for years. Often times Mr. de la Rocque would see more of Henry than I would. These past weeks have certainly been one of those times, what with this government contract and all.
+		[Pressure]
+			Y: Could that have caused some tension between them?
+			K: I suppose. de la Rocque always looks tense, especially around Henry. And - speaking hypothetically, of course - I imagine de la Rocque might be somewhat resentful of the attention Henry's receiving for this government work. The papers don't mention him at all. But as motive for murder? Surely not!
+		[Ask something else]
+	[Knight]
+		K: Colonel Ritter? Such a gentleman! Somewhat taciturn, but better that than boorish.
+		[Pressure]
+			Y: Could he possibly have had anything against your husband?
+			K: As far as I know, they'd never met before dinner. Why are you asking me?
+		[Ask something else]
+	[Bishop]
+		K: Rector Esgob, the social reformer? A pitiable man. Why these organizations of (i)tradespeople(/i) have seen fit to fund his speaking tour of Her Infallible Majesty's dominions is beyond me. You should have heard his mawkish anecdotes about "the plights of the working classes" at dinner. An unseemly topic for a polite occasion. 
+		K: Normally, I'm (i)wearied(/i) when Henry starts a row at dinner, but in this case, it was warranted.
+		[Pressure]
+			Y: So Esgob and your husband argued?
+			K: Yes. Esgob apparently took issue with Henry's charitable efforts to offer factory work to impoverished children. Better they learn how to rivet an airship than how to pick a pocket, I say.
+		[Ask something else]
+	[Pawn]
+		K: Who's Polly Newport? Oh, the steward? A disgrace. I recommended Henry have her let go after she refused - refused! - to fetch my hatbox from the hold. I'm not interested if it's "lashed up tight" or whatever colourful idiom she used - you're in service, so you serve.
+		[Pressure]
+			Y: Do you think she could have any connection to the murder?
+			K: Very possibly. She had quite the superior tone. Thoughts far above her station.
+		[Ask something else]

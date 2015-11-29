@@ -31,7 +31,9 @@ label i_cargo:
 
     python:
         room = Game.rooms[Game.ROOM_CARGO]
-        Game.inputADV("Here we are in the [room.name]! What do you want to do?")
+        Game.narrateADV("Here we are in the [room.name]!")
+        Game.narrateADV("You will find a lot of storage here. It contains food supplies, baggages and some extra stock.")
+        Game.inputADV("What do you want to do?")
         Game.jump(room.label + "_in")
         
 label i_cargo_in:        

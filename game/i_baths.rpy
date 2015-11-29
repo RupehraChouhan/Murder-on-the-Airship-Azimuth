@@ -44,7 +44,11 @@ label i_baths:
 
     python:
         room = Game.rooms[Game.ROOM_BATHS]
-        Game.inputADV("Here we are in the [room.name]! What do you want to do?")
+        Game.narrateADV("Here we are in the [room.name]!")
+        Game.narrateADV("One of the most expensive places on this Zeppelin is this big bath. This was created especially on queen's demand. . . ")
+        Game.narrateADV("The ceilings are brilliantly modelled with light bulbs and design patterns with four pillars giving a very royal look to the pool while providing support to the ceiling. . .")
+        Game.narrateADV("It is contained with a lot good smelling candle lights, towels and and multiple doors on the sides to give a palace look.")
+        Game.inputADV("What do you want to do?")
         Game.jump(room.label + "_in")
         
 label i_baths_in:        

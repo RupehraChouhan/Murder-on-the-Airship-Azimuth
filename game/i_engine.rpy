@@ -88,7 +88,12 @@ label i_engine:
     
     python:
         room = Game.rooms[Game.ROOM_ENGINE]
-        Game.narrateADV("Here we are in the [room.name]! What do you want to do?")
+
+        Game.narrateADV("Here we are in the [room.name]!")
+        Game.narrateADV("The engine room, whoa it is hot and loud in here, and the smell of exhaust and grease is potent. . .")
+        Game.narrateADV("These engines are huge, and they look brand new, no penny was wasted down here.")
+        Game.narrateADV("What do you want to do?")
+
         Game.jump(room.label + "_in")
         
 label i_engine_in:        

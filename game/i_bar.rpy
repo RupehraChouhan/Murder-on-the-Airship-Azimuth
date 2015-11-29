@@ -24,10 +24,14 @@ label i_bar:
     scene bg barImage
     with fade
     stop music fadeout 2
+    #define e = Character("Narrator")
 
     python:
         room = Game.rooms[Game.ROOM_BAR]
-        Game.inputADV("Here we are in the [room.name]! What do you want to do?")
+        Game.narrateADV("Here we are in the [room.name]!")
+        Game.narrateADV("There is a wide collection of drinks here ranging from very expensive to very old bottles..")
+        Game.narrateADV("There is also a big sitting area with tables and chairs very similar to the lounge. But remember it's time to work and find out the culprit!")
+        Game.inputADV("What do you want to do?")
         Game.jump(room.label + "_in")
         
 label i_bar_in:        

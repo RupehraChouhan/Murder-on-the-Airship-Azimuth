@@ -38,7 +38,10 @@ label i_galley:
 
     python:
         room = Game.rooms[Game.ROOM_GALLEY]
-        Game.inputADV("Here we are in the [room.name]! What do you want to do?")
+        Game.narrateADV("Here we are in the [room.name]!")
+        Game.narrateADV("All the food is prepared here.It is uncomfortably quiet right now but the smell of fresh food and spices consume the air.")
+        Game.narrateADV("Each stove, countertop, pot, pan, and sink glows as the light shines on its expensive metals.")
+        Game.inputADV("What do you want to do?")
         Game.jump(room.label + "_in")
         
 label i_galley_in:        
