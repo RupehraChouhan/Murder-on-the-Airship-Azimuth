@@ -1,0 +1,105 @@
+[Tell me about yourself.]
+	R: My name is Charles Westinghouse de la Rocque, Esq. Please, how can I help you find the murderer?
+[What is your connection to the victim?]
+	R: I'm his business partner as well as his personal solicitor. The two of us made Royaume & Sons what it is today. I can't believe he's dead.
+	[Pressure]
+		Y: With Mr. Royaume's passing, do I understand correctly that control over the business passes solely to you?
+		N: (i)de la Rocque looks taken aback.(/i)
+		R: Well, yes, but that's hardly reason to kill him! Henry was an excellent public face for the firm, something I've no talent for. It will take ages to recover from this!
+		R: Though I am, of course, far more distraught over the loss of my friend. *Harrumph*.
+	[Ask something else.]
+[What did you see last night?]
+	R: After dinner, that storm was still raging, so I went to see how the crew was coping. It's one thing to read an engineer's blueprint, another to see it in action, you know? I wanted to have a word with the captain, but she was not in a position to speak at the time. She had the vessel well in hand, though. 
+	R: I retired to the passenger lounge and went over some papers until the storm passed. At 9, the storm had blown over, and I spoke with Captain Winfarthing. She will, of course, corroborate this. I then enjoyed the nuts and coffee in the dining room with Rector Esgob - much more composed, thankfully - until we heard that dreadful scream and went running.
+	[Pressure]
+		Y: Are you sure that's all you witnessed?
+		R: Well, I think so. Henry was headed to the lounge after dinner. He liked a good cigar after dinner. I didn't see him there when I came back through there later, 8:30 or so.
+	[Ask something else]
+[Ask about a discovery.]
+	[Wound]
+		R: Something heavy, eh? Unless a passenger brought the weapon aboard, it would have to be one of the pipe wrenches. They keep them in the engine room, and they're (i)supposed(/i) to all be locked up when not in use. Aside from that, I can't think of anything that fits the description. No extra weight on a Royaume ship! Well, except...
+		[Pressure]
+			Y: Except what?
+			R: The engineers did insist that we install some redundancy in one of the machines. The responso-something baro-whatever. The names those people come up with.
+			N: (i)Mr. de la Rocque shakes his head bemusedly.(/i)
+			Y: Anyway, that thing has a few more pipes than it needs to keep running. On the inside, though.
+		[Ask something else.]
+	[Time of Death]
+		R: Where was I between 8:30 and 9? I meant to be speaking with Captain Winfarthing, but she'd been busy with the storm, and I got caught up reviewing our contracts in the meantime.
+		[Pressure]
+			Y: You were alone that whole time?
+			R: Yes, entirely. Oh, wait. I passed by the steward on one of my visits to the cockpit. She was coming from the lounge. 
+		[Ask something else]
+	[Weapon]
+		N: (i)de la Rocque's face twists uncomfortably(/i)
+		R: How dreadful.
+		[Pressure]
+			Y: The use of this weapon implies a familiarity with this vessel that not everyone here has...
+			R: Are you implying that I..? Detective, I've been nothing but helpful! I can't believe you'd... I think I'd like you to leave.[END]
+		[Ask something else]
+
+	[Hiding Places]
+		R: I worked closely with the engineers to cut down on awkward nooks - to save on materials and discourage transporing contraband, both. You say you've searched the cabins? Then it must be in plain sight somewhere, I'd stake my reputation on it.
+		[Pressure]
+			Y: Are you quite sure?
+			N: (i)de la Rocque narrows his eyes.(/i)
+			R: I would have thought the words, "I'd stake my reputation on it" were quite clear. After all, (i)your(/i) reputation is the only reason we're putting up with these invasive questions.[END]
+		[Ask something else]
+	[Bishop's Spectacles]
+		R: Esgob's spectacles. What about them?
+		[Pressure]
+			Y: When you saw him, was he wearing them?
+			R: Yes, he was wearing them at dinner. I seem to recall him taking them off when the nuts and coffee were served at 9:30.
+		[Ask something else]
+
+	[Rook's Contracts]
+		R: Please, might I have those back? They're quite sensitive, you know. They pertain to imperial security.
+		[Pressure]
+			Y: I note that it's your signatures on most of these.
+			R: And?
+			Y: I wonder if the recognition Mr. Royaume was receiving for all your hard work might have irritated you.
+			R: Irritated me?! I'll tell you what irritates me! The implication from an amateur armchair sleuth such as yourself that I had anything to do with my colleague's murder! Yes, I did most of the work on this contract, and yes, I don't get invited to the same parties as Henry and Eleanora, and no, I'm not up for a knighthood for service to the Crown, but that doesn't mean I have to put up with your questions! [END]
+		[Ask something else]
+	[Pawn's Political Tracts]
+		R: Where did you find those? We've made it quite clear that possession of Singer's writings is grounds for dismissal at any of our plants or on any of our vessels! Damn rabble-rouser. Singerists were responsible for a riot at our factory in the Esterlands last month. Had to hire some local help to break the strike. 
+		[Pressure]
+			Y: Do you think it could have played a part in your colleague's death?
+			R: Absolutely. You find who owns that book, you find your killer. Whose is it? Esgob's? I knew that weepy, pious exterior was a front.We've had threats at the office, bricks through the window, it was only a matter of time before it was sabotage - or murder...
+		[Ask something else]
+	[Knight's Service Record]
+		R: Ritter is unsuaally tight-lipped about his escapades as an enlisted man. I'm sure it's fascinating reading, but is it relevant?
+		[Pressure]
+			Y: Did you know that Sergeant-Major Ritter's decorations arise from surviving a bombing facilitated by one of your company's zeppelins? The very same zeppelins you're intending to mass-produce for Her Infallible Majesty's government?
+			R: The Rosenfeldt Incident? It was shoddy intelligence, everyone knows that! Nothing to do with the prototype war zeppelin! It performed its job perfectly! Human error on the part of military - not Royaume - personnel, he understands that, surely. These things happen in war!
+		[Ask something else]
+
+[Ask about another suspect.]
+	[Queen]
+		R: Ah, the Lady Eleanora? Lovely woman, lovely woman. She was a perfect match for Henry. We'd never be where we are today if it weren't for her. Those royals can be such snobs. Even though we make ten times what they do in a year, they still turn up their noses at us. Eleanora gave Henry the respectability he needed to meet contacts in Her Infallible Majesty's government.
+		[Pressure]
+			Y: Truly, a romance for the ages.
+			R: How dare you, Detective!
+			N: (i)de la Roque pauses, and the indignance fades from his face.(/i)
+			R: Though, you are right. No one could accuse theirs of being a loving marriage. It was as political for her as it was for him; a lot of those old families are paying off generations worth of debts. And Henry - his personal fortune was quite large. Even though control of his company falls to me - I hate to think it, but Lady Eleanora could live out her days quite comfortably on her inheritance.
+		[Ask something else]
+	[Knight]
+		R: I asked Sergeant-Major Ritter to attend personally. He wrote to my office when he heard rumour of our dealings with the government. We are in the final stages of drafting this contract for Her Infallible Majesty's Admiralty, and I thought the advice of a decorated military man in dealing with those officers could prove useful, so I invited him along.
+		[Pressure]
+			Y: Could he possibly have had anything against Mr. Royaume?
+			R: Before this voyage, they'd never met, as far as I know. I handled all correspondence with him personally. Henry... didn't take much of an interest in the day-to-day. 
+		[Ask something else]
+	[Bishop]
+		R: This is confidential, yes? I had a dim view of Rector Nathaniel Esgob's reputation. His calls for compassionate reform, so-called, have led to pickets and stoppages at some of our factories. But we have to maintain the appearance that we entertain his outlandish schemes to coddle our workers. Otherwise, the Singerists get involved, and instead of pickets and stoppages, it's sabotage and firebombings. Madness.
+		R: Anyway, a dozen or more tradesmen's federations put up the money to fund him on a speaking tour of the industrial towns down south, and we simply (i)had(/i) to agree. Naturally, though, it wasn't long before he started spouting his noxious opinions, and Henry had to set him straight.
+		[Pressure]
+			Y: So Esgob and Mr. Royaume argued?
+			R: Yes. And Esgob put up with his bluster better than most, believe me. I've been on the receiving end of that before, and it takes it out of you. Not to speak ill of the dead, of course.
+			R: I imagine the liquid courage helped some. For a man so supported in the temperance movement, he sure had a lot of wine with dinner, before shuffling off to the bar, no less.
+		[Ask something else]
+	[Pawn]
+		R: The steward? I understand from speaking with Captain Winfarthing she's been chronically away from her post during this voyage. Though some of that time she was waiting on the Royaumes. Henry never liked bringing his domestics along when travelling on his own vessels. Thought it was a frivolous expense. He paid the wages of these airmen, after all, he'd say.
+		[Pressure]
+			Y: Do you think she could have any connection to the murder?
+			N: (i)de la Rocque nods gravely.(/i)
+			R: We have to consider it. All these other so-called suspects are gentlemen, after all. I couldn't believe they would do such a thing. But her?
+		[Ask something else]
