@@ -11,11 +11,23 @@ init -999 python: # Game class must be given first priority to load
         zeppelinName = "Azimuth"
         
         # Dictionary for tracking state
+        # some things may not need to be shared here, just give them unique enough names
         state = {}
+        
+        STATE_TIME_OF_DEATH = "time_of_death"
         
         # Dictionary for tracking clues
         # Name should be the one displayed
         cluesFound = {}
+        
+        # Constants for clue names
+        LOUNGE_CONTRACTS = "Contracts"
+        DINING_SPECTACLES = "Spectacles"
+        CARGO_RECORD = "Recorde of Service"
+        BATHS_WOUND = "Wound"
+        GALLEY_PIPE = "Bloody Pipe"
+        GALLEY_BOOK = "Political Tracts"
+        
 
         # You as a speaker
         YOU = None

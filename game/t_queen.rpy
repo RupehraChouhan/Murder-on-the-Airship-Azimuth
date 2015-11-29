@@ -48,16 +48,23 @@ label t_queen_saw:
 label t_queen_found:
     python:
         line = "Ask about what?"
-        choices = [ "wound", "time of death" ]
+        choices = [ ]
+        
+        for clueName,found in Game.cluesFound.items():
+            if found:
+                choices.append(clueName)
+        choices.append("Ask something else")
         
         Game.inputADV(line, choices, True)
         
         index = int(Game.input) - 1
-        if index == 0:
+        clueName = choices[index]
+        if clueName == Game.BATHS_WOUND:
             line = "Detective, please. Spare a grieving widow the gruesome details. {i}While her words are remorseful, her flat expression and wry tone suggest she's not too distraught by recent events.{/i}"
             choices = [ "Pressure", "Ask something else" ]
             
             character.inputADV(line, choices)
+            index = int(Game.input) - 1
             
             if index == 0:
                 character.speakADV("{i}Her demeanour becomes even icier than before.{/i} Detective, while it is no secret that my husband and I were very much not in love, if all it took was one social dinner turned awkward by his bluster for me to decide to end his life, he would not have survived our first month of marriage. Now cease this insulting line of inquiry, and leave me be.")
@@ -65,8 +72,10 @@ label t_queen_found:
             elif index == 1:
                 Game.jump(character.label + "_loop")
                         
-        elif index == 1:
-            pass
+        elif clueName == "Ask something else":
+            Game.jump(character.label + "_loop")
+        else:
+            character.speakADV("I don't know what you're talking about.")
         
         Game.jump(character.label + "_loop")
         
@@ -90,7 +99,7 @@ label t_queen_other:
 
 label t_queen_bishop:
     python:
-        character.sayADV("A really long block of text" * 100)
+        character.speakADV("A really long block of text" * 100)
         Game.jump(character.label + "_loop")
 label t_queen_knight:
     python:

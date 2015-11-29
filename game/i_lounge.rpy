@@ -1,9 +1,10 @@
 init 0 python: # set up clues and commands in room
     room = Game.rooms[Game.ROOM_LOUNGE]
+    Game.cluesFound[Game.LOUNGE_CONTRACTS] = False
     
     def look():
         Game.inputADV( "These documents look important" )
-        # change flag
+        Game.cluesFound[Game.LOUNGE_CONTRACTS] = True
     documents = Clue( "documents", [ "look", "read" ], [ look, look ] )
     
     room.addClue(documents)

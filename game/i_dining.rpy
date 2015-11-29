@@ -1,5 +1,11 @@
 init 0 python: # set up clues and commands in room
     room = Game.rooms[Game.ROOM_DINING]
+    Game.cluesFound[Game.DINING_SPECTACLES] = False
+    
+    def look():
+        Game.inputADV( "These glasses appear to belong to the bishop *changeme*" )
+        Game.cluesFound[Game.DINING_SPECTACLES] = True
+    glasses = Clue( "glasses", [ "look" ], [ look ] )
 
 label i_dining:
     scene bg diningImage
