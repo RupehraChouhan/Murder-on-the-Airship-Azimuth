@@ -4,6 +4,7 @@ init -999 python: # Game class must be given first priority to load
         input = "" # Static(ish) variable player text input is put into
         prevPrompt = "" # Stores the previous prompt from input
         prevNarrate = "" # Stores the previous narration from narrate
+        introDone = False
         __moves = 0 # Numbers of moves player has made
         __startTime = [0, 0]
         __moveTime = [0, 10]
