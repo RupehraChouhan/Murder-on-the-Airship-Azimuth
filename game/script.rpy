@@ -1,32 +1,31 @@
-﻿# The game starts here
-
+﻿# Declare all images
 image bg detectiveImage = "DetectiveSketch1.jpg"
-image bg barImage  = "BarSketch1.jpg"
-image bg bathImage = "BathSketch2.jpg"
-image bg cargoHoldImage = "CargoHoldSketch1.jpg"
-image bg cockPitImage = "CockPitSketch2.jpg"
-image bg diningImage = "DiningSketch1.jpg"
-image bg engineImage = "EngineSketch1.jpg"
-image bg galleyImage = "GalleySketch1.jpg"
 image bg notepadImage = "NotepadSketch1.jpg"
-image bg cabinImage = "PassengerCabinSketch1.jpg"
-image bg loungeImage = "PassengerLoungeSketch1.jpg"
 image bg whiteImage = "white.jpg"
+
+image bg map = "map.jpg"
+image bg cabinImage = "PassengerCabinsSketch.jpg"
+image bg diningImage = "DiningRoomSketch.jpg"
+image bg galleyImage = "GalleySketch.jpg"
+image bg bathImage = "BathsSketch.jpg"
+image bg loungeImage = "PassengerLoungeSketch.jpg"
+image bg barImage = "BarSketch.jpg"
+image bg cargoHoldImage = "CargoHoldSketch.jpg"
+image bg cockPitImage = "CockpitSketch.jpg"
+image bg engineImage = "EngineRoomSketch.jpg"
+
 image queen = "queen2.jpg"
 image pawn = "servant.jpg"
-image map = "map.jpg"
 
-
-
-
+# The game starts here
 label start:
     
-    #background image for the main page 
+    # background image for the main page 
     scene bg detectiveImage
     with fade 
     
-    play music "IntroMusic.ogg"  fadeout 2 fadein 2
-    #play music
+    # play music
+    play music Game.MUSIC_INTRO fadeout 2 fadein 2
     
     python:
         prompt = "What would you like to do?\n"

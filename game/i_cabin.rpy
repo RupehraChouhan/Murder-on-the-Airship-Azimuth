@@ -3,7 +3,7 @@ init 0 python: # set up clues and commands in room
     
 label i_cabin:
     scene bg cabinImage
-    #with fade
+    with fade
     stop music fadeout 2
 
     python:
