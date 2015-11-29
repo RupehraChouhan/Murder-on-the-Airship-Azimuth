@@ -15,6 +15,11 @@ init -999 python: # Game class must be given first priority to load
         # some things may not need to be shared here, just give them unique enough names
         state = {}
         
+        CONV_QUEEN_WHAT = "conv_queen_what"
+        CONV_BISHOP_WHAT_PRESS = "conv_bishop_what_press"
+        CONV_KNIGHT_WHAT = "conv_knight_what"
+        CONV_CAPTAIN_WHAT = "conv_captain_what"
+        
         # Dictionary for tracking clues
         # Name should be the one displayed
         cluesFound = {}

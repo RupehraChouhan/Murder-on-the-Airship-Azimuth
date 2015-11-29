@@ -77,6 +77,7 @@ label t_rook_saw:
         Game.jump(character.label + "_loop")
 label t_rook_found:
     python:
+<<<<<<< HEAD
 	line = "Ask about what?"
 	choices = []
 
@@ -194,6 +195,41 @@ label t_rook_found:
             character.speakADV("I don't know what you're talking about.")	
 	Game.jump(character.label + "_loop")
 
+=======
+        line = "Ask about what?"
+        choices = [ ]
+        
+        for clueName,found in Game.cluesFound.items():
+            if found:
+                choices.append(clueName)
+        choices.append("Ask something else")
+        
+        Game.inputADV(line, choices, True)
+        
+        index = int(Game.input) - 1
+        clueName = choices[index]
+        if clueName == Game.BATHS_WOUND:
+            pass
+        elif clueName == Game.BATHS_TIME_OF_DEATH:
+            pass
+        elif clueName == Game.GALLEY_PIPE:
+            pass
+        elif clueName == Game.CABINS_EMPTY:
+            pass
+        elif clueName == Game.DINING_SPECTACLES:
+            pass
+        elif clueName == Game.LOUNGE_CONTRACTS:
+            pass
+        elif clueName == Game.GALLEY_BOOK:
+            pass
+        elif clueName == Game.CARGO_RECORD:
+            pass
+        #elif clueName == TODO add rook body
+            pass
+        else:
+            character.speakADV("I don't know what you're talking about.")
+        Game.jump(character.label + "_loop")
+>>>>>>> origin/master
 label t_rook_other:
     python:
 	line = "Who?"
