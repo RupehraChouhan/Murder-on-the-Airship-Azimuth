@@ -4,7 +4,7 @@
 	R: I'm his business partner as well as his personal solicitor. The two of us made Royaume & Sons what it is today. I can't believe he's dead.
 	[Pressure]
 		Y: With Mr. Royaume's passing, do I understand correctly that control over the business passes solely to you?
-		N: (i)de la Rocque looks taken aback.(/i)
+		N: {i}de la Rocque looks taken aback.{/i}
 		R: Well, yes, but that's hardly reason to kill him! Henry was an excellent public face for the firm, something I've no talent for. It will take ages to recover from this!
 		R: Though I am, of course, far more distraught over the loss of my friend. *Harrumph*.
 	[Ask something else.]
@@ -17,11 +17,11 @@
 	[Ask something else]
 [Ask about a discovery.]
 	[Wound]
-		R: Something heavy, eh? Unless a passenger brought the weapon aboard, it would have to be one of the pipe wrenches. They keep them in the engine room, and they're (i)supposed(/i) to all be locked up when not in use. Aside from that, I can't think of anything that fits the description. No extra weight on a Royaume ship! Well, except...
+		R: Something heavy, eh? Unless a passenger brought the weapon aboard, it would have to be one of the pipe wrenches. They keep them in the engine room, and they're {i}supposed{/i} to all be locked up when not in use. Aside from that, I can't think of anything that fits the description. No extra weight on a Royaume ship! Well, except...
 		[Pressure]
 			Y: Except what?
 			R: The engineers did insist that we install some redundancy in one of the machines. The responso-something baro-whatever. The names those people come up with.
-			N: (i)Mr. de la Rocque shakes his head bemusedly.(/i)
+			N: {i}Mr. de la Rocque shakes his head bemusedly.{/i}
 			Y: Anyway, that thing has a few more pipes than it needs to keep running. On the inside, though.
 		[Ask something else.]
 	[Time of Death]
@@ -31,7 +31,7 @@
 			R: Yes, entirely. Oh, wait. I passed by the steward on one of my visits to the cockpit. She was coming from the lounge. 
 		[Ask something else]
 	[Weapon]
-		N: (i)de la Rocque's face twists uncomfortably(/i)
+		N: {i}de la Rocque's face twists uncomfortably{/i}
 		R: How dreadful.
 		[Pressure]
 			Y: The use of this weapon implies a familiarity with this vessel that not everyone here has...
@@ -42,8 +42,8 @@
 		R: I worked closely with the engineers to cut down on awkward nooks - to save on materials and discourage transporing contraband, both. You say you've searched the cabins? Then it must be in plain sight somewhere, I'd stake my reputation on it.
 		[Pressure]
 			Y: Are you quite sure?
-			N: (i)de la Rocque narrows his eyes.(/i)
-			R: I would have thought the words, "I'd stake my reputation on it" were quite clear. After all, (i)your(/i) reputation is the only reason we're putting up with these invasive questions.[END]
+			N: {i}de la Rocque narrows his eyes.{/i}
+			R: I would have thought the words, "I'd stake my reputation on it" were quite clear. After all, {i}your{/i} reputation is the only reason we're putting up with these invasive questions.[END]
 		[Ask something else]
 	[Bishop's Spectacles]
 		R: Esgob's spectacles. What about them?
@@ -79,14 +79,14 @@
 		[Pressure]
 			Y: Truly, a romance for the ages.
 			R: How dare you, Detective!
-			N: (i)de la Roque pauses, and the indignance fades from his face.(/i)
+			N: {i}de la Roque pauses, and the indignance fades from his face.{/i}
 			R: Though, you are right. No one could accuse theirs of being a loving marriage. It was as political for her as it was for him; a lot of those old families are paying off generations worth of debts. And Henry - his personal fortune was quite large. Even though control of his company falls to me - I hate to think it, but Lady Eleanora could live out her days quite comfortably on her inheritance.
 		[Ask something else]
 	[Knight]
 		R: I asked Sergeant-Major Ritter to attend personally. He wrote to my office when he heard rumour of our dealings with the government. We are in the final stages of drafting this contract for Her Infallible Majesty's Admiralty, and I thought the advice of a decorated military man in dealing with those officers could prove useful, so I invited him along.
 		R: Actually, if it's not too much trouble, could you permit him to join me here? We didn't finish our review of the contracts before dinner, and I'd quite like to reach the end before we land.
 		Y: Everyone is under suspicion, Mr. de la Rocque. Nobody leaves their cabins.
-		N: (i)The gravity of the situation kills the momentary light in de la Rocque's eyes. He clears his throat and looks down at his shoes.(/i)
+		N: {i}The gravity of the situation kills the momentary light in de la Rocque's eyes. He clears his throat and looks down at his shoes.{/i}
 		R: Quite right, quite right. Yes, of course.
 		[Pressure]
 			Y: Could he possibly have had anything against Mr. Royaume?
@@ -94,7 +94,7 @@
 		[Ask something else]
 	[Bishop]
 		R: This is confidential, yes? I have a dim view of Rector Nathaniel Esgob's reputation. His calls for compassionate reform, so-called, have led to pickets and stoppages at some of our factories. But we have to maintain the appearance that we entertain his outlandish schemes to coddle our workers. Otherwise, the Singerists get involved, and instead of pickets and stoppages, it's sabotage and firebombings. Madness.
-		R: Anyway, a dozen or more tradesmen's federations put up the money to fund him on a speaking tour of the industrial towns down south, and we simply (i)had(/i) to agree. Naturally, though, it wasn't long before he started spouting his noxious opinions, and Henry had to set him straight.
+		R: Anyway, a dozen or more tradesmen's federations put up the money to fund him on a speaking tour of the industrial towns down south, and we simply {i}had{/i} to agree. Naturally, though, it wasn't long before he started spouting his noxious opinions, and Henry had to set him straight.
 		[Pressure]
 			Y: So Esgob and Mr. Royaume argued?
 			R: Yes. And Esgob put up with his bluster better than most, believe me. I've been on the receiving end of that before, and it takes it out of you. Not to speak ill of the dead, of course.
@@ -104,6 +104,6 @@
 		R: The steward? I understand from speaking with Captain Winfarthing she's been chronically away from her post during this voyage. Though some of that time she was waiting on the Royaumes. Henry never liked bringing his domestics along when travelling on his own vessels. Thought it was a frivolous expense. He paid the wages of these airmen, after all, he'd say.
 		[Pressure]
 			Y: Do you think she could have any connection to the murder?
-			N: (i)de la Rocque nods gravely.(/i)
+			N: {i}de la Rocque nods gravely.{/i}
 			R: We have to consider it. All these other so-called suspects are gentlemen, after all. I couldn't believe they would do such a thing. But her?
 		[Ask something else]

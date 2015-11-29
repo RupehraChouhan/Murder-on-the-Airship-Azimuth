@@ -10,7 +10,7 @@
 	K: I left the dining table at eight o'clock precisely. I recovered a book from my luggage in the hold, then returned to my cabin, where I remained until 9:30. At that time, I visited the observation deck near the cockpit, where I encountered Lady Royaume. We observed the night sky in silence until Airman Newport discovered the body.
 	[Pressure]
 		Y: That was very succinct, thank you.
-		N: (i)Ritter nods sharply.(/i)
+		N: {i}Ritter nods sharply.{/i}
 		Y: Anything else?
 		K: No.
 		Y: Alright then.
@@ -21,7 +21,7 @@
 		[Pressure]
 			Y: You seem to know a lot about this.
 			K: I was a soldier, Detective. I've seen killing. War's not clean, like they make it look in the paintings.
-			N: (i)Ritter gives you a long, level stare.(/i)
+			N: {i}Ritter gives you a long, level stare.{/i}
 			R: I didn't kill him, Detective. I didn't even know him.
 		[Ask something else.]
 	[Time of Death]
@@ -62,17 +62,17 @@
 		K: I don't get involved in politics. I have dedicated my life to service of Her Infallible Majesty's government, whatever that government may be.
 		[Pressure]
 			Y: It might have something to do with Royaume's death. Would any of your fellow passengers be at all receptive to this kind of ideology?
-			N: (i)Ritter gives you a level stare.(/i)
+			N: {i}Ritter gives you a level stare.{/i}
 			K: I said I don't get involved in politics.
 		[Ask something else]
 	[Knight's Service Record]
 		K: My whole life is in there. Does that help answer your questions?
 		[Pressure]
 			Y: I understand you were at the Battle of Rosenfeldt?
-			N: (i)Ritter draws a quick breath.(/i)
+			N: {i}Ritter draws a quick breath.{/i}
 			K: And?
 			Y: It says your regiment was decimated by airborne bombing. Friendly airborne bombing. From a Royaume-made war zeppelin. The same kind that Royaume is trying to sell to the Admiralty in quantity.
-			N: (i)Ritter speaks through gritted teeth.(/i)
+			N: {i}Ritter speaks through gritted teeth.{/i}
 			K: Are you accusing me of murder, Detective?
 			Y: That remains to be seen. [END]
 		[Ask something else]
@@ -80,7 +80,7 @@
 		K: Thank you for your concern, Detective, but I am unharmed. If the killer comes for me next, I am prepared to defend myself.
 		[Pressure]
 			Y: And if that killer is you, Sergeant-Major?
-			N: (i)There is a long pause. Ritter's face is calm.(/i)
+			N: {i}There is a long pause. Ritter's face is calm.{/i}
 			K: Then I suppose you'd best lock me away, Detective. After you find some proof, that is.[END]
 		[Ask something else]
 
@@ -95,7 +95,7 @@
 		K: de la Rocque, the solicitor? A diligent man. What about him?
 		[Pressure]
 			Y: In your estimation, could he be responsible for the murder?
-			N: (i)Ritter's brow furrows.(/i)
+			N: {i}Ritter's brow furrows.{/i}
 			K: I suppose. He's worked long in Royaume's shadow without a trace of ambition. But perhaps branching out into arms dealing has soured his morals some.
 		[Ask something else]
 	[Bishop]
