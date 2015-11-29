@@ -2,6 +2,7 @@
 image bg detectiveImage = "DetectiveSketch1.jpg"
 image bg notepadImage = "NotepadSketch1.jpg"
 image bg whiteImage = "white.jpg"
+image bg blackImage = "#000"
 
 image bg map = "map.jpg"
 image bg cabinImage = "PassengerCabinsSketch.jpg"
@@ -19,6 +20,10 @@ image pawn = "servant.jpg"
 
 # The game starts here
 label start:
+    python:
+        if not Game.introDone:
+            Game.introDone = True
+            Game.jump("intro")
     
     # background image for the main page 
     scene bg detectiveImage
@@ -28,9 +33,6 @@ label start:
     play music Game.MUSIC_INTRO fadeout 2 fadein 2
     
     python:
-        if not Game.introDone:
-            Game.introDone = True
-            Game.jump("intro")
             
         prompt = "What would you like to do?\n"
         choices = ["Investigate a room", "Talk to a suspect", "Look at your notepad", "Solve the case"]

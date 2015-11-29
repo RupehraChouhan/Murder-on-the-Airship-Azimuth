@@ -22,7 +22,18 @@
         Game.jump("finale_main")
 
 label finale_main:
-    # address each in turn and evaluate motives and opportunity
+    python:
+        # address each in turn and evaluate motives and opportunity
+        line = "Who do would you like to talk about?"
+        choices = []
+        for i in range(0, len(Game.npcs)):
+            if i in potentials and potentials[i]:
+                choices.append(Game.npcs[i])
+    
+        Game.inputADV(line, choices)
+        index = int(Game.input) - 1
+        choice = choices[index]
+        Game.jump("finale_address_", choice.name.lower())
         
 label finale_address_queen:
     python:
@@ -44,10 +55,9 @@ label finale_address_queen:
             # guilty
             pass
         elif index == 1:
-            # innocent
+            potentials[Game.NPC_QUEEN] = False
             pass
         elif index == 2:
-            # potential
             pass
         Game.jump("finale_main")
         
@@ -58,3 +68,20 @@ label finale_address_rook:
         pass
         
 label finale_address_bishop:
+
+label finale_address_knight:
+
+label finale_address_pawn:
+
+label finale_accuse_queen:
+    python:
+        queen.speakADV("Me? What possible reason could I have?")
+        # a few choices
+        
+label finale_accuse_knight:
+
+label finale_accuse_rook:
+
+label finale_accuse_bishop:
+
+label finale_accuse_pawn:
