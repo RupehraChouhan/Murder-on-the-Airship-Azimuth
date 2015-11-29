@@ -64,7 +64,7 @@ label t_queen_saw:
         character.inputADV(Game.prevNarrate, choices)
         index = int(Game.input) - 1
         if index == 0:
-            Game.YOU.narrateADV("Are you sure that's all you witnessed?")
+            Game.YOU.speakADV("Are you sure that's all you witnessed?")
             character.speakADV("Detective, why would I conceal anything? The blow to my reputation from a drawn-out and scandalous investigation would be personally devastating. It's in my interest that you resolve this... unpleasantness... quickly and discreetly.")
         elif index == 1:
             pass

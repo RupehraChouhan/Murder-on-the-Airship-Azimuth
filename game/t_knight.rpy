@@ -59,7 +59,7 @@ label t_knight_saw:
         character.inputADV(Game.preNarrate,choices)
         index = int(Game.input)-1
         if index == 0:
-            Game.YOU.narrateADV("That was very succinct, thank you.")
+            Game.YOU.speakADV("That was very succinct, thank you.")
             character.speakADV("{i}Ritter nods sharply{\i}")
         elif index == 1:
             pass
