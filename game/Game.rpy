@@ -9,6 +9,13 @@ init -999 python: # Game class must be given first priority to load
         __moveTime = [0, 10]
         notes = [] # List of states player has reached, for determining game progress and notebook entries
         zeppelinName = "Azimuth"
+        
+        # Dictionary for tracking state
+        state = {}
+        
+        # Dictionary for tracking clues
+        # Name should be the one displayed
+        cluesFound = {}
 
         # You as a speaker
         YOU = None
