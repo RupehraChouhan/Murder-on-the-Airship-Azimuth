@@ -57,8 +57,8 @@ label t_rook_vic:
             Game.YOU.speakADV("With Mr. Royaume's passing, do I understand correctly that control over the business passes solely to you?")
             Game.narrateADV("(i)de la Rocque looks taken aback.(/i)")
             character.speakADV("Well, yes, but that's hardly reason to kill him! Henry was an excellent public face for the firm, something I've no talent for. It will take ages to recover from this!")
-                   character.speakADV("Though I am, of course, far more distraught over the loss of my friend. *Harrumph*.")
-         elif index == 1:
+            character.speakADV("Though I am, of course, far more distraught over the loss of my friend. *Harrumph*.")
+        elif index == 1:
             pass
         Game.jump(character.label + "_loop")
 label t_rook_saw:
@@ -124,7 +124,7 @@ label t_rook_found:
             if index == 0:
                 Game.YOU.speakADV("The use of this weapon implies a familiarity with this vessel that not everyone here has...")
                 character.speakADV("Are you implying that I..? Detective, I've been nothing but helpful! I can't believe you'd... I think I'd like you to leave.[END]")
-                 Game.jump(character.label + "_loop")
+                Game.jump(character.label + "_loop")
             elif index == 1:
                 pass
         elif clueName == Game.CABINS_EMPTY:
@@ -136,7 +136,7 @@ label t_rook_found:
             if index == 0:
                 Game.YOU.speakADV("Are you quite sure?")
                 Game.narrateADV("(i)de la Rocque narrows his eyes.(/i)")
-                character.speakADV("I would have thought the words, "I'd stake my reputation on it" were quite clear. After all, (i)your(/i) reputation is the only reason we're putting up with these invasive questions.[END]")
+                character.speakADV("I would have thought the words, \"I'd stake my reputation on it\" were quite clear. After all, (i)your(/i) reputation is the only reason we're putting up with these invasive questions.[END]")
                 Game.jump(character.label + "_loop")
             elif index == 1:
                 pass

@@ -1,4 +1,4 @@
 ﻿label intro:
     python:
-        pass
+        Game.jump("start")
         
