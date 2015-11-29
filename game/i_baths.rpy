@@ -1,8 +1,8 @@
 init 0 python: # set up clues and commands in room
     room = Game.rooms[Game.ROOM_BATHS]
     Game.cluesFound[Game.BATHS_WOUND] = False
+    Game.cluesFound[Game.BATHS_TIME_OF_DEATH] = False
     Game.state["baths_body_turned"] = False
-    Game.state[Game.STATE_TIME_OF_DEATH] = False
     
     def look():
         Game.narrateADV( "The body of Henry Augustus Algernon Royaume is in a pool of blood from the wound on his head. He is still in his evening wear, lying face down. " )
@@ -21,7 +21,7 @@ init 0 python: # set up clues and commands in room
             Game.narrateADV( "There is something small and round in his pocket, and possibly some glass shards" )
     def open():
         if Game.state["baths_body_turned"]:
-            Game.state[Game.STATE_TIME_OF_DEATH] = True
+            Game.cluesFound[Game.BATHS_TIME_OF_DEATH] = True
             Game.narrateADV( "Inside his pocket is a silver pocket watch. It must have broken when he fell. The face reads 8:42" )
     pocket = Clue( "pocket", [ "look", "open" ], [ look, open ] )
     

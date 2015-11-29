@@ -14,8 +14,6 @@ init -999 python: # Game class must be given first priority to load
         # some things may not need to be shared here, just give them unique enough names
         state = {}
         
-        STATE_TIME_OF_DEATH = "time_of_death"
-        
         # Dictionary for tracking clues
         # Name should be the one displayed
         cluesFound = {}
@@ -23,8 +21,9 @@ init -999 python: # Game class must be given first priority to load
         # Constants for clue names
         LOUNGE_CONTRACTS = "Contracts"
         DINING_SPECTACLES = "Spectacles"
-        CARGO_RECORD = "Recorde of Service"
+        CARGO_RECORD = "Record of Service"
         BATHS_WOUND = "Wound"
+        BATHS_TIME_OF_DEATH = "Time of Death"
         GALLEY_PIPE = "Bloody Pipe"
         GALLEY_BOOK = "Political Tracts"
         
