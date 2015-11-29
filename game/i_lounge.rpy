@@ -1,9 +1,10 @@
 init 0 python: # set up clues and commands in room
     room = Game.rooms[Game.ROOM_LOUNGE]
+    Game.cluesFound[Game.LOUNGE_CONTRACTS] = False
     
     def look():
-        Game.inputADV( "These documents look important" )
-        # change flag
+        Game.narrateADV( "These documents look important" )
+        Game.cluesFound[Game.LOUNGE_CONTRACTS] = True
     documents = Clue( "documents", [ "look", "read" ], [ look, look ] )
     
     room.addClue(documents)
@@ -18,21 +19,21 @@ label i_lounge:
 
     python:
         room = Game.rooms[Game.ROOM_LOUNGE]
-        Game.inputADV("Here we are in the [room.name]! What do you want to do?")
+        Game.narrateADV("Here we are in the [room.name]!")
+        Game.narrateADV("Lounge is the biggest room on the Zeppelin. People come here to interact and relax. ")
+        Game.narrateADV("What do you want to do?")
         Game.jump(room.label + "_in")
         
 label i_lounge_in:        
     python:
-        # assumption: if all functions of clues are inputADV, then we can loop through this
+        # assumption: if all functions of clues are narrateADV, then we can loop through this
+        Game.inputADV( Game.prevNarrate )
         Game.checkQuit()
         
-        if Game.input == "":
-            Game.inputADV( Game.prevPrompt )
-        else:
+        if Game.input != "":
             try:
                 room.do(Game.input)
             except:
                 Game.narrateADV("I don't know what \"[Game.input]\" means.")
-                Game.inputADV( Game.prevPrompt )
         
         Game.jump(room.label + "_in")

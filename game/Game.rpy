@@ -4,6 +4,7 @@ init -999 python: # Game class must be given first priority to load
         input = "" # Static(ish) variable player text input is put into
         prevPrompt = "" # Stores the previous prompt from input
         prevNarrate = "" # Stores the previous narration from narrate
+        introDone = False
         __moves = 0 # Numbers of moves player has made
         __startTime = [0, 0]
         __moveTime = [0, 10]
@@ -11,11 +12,23 @@ init -999 python: # Game class must be given first priority to load
         zeppelinName = "Azimuth"
         
         # Dictionary for tracking state
+        # some things may not need to be shared here, just give them unique enough names
         state = {}
         
         # Dictionary for tracking clues
         # Name should be the one displayed
         cluesFound = {}
+        
+        # Constants for clue names
+        LOUNGE_CONTRACTS = "Contracts"
+        DINING_SPECTACLES = "Spectacles"
+        CARGO_RECORD = "Record of Service"
+        BATHS_WOUND = "Wound"
+        BATHS_TIME_OF_DEATH = "Time of Death"
+        GALLEY_PIPE = "Bloody Pipe"
+        GALLEY_BOOK = "Political Tracts"
+        CABINS_EMPTY = "Hiding Places"
+        
 
         # You as a speaker
         YOU = None

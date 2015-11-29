@@ -1,0 +1,113 @@
+[Tell me about yourself.]
+	N: (i)Esgob steadies himself. His face is flushed and he reeks of liquor. Despite this, his eyes are lucid and frightened. Perhaps the shock has sobered him up.(/i)
+	B: Rector Nathaniel Esgob, of the Compassionate Reform Crusade. 
+[What is your connection to the victim?]
+	B: I was invited by Mr. Royaume's solicitor, Mr. de la Rocque, to consult on the finer points of Royaume's contracts with the Admiralty. Mr. Royaume was surprised by my presence. It seems Mr. de la Rocque handles the business. I had never met Mr. Royaume before this voyage.
+	[Pressure]
+		Y: That was the extent of your connection?
+		B: Detective, I am - was - an enlisted man. I don't move in these circles. My whole life and career is on record. Check my papers if you don't believe me. They're in my red trunk in the cargo hold. I have nothing to hide.
+	[Ask something else.]
+[What did you see last night?]
+	B: I left the dining table at eight o'clock precisely. I recovered a book from my luggage in the hold, then returned to my cabin, where I remained until 9:30. At that time, I visited the observation deck near the cockpit, where I encountered Lady Royaume. We observed the night sky in silence until Airman Newport discovered the body.
+	[Pressure]
+		Y: That was very succinct, thank you.
+		N: (i)Ritter nods sharply.(/i)
+		Y: Anything else?
+		B: No.
+		Y: Alright then.
+	[Ask something else]
+[Ask about a discovery.]
+	[Wound]
+		B: From the look I got, I'd agree. A decent length of steel, you don't need much strength to crack a man's skull.
+		[Pressure]
+			Y: You seem to know a lot about this.
+			B: I was a soldier, Detective. I've seen killing. War's not clean, like they make it look in the paintings.
+			N: (i)Ritter gives you a long, level stare.(/i)
+			R: I didn't kill him, Detective. I didn't even know him.
+		[Ask something else.]
+	[Time of Death]
+		B: Between 8:30 and 9 I was in my cabin. Alone.
+		[Pressure]
+			Y: Did you see anything, hear anything?
+			B: No, I'm afraid not, Detective.
+		[Ask something else]
+	[Weapon]
+		B: Found it, did you?
+		[Pressure]
+			Y: You seem awfully collected about this whole affair.
+			B: How precisely should I react, Detective? I've seen men die before. More even than you in your illustrious career. If suspicious insinuations and your intuitions about character are the extent of your investigative skills, I am appalled that your reputation is as great as it is.
+		[Ask something else]
+
+	[Hiding Places]
+		B: I will say this for Royaume's ships - they are efficient. Very little wasted space and material, even in these ostentatious luxury decks. I haven't noticed anywere one could hide a weapon, Detective, I'm sorry.
+		[Pressure]
+			Y: Indulge me for a moment, Sergeant-Major. Imagine I'm the murderer. I strike Mr. Royaume in the baths, there's blood on my hands, I search around for a hiding place. Where do I look?
+			B: I'm afraid I can't help you. Cowardly attacks such as this are not a soldier's specialty. I suggest you ask these questions of someone with something to gain from Mr. Royaume's death. [END]
+		[Ask something else]
+	[Bishop's Spectacles]
+		B: Esgob's spectacles. What of them?
+		[Pressure]
+			Y: When you saw him, was he wearing them?
+			B: At dinner, yes. I didn't see him again until the body was found.
+		[Ask something else]
+
+	[Rook's Contracts]
+		B: I've already seen these. Mr. de la Rocque asked me to consult on the language, you know. He thought the sponsorship of a decorated soldier might aid him in dealing with the Admiralty.
+		[Pressure]
+			Y: Confidentially, is there anything untoward about this deal?
+			B: I think it's misguided. I think it's naked profiteering. But it's entirely above-board, legally speaking. 
+			Y: Did you mention your reservations to Royaume?
+			B: Based on those documents, it's de la Rocque to whom I should have brought them. Every word of them save the signatures was his. 
+		[Ask something else]
+	[Pawn's Political Tracts]
+		B: I don't get involved in politics. I have dedicated my life to service of Her Infallible Majesty's government, whatever that government may be.
+		[Pressure]
+			Y: It might have something to do with Royaume's death. Would any of your fellow passengers be at all receptive to this kind of ideology?
+			N: (i)Ritter gives you a level stare.(/i)
+			B: I said I don't get involved in politics.
+		[Ask something else]
+	[Knight's Service Record]
+		B: My whole life is in there. Does that help answer your questions?
+		[Pressure]
+			Y: I understand you were at the Battle of Rosenfeldt?
+			N: (i)Ritter draws a quick breath.(/i)
+			B: And?
+			Y: It says your regiment was decimated by airborne bombing. Friendly airborne bombing. From a Royaume-made war zeppelin. The same kind that Royaume is trying to sell to the Admiralty in quantity.
+			N: (i)Ritter speaks through gritted teeth.(/i)
+			B: Are you accusing me of murder, Detective?
+			Y: That remains to be seen. [END]
+		[Ask something else]
+	[Rook's Body]
+		B: Thank you for your concern, Detective, but I am unharmed. If the killer comes for me next, I am prepared to defend myself.
+		[Pressure]
+			Y: And if that killer is you, Sergeant-Major?
+			N: (i)There is a long pause. Ritter's face is calm.(/i)
+			B: Then I suppose you'd best lock me away, Detective. After you find some proof, that is.[END]
+		[Ask something else]
+
+[Ask about another suspect.]
+	[Queen]
+		B: The Lady Eleanora? I've only just met her. She seems the picture of decorum.
+		[Pressure]
+			Y: Do you think she's capable of murder?
+			B: She clearly did not love him. And I imagine she stands to inherit a fortune. Many more men have died for worse reasons.
+		[Ask something else]
+	[Rook]
+		B: de la Rocque, the solicitor? A diligent man. What about him?
+		[Pressure]
+			Y: In your estimation, could he be responsible for the murder?
+			N: (i)Ritter's brow furrows.(/i)
+			B: I suppose. He's worked long in Royaume's shadow without a trace of ambition. But perhaps branching out into arms dealing has soured his morals some.
+		[Ask something else]
+	[Bishop]
+		B: Rector Esgob, the social reformer? A principled man. Willing to defend those principles, if suppertime's heated debate was any indication.
+		[Pressure]
+			Y: Would he kill to defend those principles?
+			B: I doubt it. The man's many things, but he's no hypocrite. That said, he did have a lot to drink. If he'd had a few more, there's no predicting what he'd do. 
+		[Ask something else]
+	[Pawn]
+		B: The steward? She seems dutiful enough. She insisted on attending to her duties even in the face of the Royaumes' demands for personal attention.
+		[Pressure]
+			Y: Could that have driven her to murder?
+			B: Doubtful, in my opinion. She's rank-and-file. She's accustomed to those in charge not knowing what they're doing and giving her orders anyway.
+		[Ask something else]

@@ -28,6 +28,10 @@ label start:
     play music Game.MUSIC_INTRO fadeout 2 fadein 2
     
     python:
+        if not Game.introDone;
+            Game.introDone = True
+            Game.jump("intro")
+            
         prompt = "What would you like to do?\n"
         choices = ["Investigate a room", "Talk to a suspect", "Look at your notepad", "Solve the case"]
         

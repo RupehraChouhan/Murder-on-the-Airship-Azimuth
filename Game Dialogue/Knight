@@ -1,10 +1,10 @@
 [Tell me about yourself.]
 	K: Sergeant-Major Angus P. Ritter, Her Infallible Majesty's Ninth Overland Rifle Brigade, retired. 
 [What is your connection to the victim?]
-	K: We'd never met before this voyage.
+	K: I was invited by Mr. Royaume's solicitor, Mr. de la Rocque, to consult on the finer points of Royaume's contracts with the Admiralty. Mr. Royaume was surprised by my presence. It seems Mr. de la Rocque handles the business. I had never met Mr. Royaume before this voyage.
 	[Pressure]
-		Y: Anything you'd like to add?
-		K: I was invited by Mr. Royaume's solicitor, Mr. de la Rocque, to consult on the finer points of Royaume's contracts with the Admiralty. Mr. Royaume was surprised by my presence. It seems Mr. de la Rocque handles the business.
+		Y: That was the extent of your connection?
+		K: Detective, I am - was - an enlisted man. I don't move in these circles. My whole life and career is on record. Check my papers if you don't believe me. They're in my red trunk in the cargo hold. I have nothing to hide.
 	[Ask something else.]
 [What did you see last night?]
 	K: I left the dining table at eight o'clock precisely. I recovered a book from my luggage in the hold, then returned to my cabin, where I remained until 9:30. At that time, I visited the observation deck near the cockpit, where I encountered Lady Royaume. We observed the night sky in silence until Airman Newport discovered the body.
@@ -56,53 +56,57 @@
 			Y: Confidentially, is there anything untoward about this deal?
 			K: I think it's misguided. I think it's naked profiteering. But it's entirely above-board, legally speaking. 
 			Y: Did you mention your reservations to Royaume?
-			K: Based on those documents, it's de la Rocque to whom I should have brought them. He wrote near
+			K: Based on those documents, it's de la Rocque to whom I should have brought them. Every word of them save the signatures was his. 
 		[Ask something else]
 	[Pawn's Political Tracts]
-		K: That repulsive drivel that plays so well with the underclasses actually capable of reading? I don't see what that has to do with me. Besides, I'm personally thankful that Mr. Singer has drawn the ire of the masses toward the capitalists and away from the aristocracy. 
+		K: I don't get involved in politics. I have dedicated my life to service of Her Infallible Majesty's government, whatever that government may be.
 		[Pressure]
-			Y: It might have something to do with your husband's death. Would any of your fellow passengers be at all receptive to this kind of ideology?
-			N: (i)Lady Eleanora considers your question for a moment.(/i)
-			K: Well, Esgob is a crass populist at heart, but I doubt he's this radical. Ritter's misadventures in service to the Crown have not dulled his patriotism at all. And de la Rocque is the precise kind of industrialist this screed incites violence against. It is crafted to appeal with the lowest among us, Detective. 
+			Y: It might have something to do with Royaume's death. Would any of your fellow passengers be at all receptive to this kind of ideology?
+			N: (i)Ritter gives you a level stare.(/i)
+			K: I said I don't get involved in politics.
 		[Ask something else]
 	[Knight's Service Record]
-		K: Thanks to an aristocratic education, if there's one subject I'd like to peruse less than geneaology, it's records of military accomplishments.
+		K: My whole life is in there. Does that help answer your questions?
 		[Pressure]
-			Y: Did you know that Col. Ritter's decorations arise from surviving a bombing facilitated by one of your husband's zeppelins?
-			N: (i)Lady Eleanora is silent for a moment.(/i)
-			K: I did not. Perhaps you should speak to him about this.
+			Y: I understand you were at the Battle of Rosenfeldt?
+			N: (i)Ritter draws a quick breath.(/i)
+			K: And?
+			Y: It says your regiment was decimated by airborne bombing. Friendly airborne bombing. From a Royaume-made war zeppelin. The same kind that Royaume is trying to sell to the Admiralty in quantity.
+			N: (i)Ritter speaks through gritted teeth.(/i)
+			K: Are you accusing me of murder, Detective?
+			Y: That remains to be seen. [END]
 		[Ask something else]
 	[Rook's Body]
-		K: A grave tragedy. To lose my husband and a dear family friend all in one evening. Detective, I implore you, find this killer. I fear I may be next.
+		K: Thank you for your concern, Detective, but I am unharmed. If the killer comes for me next, I am prepared to defend myself.
 		[Pressure]
-			Y: With your husband and his business partner now dead, I understand control of Mr. Royaume's company falls to you...
-			K: Your implications are frankly insulting, Detective! I have entertained your tedious questions long enough! Go and earn your reputation instead of pestering your betters. Leave my presence at once! [END]
+			Y: And if that killer is you, Sergeant-Major?
+			N: (i)There is a long pause. Ritter's face is calm.(/i)
+			K: Then I suppose you'd best lock me away, Detective. After you find some proof, that is.[END]
 		[Ask something else]
 
 [Ask about another suspect.]
-	[Rook]
-		K: de la Rocque? My husband's solicitor and business partner. From how I understand it, Henry handled the large-scale direction and public image of the firm, while Mr. de la Rocque fussed with sums and the tiresome minutiae. 
-		K: They've been colleagues for years. Often times Mr. de la Rocque would see more of Henry than I would. These past weeks have certainly been one of those times, what with this government contract and all.
+	[Queen]
+		K: The Lady Eleanora? I've only just met her. She seems the picture of decorum.
 		[Pressure]
-			Y: Could that have caused some tension between them?
-			K: I suppose. de la Rocque always looks tense, especially around Henry. And - speaking hypothetically, of course - I imagine de la Rocque might be somewhat resentful of the attention Henry's receiving for this government work. The papers don't mention him at all. But as motive for murder? Surely not!
+			Y: Do you think she's capable of murder?
+			K: She clearly did not love him. And I imagine she stands to inherit a fortune. Many more men have died for worse reasons.
 		[Ask something else]
-	[Knight]
-		K: Colonel Ritter? Such a gentleman! Somewhat taciturn, but better that than boorish.
+	[Rook]
+		K: de la Rocque, the solicitor? A diligent man. What about him?
 		[Pressure]
-			Y: Could he possibly have had anything against your husband?
-			K: As far as I know, they'd never met before dinner. Why are you asking me?
+			Y: In your estimation, could he be responsible for the murder?
+			N: (i)Ritter's brow furrows.(/i)
+			K: I suppose. He's worked long in Royaume's shadow without a trace of ambition. But perhaps branching out into arms dealing has soured his morals some.
 		[Ask something else]
 	[Bishop]
-		K: Rector Esgob, the social reformer? A pitiable man. Why these organizations of (i)tradespeople(/i) have seen fit to fund his speaking tour of Her Infallible Majesty's dominions is beyond me. You should have heard his mawkish anecdotes about "the plights of the working classes" at dinner. An unseemly topic for a polite occasion. 
-		K: Normally, I'm (i)wearied(/i) when Henry starts a row at dinner, but in this case, it was warranted.
+		K: Rector Esgob, the social reformer? A principled man. Willing to defend those principles, if suppertime's heated debate was any indication.
 		[Pressure]
-			Y: So Esgob and your husband argued?
-			K: Yes. Esgob apparently took issue with Henry's charitable efforts to offer factory work to impoverished children. Better they learn how to rivet an airship than how to pick a pocket, I say.
+			Y: Would he kill to defend those principles?
+			K: I doubt it. The man's many things, but he's no hypocrite. That said, he did have a lot to drink. If he'd had a few more, there's no predicting what he'd do. 
 		[Ask something else]
 	[Pawn]
-		K: Who's Polly Newport? Oh, the steward? A disgrace. I recommended Henry have her let go after she refused - refused! - to fetch my hatbox from the hold. I'm not interested if it's "lashed up tight" or whatever colourful idiom she used - you're in service, so you serve.
+		K: The steward? She seems dutiful enough. She insisted on attending to her duties even in the face of the Royaumes' demands for personal attention.
 		[Pressure]
-			Y: Do you think she could have any connection to the murder?
-			K: Very possibly. She had quite the superior tone. Thoughts far above her station.
+			Y: Could that have driven her to murder?
+			K: Doubtful, in my opinion. She's rank-and-file. She's accustomed to those in charge not knowing what they're doing and giving her orders anyway.
 		[Ask something else]
