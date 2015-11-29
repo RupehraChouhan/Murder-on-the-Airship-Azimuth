@@ -26,6 +26,7 @@ init -999 python: # Game class must be given first priority to load
         BATHS_TIME_OF_DEATH = "Time of Death"
         GALLEY_PIPE = "Bloody Pipe"
         GALLEY_BOOK = "Political Tracts"
+        CABINS_EMPTY = "Hiding Places"
         
 
         # You as a speaker
