@@ -84,12 +84,16 @@
 		[Ask something else]
 	[Knight]
 		R: I asked Sergeant-Major Ritter to attend personally. He wrote to my office when he heard rumour of our dealings with the government. We are in the final stages of drafting this contract for Her Infallible Majesty's Admiralty, and I thought the advice of a decorated military man in dealing with those officers could prove useful, so I invited him along.
+		R: Actually, if it's not too much trouble, could you permit him to join me here? We didn't finish our review of the contracts before dinner, and I'd quite like to reach the end before we land.
+		Y: Everyone is under suspicion, Mr. de la Rocque. Nobody leaves their cabins.
+		N: (i)The gravity of the situation kills the momentary light in de la Rocque's eyes. He clears his throat and looks down at his shoes.(/i)
+		R: Quite right, quite right. Yes, of course.
 		[Pressure]
 			Y: Could he possibly have had anything against Mr. Royaume?
 			R: Before this voyage, they'd never met, as far as I know. I handled all correspondence with him personally. Henry... didn't take much of an interest in the day-to-day. 
 		[Ask something else]
 	[Bishop]
-		R: This is confidential, yes? I had a dim view of Rector Nathaniel Esgob's reputation. His calls for compassionate reform, so-called, have led to pickets and stoppages at some of our factories. But we have to maintain the appearance that we entertain his outlandish schemes to coddle our workers. Otherwise, the Singerists get involved, and instead of pickets and stoppages, it's sabotage and firebombings. Madness.
+		R: This is confidential, yes? I have a dim view of Rector Nathaniel Esgob's reputation. His calls for compassionate reform, so-called, have led to pickets and stoppages at some of our factories. But we have to maintain the appearance that we entertain his outlandish schemes to coddle our workers. Otherwise, the Singerists get involved, and instead of pickets and stoppages, it's sabotage and firebombings. Madness.
 		R: Anyway, a dozen or more tradesmen's federations put up the money to fund him on a speaking tour of the industrial towns down south, and we simply (i)had(/i) to agree. Naturally, though, it wasn't long before he started spouting his noxious opinions, and Henry had to set him straight.
 		[Pressure]
 			Y: So Esgob and Mr. Royaume argued?
