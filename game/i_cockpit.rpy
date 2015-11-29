@@ -10,21 +10,19 @@ label i_cockpit:
         room = Game.rooms[Game.ROOM_COCKPIT]
         Game.narrateADV("Here we are in the [room.name]!")
         Game.narrateADV("Meet our captain Elizabeth. She is a an expert and has been working for the king for a long time. We trust her for flying us safely to Endsville.")
-        Game.inputADV("What do you want to do?")
+        Game.narrateADV("What do you want to do?")
         Game.jump(room.label + "_in")
         
 label i_cockpit_in:        
     python:
-        # assumption: if all functions of clues are inputADV, then we can loop through this
+        # assumption: if all functions of clues are narrateADV, then we can loop through this
+        Game.inputADV( Game.prevNarrate )
         Game.checkQuit()
         
-        if Game.input == "":
-            Game.inputADV( Game.prevPrompt )
-        else:
+        if Game.input != "":
             try:
                 room.do(Game.input)
             except:
                 Game.narrateADV("I don't know what \"[Game.input]\" means.")
-                Game.inputADV( Game.prevPrompt )
         
         Game.jump(room.label + "_in")
