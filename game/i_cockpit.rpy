@@ -8,7 +8,9 @@ label i_cockpit:
 
     python:
         room = Game.rooms[Game.ROOM_COCKPIT]
-        Game.inputADV("Here we are in the [room.name]! What do you want to do?")
+        Game.narrateADV("Here we are in the [room.name]!")
+        Game.narrateADV("Meet our captain Elizabeth. She is a an expert and has been working for the king for a long time. We trust her for flying us safely to Endsville.")
+        Game.inputADV("What do you want to do?")
         Game.jump(room.label + "_in")
         
 label i_cockpit_in:        
