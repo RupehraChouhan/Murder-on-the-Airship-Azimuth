@@ -1,0 +1,106 @@
+[Tell me about yourself.]
+	P: Name's Polly, Detective. Polly Newport. I'm the ships steward - have been for eight months.
+[What is your connection to the victim?]
+	P: Mr. Royaume owns this ship. Owns a whole fleet of them. He flies on them plenty. For free of course. So I've seen him 
+	[Pressure]
+		Y: No children?
+		P: It's no secret my husband and I weren't close. And, yes, before you ask, I do stand to inherit a large sum of money, which, yes, will revitalize the long-flagging van Koenigen family fortune. I still didn't kill him.
+	[Ask something else.]
+[What did you see last night?]
+	P: After Henry and Rector Nathaniel had that wearisome row at dinner, I repaired to the bar for a glass of the only barely-passable brandy this undignified air-carriage has to offer. 
+	P: The steward was nowhere bo be found; I had to serve myself, can you believe that? At least until Rector Esgob showed up moments later. He was more than happy to top me up in between each three or four glasses he downed himself.
+	P: His company quickly became tiring. I withdrew to the galley of all places at around half-past-eight so I might enjoy some solitude. At about nine, I heard someone approaching - likely the staff, finally getting back to work - so I relocated to the passenger lounge for about half an hour. I intended to enjoy a bite of torte in the dining room before retiring, but I was dragged into yet another conversation with Esgob there. 
+	P: I only managed to politely excuse myself by 9:30 and encountered Sergeant-Major Ritter near the cockpit. Now there's a man who knows how to not aggravate everyone near him. The world needs more like him. We were taking in the view in silence when that ghastly shriek rang out. 
+	[Pressure]
+		Y: Are you sure that's all you witnessed?
+		P: Detective, why would I conceal anything? The blow to my reputation from a drawn-out and scandalous investigation would be personally devastating. It's in my interest that you resolve this... unpleasantness... quickly and discreetly.
+	[Ask something else]
+[Ask about a discovery.]
+	[Wound]
+		P: Detective, please. Spare a grieving widow the gruesome details. 
+		N: {i}While her words are remorseful, her flat expression and wry tone suggest she's has not been made too distraught by recent events.{/i}
+		[Pressure]
+			N: {i}Her demeanour becomes even icier than before.{/i}
+			P: Detective, while it is no secret that my husband and I were very much not in love, if all it took was one social dinner turned awkward by his bluster for me to decide to end his life, he would not have survived our first month of marriage. Now cease this insulting line of inquiry, and leave me be. [END]
+		[Ask something else.]
+	[Time of Death]
+		P: Between 8:30 and 9? I recall the clock in the galley chiming the quarter hour. Only place I could find some solitude on this miniscule vessel.
+		[Pressure]
+			Y: You were alone that whole time?
+			P: Yes. I'd had quite enough of these fatuous, up-jumped {i}nouveaux riches{/i} that my husband has seen fit to provide with the gift of flight, and below stairs was the only place I could be assured of not encountering them.
+		[Ask something else]
+	[Weapon]
+		P: Is that all you wished to communicate? That my husband's skull was bashed in with a length of pipe? What possible further insight could I offer you?
+		[Pressure]
+			Y: If I could just - 
+			P: Detective, if you are being deliberately grotesque to provoke a reaction in me, I must say you have succeeded brilliantly. Good day. [END]
+		[Ask something else]
+
+	[Hiding Places]
+		P: You've already been indecorous enough to sift through my belongings. I travel aboard these wretched contraptions of my - late - husband's as little as possible. I wouldn't have the faintest clue where to conceal a weapon, and I'm not sure I appreciate the insinuation.
+		[Pressure]
+			Y: No insinuation, I just wondered if you had noticed any out-of-the-way corners during your voyage.
+			P: Isn't ferreting out hidden corners {i}your{/i} chosen vocation? Perhaps ask someone in service; I'm of no use to you.
+		[Ask something else]
+	[Bishop's Spectacles]
+		P: Esgob's spectacles. Their inexpensive workmanship and lingering aroma of self-righteousness are unmistakeable.
+		[Pressure]
+			Y: When you saw him, was he wearing them?
+			P: Now that you mention it, no. I recall him squinting to read the labels in the bar after dinner. He was wearing them when I saw him later in the dining room, though.
+		[Ask something else]
+
+	[Rook's Contracts]
+		P: I'm afraid I stayed well out of my husband's business, Detective. An aristocrat doesn't stoop to {i}commerce{/i}.
+		[Pressure]
+			Y: Would it surprise you to learn that Mr. de la Roque actually prepared most of these?
+			N: {i}Lady Eleanora pauses for a moment.{/i}
+			P: No. Mr. de la Roque always struck me as more capable and less frivolous than my husband. Henry was very talented at taking credit for others' actions. 
+		[Ask something else]
+	[Pawn's Political Tracts]
+		P: That repulsive drivel that plays so well with the underclasses actually capable of reading? I don't see what that has to do with me. Besides, I'm personally thankful that Mr. Singer has drawn the ire of the masses toward the capitalists and away from the aristocracy. 
+		[Pressure]
+			Y: It might have something to do with your husband's death. Would any of your fellow passengers be at all receptive to this kind of ideology?
+			N: {i}Lady Eleanora considers your question for a moment.{/i}
+			P: Well, Esgob is a crass populist at heart, but I doubt he's this radical. Ritter's misadventures in service to the Crown have not dulled his patriotism at all. And de la Rocque is the precise kind of industrialist this screed incites violence against. It is crafted to appeal with the lowest among us, Detective. 
+		[Ask something else]
+	[Knight's Service Record]
+		P: Thanks to an aristocratic education, if there's one subject I'd like to peruse less than geneaology, it's records of military accomplishments.
+		[Pressure]
+			Y: Did you know that Sergeant-Major Ritter's decorations arise from surviving a bombing facilitated by one of your husband's zeppelins?
+			N: {i}Lady Eleanora is silent for a moment.{/i}
+			P: I did not. Perhaps you should speak to him about this.
+		[Ask something else]
+	[Rook's Body]
+		P: A grave tragedy. To lose my husband and a dear family friend all in one evening. Detective, I implore you, find this killer. I fear I may be next.
+		[Pressure]
+			Y: With your husband and his business partner now dead, I understand control of Mr. Royaume's company falls to you...
+			P: Your implications are frankly insulting, Detective! I have entertained your tedious questions long enough! Go and earn your reputation instead of pestering your betters. Leave my presence at once! [END]
+		[Ask something else]
+
+[Ask about another suspect.]
+	[Rook]
+		P: de la Rocque? My husband's solicitor and business partner. From how I understand it, Henry handled the large-scale direction and public image of the firm, while Mr. de la Rocque fussed with sums and the tiresome minutiae. 
+		P: They've been colleagues for years. Often times Mr. de la Rocque would see more of Henry than I would. These past weeks have certainly been one of those times, what with this government contract and all.
+		[Pressure]
+			Y: Could that have caused some tension between them?
+			P: I suppose. de la Rocque always looks tense, especially around Henry. And - speaking hypothetically, of course - I imagine de la Rocque might be somewhat resentful of the attention Henry's receiving for this government work. The papers don't mention him at all. But as motive for murder? Surely not!
+		[Ask something else]
+	[Knight]
+		P: Ritter, the Sergeant-Major? Such a gentleman! Somewhat taciturn, but better that than boorish.
+		[Pressure]
+			Y: Could he possibly have had anything against your husband?
+			P: As far as I know, they'd never met before dinner. Why are you asking me?
+		[Ask something else]
+	[Bishop]
+		P: Rector Esgob, the social reformer? A pitiable man. Why these organizations of {i}tradespeople{/i} have seen fit to fund his speaking tour of Her Infallible Majesty's dominions is beyond me. You should have heard his mawkish anecdotes about "the plights of the working classes" at dinner. An unseemly topic for a polite occasion. 
+		P: Normally, I'm {i}wearied{/i} when Henry starts a row at dinner, but in this case, it was warranted.
+		[Pressure]
+			Y: So Esgob and your husband argued?
+			P: Yes. Esgob apparently took issue with Henry's charitable efforts to offer factory work to impoverished children. Better they learn how to rivet an airship than how to pick a pocket, I say.
+		[Ask something else]
+	[Pawn]
+		P: Who's Polly Newport? Oh, the steward? A disgrace. I recommended Henry have her let go after she refused - refused! - to fetch my hatbox from the hold. I'm not interested if it's "lashed up tight" or whatever colourful idiom she used - you're in service, so you serve.
+		[Pressure]
+			Y: Do you think she could have any connection to the murder?
+			P: Very possibly. She had quite the superior tone. Thoughts far above her station.
+		[Ask something else]
