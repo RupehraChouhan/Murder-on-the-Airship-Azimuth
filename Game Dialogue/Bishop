@@ -1,11 +1,13 @@
 [Tell me about yourself.]
 	N: (i)Esgob steadies himself. His face is flushed and he reeks of liquor. Despite this, his eyes are lucid and frightened. Perhaps the shock has sobered him up.(/i)
 	B: Rector Nathaniel Esgob, of the Compassionate Reform Crusade. 
+	Y: And what is that?
+	B: It's a social movement. We're seeking, well, um, compassionate reform. Particularly in our nation's industrial sites. Seeking to ban child labour, encouraging temperance, that kind of thing.
 [What is your connection to the victim?]
-	B: We hadn't met in person
+	B: We hadn't met in person before.
 	[Pressure]
 		Y: That was the extent of your connection?
-		B: Detective, I am - was - an enlisted man. I don't move in these circles. My whole life and career is on record. Check my papers if you don't believe me. They're in my red trunk in the cargo hold. I have nothing to hide.
+		B: 
 	[Ask something else.]
 [What did you see last night?]
 	B: After dinner, I - uh, I retired to my rooms for a spell. Then I went back to the dining room. I, um, had forgot my reading glasses. That was about 8:30. Then I must have got turned around, I ended up in the bar at 9. The steward was tidying up when I arrived. She invited me for coffee and cigars in the dining room at 9:30, which I had just sat down to enjoy when I heard her scream! Mr. de la Rocque and I went running, and we found her staring in shock at that poor man... 
