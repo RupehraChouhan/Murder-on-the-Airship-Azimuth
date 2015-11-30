@@ -1,22 +1,34 @@
 [Tell me about yourself.]
 	C: I'm the skipper of the (i)Azimuth(/i). Sixteen years before the gasbag. 
 [What is your connection to the victim?]
-	C: He built this ship and owns the line, so he does pay my wages. That said, since I welcomed him and his party on board, we haven't spoken. I and my crew have been busy non-stop keeping us aloft. Except for my steward, Miss Newport - she's been away from her post plenty.
+	C: He built this ship and owns the line, so he does pay my wages. That said, since I welcomed him and his party on board, we haven't spoken. I and my crew have been busy non-stop keeping us aloft. Except for my steward, Miss Newport - she's been away from her post a fair bit lately.
 [What did you see last night?]
-	C: There was a storm 
+	C: We flew through a stormcloud, so I didn't leave the wheel from half-past-seven until almost nine. It's all there in my logbook, and my crew can attest to that. If anyone came through the observation deck during that time, I wouldn't have noticed. After it blew over, I had a word with Mr. de la Rocque. Routine scheduling and maintenance discussion. I glanced up after 9:30 and saw Lady Eleanora and Sergeant-Major Ritter taking in the view.
 [Ask about a discovery.]
-	Wound
-		I run a tight ship. Nothing big and heavy should have been accessible to the passengers. 
-	Time of Death
-		8 o'clock? We were still in the grips of that storm. I was stuck to the wheel. If anyone came through, I wouldn't have noticed until the storm passed at 8:30. 
-	Weapon
-		Ah, blast it. The responsonomic baro-regulator. Should have known. Let's get that reattached before we lose boiler pressure. 
-	Bishop's Spectacles
-		I'm not sure what you want me to say about that.
-	Rook's Contracts
-			Looks like Royaume was
-	Pawn's Political Tracts
-	Knight's Service Record
+	[Wound]
+		C: I run a tight ship. Nothing big and heavy should have been accessible to the passengers unless they smuggled it in under their clothes. If they went out-of-bounds, they might have found something in the engine room or the cargo bay.
+	[Time of Death]
+		C: Between 8:30 and 9 we were still in the grips of that storm. I was stuck to the wheel. If anyone came through, I wouldn't have noticed until the storm passed.
+	[Weapon]
+		C: Ah, blast it. The responsonomic baro-regulator. Should have known. Let's get that reattached before we lose boiler pressure.
+	[Bishop's Spectacles]
+		C: I'm not sure what you want me to say about those.
+	[Rook's Contracts]
+		C: Looks like de la Rocque handled most of the minutiae here. Not surprised. He always takes an interest in the day-to-day when he travels with us.
+	[Pawn's Political Tracts]
+		C: Whose is this? Did anyone see you find this? If management hears we've got Singerist propaganda on board, lots of good airmen could lose their jobs.
+	[Knight's Service Record]
+		C: Well, I knew he was a big hero, but I never knew exactly for what. Now I know why he doesn't go around boasting. No one wants to boast about Rosenfeldt.
+		Y: Rosenfeldt?
+		C: The first use of skyships in war. Three boats much like this one, minus all the mahogany.
+		N: {i}Captain Winfarthing shakes her head solemnly.{/i}
+		C: They crewed them with raw recruits out of the naval college. The {i}naval{/i} college. They weren't aeronauts. They didn't have a prayer.
+		C: Got caught by some crosswinds, lost their position, ended up dropping their bombs on a regiment of Her Infallible Majesty's crack infantry. Then, when the Rurovians turned their guns on them...
+		C: They {i}became{/i} the bombs.
+		N: {i}Captain Winfarthing shudders.{/i}
+		C: Anyone surviving Rosenfeldt got sent home with medals. I doubt it's enough.
+	[Hiding Places]
+		C: I've had my men search all the usual contraband stashes. Nothing. Means there's one out there I don't know about. It {i}didn't{/i} go over the side, I can be sure of that. My instruments would have told me if we lost interior pressure. No worries there.
 		
 [Ask about the passengers.]
 	C: Given the prestige of our passengers, I've had the... pleasure of speaking with them personally.
