@@ -237,7 +237,7 @@ Y: Now, I will address each of you in turn, determine your whereabouts from your
 			B: I was rather hoping you'd keep that confidential.
 			Y: Then you said you visited the bar at 9, before returning again to the dining room for coffee and cigars at 9:30?
 			B: Yes, that's right.
-		[IF asked Q, pressured P, or asked R about whereabouts][What others said]
+		[IF asked Q or R about whereabouts, pressured P about whereabouts][What others said]
 			[IF asked about Q's whereabouts]
 				Y: Lady Eleanora, you told me you saw Rector Esgob in the {i}bar{/i} at 8:30, yes?
 				Q: Yes, though I'm not sure how many of {i}me{/i} he saw.
