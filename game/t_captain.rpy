@@ -46,7 +46,7 @@ label t_captain_loop:
         
 label t_captain_you:
     python:
-        character.speakADV("I'm the skipper of the (i)Azimuth(/i). Sixteen years before the gasbag.")
+        character.speakADV("I'm the skipper of the {i}Azimuth{/i}. Sixteen years before the gasbag.")
         Game.jump(character.label + "_loop")
 
 label t_captain_vic:
