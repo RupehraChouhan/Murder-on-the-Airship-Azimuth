@@ -2,19 +2,21 @@
 	N: (i)Esgob steadies himself. His face is flushed and he reeks of liquor. Despite this, his eyes are lucid and frightened. Perhaps the shock has sobered him up.(/i)
 	B: Rector Nathaniel Esgob, of the Compassionate Reform Crusade. 
 [What is your connection to the victim?]
-	B: I was invited by Mr. Royaume's solicitor, Mr. de la Rocque, to consult on the finer points of Royaume's contracts with the Admiralty. Mr. Royaume was surprised by my presence. It seems Mr. de la Rocque handles the business. I had never met Mr. Royaume before this voyage.
+	B: We hadn't met in person
 	[Pressure]
 		Y: That was the extent of your connection?
 		B: Detective, I am - was - an enlisted man. I don't move in these circles. My whole life and career is on record. Check my papers if you don't believe me. They're in my red trunk in the cargo hold. I have nothing to hide.
 	[Ask something else.]
 [What did you see last night?]
-	B: I left the dining table at eight o'clock precisely. I recovered a book from my luggage in the hold, then returned to my cabin, where I remained until 9:30. At that time, I visited the observation deck near the cockpit, where I encountered Lady Royaume. We observed the night sky in silence until Airman Newport discovered the body.
+	B: After dinner, I - uh, I retired to my rooms for a spell. Then I went back to the dining room. I, um, had forgot my reading glasses. That was about 8:30. Then I must have got turned around, I ended up in the bar at 9. The steward was tidying up when I arrived. She invited me for coffee and cigars in the dining room at 9:30, which I had just sat down to enjoy when I heard her scream! Mr. de la Rocque and I went running, and we found her staring in shock at that poor man... 
 	[Pressure]
-		Y: That was very succinct, thank you.
-		N: (i)Ritter nods sharply.(/i)
-		Y: Anything else?
-		B: No.
-		Y: Alright then.
+		Y: Anything you'd like to add?
+		B: I'm not sure what you mean.
+		Y: I don't think you're telling me everything.
+		N: {Esgob visibly shakes.}
+		B: You're right! I didn't go to my cabin after dinner! I stopped in the bar. It calms my nerves! I've never flown before, it's quite alarming! Please don't tell my supporters in the temperance movmement!
+		Y: Why did you lie to me, Rector?
+		B: I... Lady Eleanora was there, and I'd just argued with Mr. Royaume, and I... I thought it would appear unseemly if I admitted to drinking with another man's wife shortly before he turned up dead.
 	[Ask something else]
 [Ask about a discovery.]
 	[Wound]

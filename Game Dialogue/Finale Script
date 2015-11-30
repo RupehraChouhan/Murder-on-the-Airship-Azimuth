@@ -1,0 +1,172 @@
+Y: I have examined the evidence and spoken with the suspects, and I am prepared to reveal the identity of the killer. Captain, have your men on hand to apprehend the scoundrel.
+Y: The facts are these:
+	[IF time of death]
+		Y: From Mr. Royaume's shattered watch - the detective's best friend - we know that he was murdered between 8:30 and 9 PM. IF we can determine who was unaccounted for at that time, we narrow our list of suspects.
+	[IF Weapon] 
+		Y: The weapon - a length of pipe - was recovered from a hidden nook in the galley. IF we can determine who could have visited the galley unobserved after the murder took place, we can narrow the list of suspects further.
+	[IF Weapon location] 
+		Y:The weapon was obtained from a machine in the engine room. Since none of you was smeared with soot at dinner, we can surmise that the killer retrieved the weapon after dinner, between 8 and 8:30. We can limit our list of suspects to those who weren't accounted for at those times.
+Y: Do you accept these premises? They are perfectly logical, yes? Good.
+Y: Now, I will address each of you in turn, determine your whereabouts from your statements, the statements of your fellow passengers, and the physical evidence of your passage. Let us begin.
+[Address whom?]
+	[Queen]
+		Y: Lady Eleanora.
+		Q: Proceed, Detective. I've nothing to hide.
+		[IF asked Q's whereabouts][What you said]
+			Y: Lady Eleanora, you said you visited the bar after dinner, before moving to the galley, then lounge, then cockpit, is that correct?
+			Q: Yes, it is.
+		{IF asked K and/or pressured B about whereabouts}[What others said]
+			[IF asked about K's whereabouts]
+				Y: Sergeant-Major, you said you encountered Lady Eleanora on the observation deck just before Miss Newport discovered the body?
+				K: That's correct.
+				Y: That would be around 9:30, yes?
+				K: Correct.
+			[IF pressured B about whereabouts]
+				Y: Rector Esgob, you joined Lady Eleanora for a drink after dinner.
+				N: {i}Esgob looks ashamed, but mumbles assent.{/i}
+				B: That's right.
+				Y: From the conclusion of dinner at eight o'clock for about half an hour, yes?
+				B: That's correct.
+		[Physical evidence]
+			[Rook's body]
+				Y: And then there is the death of poor Mr. de la Rocque. Whoever committed this grave deed - who, for now, I will assume is the same person who killed Mr. Royaume - gained entry to Mr. de la Rocque's locked cabin without creating a fuss before overpowering him. This suggests the killer was someone Mr. de la Rocque trusted. That certainly includes Lady Eleanora.
+				Q: Detective, I must protest -
+				Y: I have not made any accusations as yet, Madame. I'm simply laying out the facts. He did trust you, yes?
+				Q: I suppose he did.
+				Y: Just so.
+			[Back]
+		[Done]
+			[Eliminate Lady Eleanora]
+			[Keep Lady Eleanora under suspicion]
+			[Accuse Lady Eleanora]
+				Y: For these reasons, I have no choice but to accuse you, Lady Eleanora Francesca van Koenigen Royaume for the murder of your husband, Henry Augustus Algernon Royaume. 
+				Q: What? That's outrageous! What possible reason could I have for killing him?
+				[Money]
+					Y: The death of your husband enriches you greatly, Madame. It restores the fortunes of your fading aristocratic family - something which you place a great deal of value in. Henceforth, the van Koenigens will find themselves with wealth to match their station. That is, until this scandal makes the newspapers.
+					[IF Rook is dead] Y: But that wasn't enough for you. You had to murder poor Mr. de la Rocque as well, so not only would your husband's fortune fall to you, his business empire would as well.
+					Y: Captain, take her to the brig!
+					Q: No, you can't! It wasn't me! All that's true, yes, but I didn't kill him! I'm being set up! You have to believe me!
+					[Wrong arrest ending]
+				[A lover]
+					Y: You have a secret lover, Madame. One who you favour far more than the husband fate had saddled you with. With Mr. Royaume out of the way, you can marry your true beloved. His name I do not know, but I know he is waiting for you in Endsville! Instead, the Metropolitan Police will be your rendez-vous, Madame. 
+					[IF Rook is dead] Y: Doubtless, poor Mr. de la Rocque caught wind of the affair. He was more attentive to details than Mr. Royaume, in matters of the heart as well as matters of business. You feared he would blackmail you, and dispatched him as well.
+					Y: Captain! Take her to the brig!
+					Q: That's absurd! What evidence do you have that such a man exists?
+					Y: A detective simply knows, Madame.
+					C: I'm inclined to side with the Baroness, Detective. Without proof, I'm afraid I must confine all of you to your berths and let the Metropolitan Police sort this out.
+					N: {i}Captain Winfarthing looks you straight in the eyes.{/i}
+					C: I apologize for trusting this so-called detective.
+					[No arrest ending]
+				[Resentment]
+					Y: You were overcome with frustration at your boorish bourgeois husband. His indecorous behaviour at dinner was the last straw. You killed him, fuelled by aristocratic ardour. Well, I hope your quality table manners serve you well in prison! 
+					[IF Rook is dead] Y: Poor Mr. de la Rocque was the only one who could attest to your long, fraught marriage, so you killed him too.
+					Y: Captain! Take her to the brig!
+					Q: No, you can't! It wasn't me! All that's true, yes, but I didn't kill him! I'm being set up! You have to believe me!
+					[Wrong arrest ending]
+	[IF Rook is alive][Rook]
+		Y: Mr. de la Rocque.
+		R: Yes, what?
+		[IF asked R's whereabouts][What you said]
+			Y: You claim you visited the cockpit following dinner?
+			R: Yes, but Captain Winfarthing was occupied navigating the storm.
+			Y: So you returned to the passenger lounge to work on your contracts.
+			R: Yes, that's right. That would have been 8:30.
+			Y: Then when the storm blew over at 9, you returned to the cockpit, spoke with the Captain, then returned to the dining room at 9:30?
+			R: That's correct.
+			Y: Thank you.
+		[What others said]
+			[IF asked what C saw]
+				Y: Captain, you said you saw Mr. de la Rocque at 9:00 last night?
+				C: Yes, we had a brief meeting.
+				Y: You didn't see him before that?
+				C: No. My eyes were fixed to the instruments until we passed through that storm.
+			[IF asked B about whereabouts]
+				Y: Rector Esgob, you joined Mr. de la Rocque for coffee and cigars in the dining room at 9:30, yes?
+				B: That's right.
+		[Physical evidence]
+			[IF found contracts][Contracts]
+				Y: I found the draft copy of Royaume & Sons contract with the Admiralty in the passenger lounge. I have gathered that you, not Mr. Royaume, were principly responsible for the drafting of these contracts, so they were in your possession, not his. Since dinner was served immediately upon embarkment, this does place you in the lounge at some point after dinner.
+				R: I- I suppose so, yes.
+				Y: That was not a question.
+			[Back]
+			[Done]
+				[Eliminate Mr. de la Rocque]
+				[Keep Mr. de la Rocque under suspicion]
+				[Accuse Mr. de la Rocque]
+					Y: For these reasons, I have no choice but to accuse you, Mr. Charles Westinghouse de la Rocque for the murder of your client and business partner, Henry Augustus Algernon Royaume. 
+				R: What? That's outrageous! What possible reason could I have for killing him?
+				[Money]
+					Y: The death of your business parter enriches you greatly, sir. You were already the brains behind Royaume & Sons, and without Royaume's impulsiveness causing you trouble, you figured your shrewd mind could further grow your firm's profits - without a partner to split them with, no less. But you didn't gamble on encountering a yet-shrewder mind, eh?
+					Y: Captain, take him to the brig!
+					Q: What? This is preposertous! It wasn't me! All that's true, yes, but I didn't kill him! I'm being set up! You have to believe me!
+					[Wrong arrest ending]
+				[Resentment]
+					Y: You were constantly living in Royaume's shadow. You did all the work, while he got all the credit. His name on the company! His name in the papers! His marriage to an aristocratic bride! All thanks to your tireless efforts! With him dead, and you on your way to the most lucrative business deal of your career, it would be {i}you{/i} who finally gets the recognition you deserve! {i}You{/i} whose name is signed just below the seal of Her Infallible Majesty's Grand Admiral!
+					Y: Well, you'll get your wish. You'll have your name in the papers. But not, I think, in the manner you desired. Captain! Take him to the brig!
+					[Wrong arrest ending]
+				[A lover]
+					Y: You were overcome with jealousy. 
+					R: What?
+					Y: Over a woman!
+					R: What?!
+					Y: {i}That{/i} woman!
+					Q: WHAT?! [#hey, make sure that Queen says this line.]
+					Y: With Royaume dead, you were free to romance his widow! Assuming you weren't already!
+					N: {i}de la Rocque and Lady Eleanora give each other sidelong glances. They stifle laughter.{/i}
+					R: Romance {i}her{/i}?
+					Q: Romance {i}him{/i}?
+					R: Captain, this is a farce. Have you any proof, Detective?
+					Y: A detective simply knows, sir.
+					R: This is outrageous! Lock this so-called \"detective\" up. [#did I do that right?]
+					Y: Captain! Take him to the brig!
+					C: I'm inclined to side with the gentleman, Detective. Without proof, I'm afraid I must confine all of you to your berths and let the Metropolitan Police sort this out.
+					N: {i}Captain Winfarthing looks you straight in the eyes.{/i}
+					C: I apologize for trusting this so-called detective.
+					[No arrest ending]
+	[Knight]
+		Y: Sergeant-Major Ritter.
+		N: {i}Ritter nods brusquely{/i}
+		K: Detective.
+		[IF asked K's whereabouts][What you said]
+			Y: Sergeant-Major, you claimed you went to the cargo hold after dinner and were back in your cabin by 8:30. You remained there until 9:30 where you visited the observation deck near the cockpit.
+			K: That is correct.
+		[IF asked Q's whereabouts][What others said]
+		[Physical evidence]
+			[Rook's body]
+			[Back]
+		[Done]
+			[Eliminate Lady Eleanora]
+			[Keep Lady Eleanora under suspicion]
+			[Accuse Lady Eleanora]
+				Y: For these reasons, I have no choice but to accuse you, Lady Eleanora Francesca van Koenigen Royaume for the murder of your husband, Henry Augustus Algernon Royaume. 
+				Q: What? That's outrageous! What possible reason could I have for killing him?
+				[Money]
+					Y: The death of your husband enriches you greatly, Madame. It restores the fortunes of your fading aristocratic family - something which you place a great deal of value in. Henceforth, the van Koenigens will find themselves with wealth to match their station. That is, until this scandal makes the newspapers.
+					[IF Rook is dead] Y: But that wasn't enough for you. You had to murder poor Mr. de la Rocque as well, so not only would your husband's fortune fall to you, his business empire would as well.
+					Y: Captain, take her to the brig!
+					Q: No, you can't! It wasn't me! All that's true, yes, but I didn't kill him! I'm being set up! You have to believe me!
+					[Wrong arrest ending]
+				[A lover]
+					Y: You have a secret lover, Madame. One who you favour far more than the husband fate had saddled you with. With Mr. Royaume out of the way, you can marry your true beloved. His name I do not know, but I know he is waiting for you in Endsville! Instead, the Metropolitan Police will be your rendez-vous, Madame. 
+					[IF Rook is dead] Y: Doubtless, poor Mr. de la Rocque caught wind of the affair. He was more attentive to details than Mr. Royaume, in matters of the heart as well as matters of business. You feared he would blackmail you, and dispatched him as well.
+					Y: Captain! Take her to the brig!
+					Q: That's absurd! What evidence do you have that such a man exists?
+					Y: A detective simply knows, Madame.
+					C: I'm inclined to side with the Baroness, Detective. Without proof, I'm afraid I must confine all of you to your berths and let the Metropolitan Police sort this out.
+					N: {i}Captain Winfarthing looks you straight in the eyes.{/i}
+					C: I apologize for trusting this so-called detective.
+					[No arrest ending]
+				[Resentment]
+					Y: You were overcome with frustration at your boorish bourgeois husband. His indecorous behaviour at dinner was the last straw. You killed him, fuelled by aristocratic ardour. Well, I hope your quality table manners serve you well in prison! 
+					[IF Rook is dead] Y: Poor Mr. de la Rocque was the only one who could attest to your long, fraught marriage, so you killed him too.
+					Y: Captain! Take her to the brig!
+					Q: No, you can't! It wasn't me! All that's true, yes, but I didn't kill him! I'm being set up! You have to believe me!
+					[Wrong arrest ending]
+	[Bishop]
+	[Pawn]
+	[Make a final accusation.]
+		[Queen] - go to [Accuse Lady Eleanora]
+		[If Rook is alive][Rook] - go to [Accuse Mr. de la Rocque]
+		[Knight] - go to [Accuse Sergeant-Major Ritter]
+		[Bishop] - go to [Accuse Rector Esgob]
+		[Pawn] - go to [Accuse Miss Newport]
