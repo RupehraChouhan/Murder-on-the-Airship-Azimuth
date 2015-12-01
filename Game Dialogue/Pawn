@@ -1,0 +1,124 @@
+[Tell me about yourself.]
+	P: Name's Polly, Detective. Polly Newport. I'm the ships steward - have been for eight months.
+[What is your connection to the victim?]
+	P: Mr. Royaume owns this ship. Owns a whole fleet of them. He flies on them plenty. For free of course.
+	Y: So you've met him before.
+	P: Yes, he's flown with us a few times.
+	[Pressure]
+		Y: Had any trouble with him?
+		P: It doesn't mean I killed him or nothing, but... 
+		P: Whenever he flew with us, he treated us, me especially, like servants! I mean, we are basically servants, but we have shipboard duties! Can't spare the time to wait on him hand and foot, but try telling him that! If he wants that kind of attention, buy his butler a ticket, or hire us a proper service crew. 
+		P: Every time he came aboard, I get dressed down by Captain Winfarthing.
+	[Ask something else.]
+[What did you see last night?]
+	P: After dinner, I tried to tidy up, but Mr. Royaume had me waiting on him. Kept demanding I bring him this and that - brandy, cigars, whatever. We serve coffee and cigars at 9:30, but he had to have it right away. I finally got away after about half an hour, had to make my report to Captain Winfarthing, but she was fighting that storm. I tried to lend a hand on the bridge until it blew over, but then I had to get back to work back in service.
+	P: A bit later, I went off to tell everyone that coffee and cigars were served. I couldn't find everyone, so I tried the baths. That's when I... found him.
+	[Pressure]
+		Y: There are some gaps in your story, Miss.
+		P: Wh- what do you mean?
+		Y: Well, for instance, where did you go when you left the cockpit?
+		P: Um, well, I had lots of work to catch up on, so I... I don't really -
+		P: The bar! They'd made a mess of the bar, had to get that squared away. Which was tough with Rector Esgob there constantly asking me to pour him another.
+	[Ask something else]
+[Ask about a discovery.]
+	[Wound]
+		P: I - I already saw... that. Dunno where the murderer could've put hands on something big and heavy. All the tools in the engine room are locked up.
+		[Pressure]
+			Y: But you have a key, no? Or could get one?
+			P: No, I'm in service, not engineering! Do you...? Are you saying I killed him?
+			P: I - I'm gonna go to prison! If I ever get out, I'll never find respectable work again! I'll have to work at the grommet foundry for eighteen hours a day just to put watery gruel on the table! Just like my kid brothers!
+			[END]
+		[Ask something else.]
+	[Time of Death]
+		P: Between 8:30 and 9? Working, playing catchup. On the bridge or in the bar, don't rightly remember.
+		[Pressure]
+			Y: You don't {i}remember{/i}?
+			P: Detective, I've been running ragged for over a full day, getting this ship in order to host the owner of the line and his honoured guests. It's all running together. Then I found a dead body. I'm... I'm not at my best right now. Would you mind coming back when I'm a little more... collected?
+			[END]
+		[Ask something else]
+	[Weapon]
+		P: A pipe out one of those contraptions keeps us flying? Maybe it was someone in engineering. Everyone has to work triple shifts when we get a dignitary flight, not just us in service. Could get to anyone.
+		[Pressure]
+			Y: Of the suspects I am considering, you have the greatest knowledge of - and access to - this vessel...
+			P: Do you...? Are you saying I killed him?
+			P: Of course it's the poor girl who gets the rap! I - I'm gonna go to prison! If I ever get out, I'll never find respectable work again! I'll have to work at the grommet foundry for eighteen hours a day just to put watery gruel on the table! Just like my kid brothers!
+			[END]
+		[Ask something else]
+
+	[Hiding Places]
+		P: You figure the weapon has to be hidden somewhere on the ship? Makes sense, I guess. I do know an out-of-the-way corner in the kitchen. Behind the ovens, there's a vent with a missing screw. Try looking in there?
+		P: Don't tell the captain I knew that.
+		[Pressure]
+			Y: You know plenty about how to keep secrets on this vessel...
+			P: Do you...? Are you saying I killed him?
+			P: I didn't have to tell you that! I helped you! I risked my job - if the captain finds out I knew where to stash contraband...
+			P: I'll never find respectable work again! I'll have to work at the grommet foundry for eighteen hours a day just to put watery gruel on the table! Just like my kid brothers!
+			[END]
+		[Ask something else]
+	[Bishop's Spectacles]
+		P: The Rector's glasses, sure.
+		[Pressure]
+			Y: When you saw him, was he wearing them?
+			P: Not when he left the table at dinner. Though I did see him wearing them, when was that...?
+		[Ask something else]
+	[Rook's Contracts]
+		P: That's all beyond me. I can read, not like most of my family, but that's a far cry from reading solicitor language.
+		[Pressure]
+			Y: Would it surprise you to learn that Mr. de la Roque actually prepared most of these?
+			P: Mr. de la Rocque was always scribbling something, so not really. What does that have to do with Mr. Royaume?
+		[Ask something else]
+	[Pawn's Political Tracts]
+		N: {i}Newport visibly starts when you show her the pamphlets.{/i}
+		P: N - Never seen those before. What are they?
+		[Pressure]
+			Y: I think you just lied to me, miss.
+			N: {i}Miss Newport looks panicked.{/i}
+			P: Please, Detective! Don't tell anyone you found those! I was just... I'm no revolutionary! I just have... friends that go to the meetings! And sometimes... I go along. Just as a thing to do with friends, you know?
+			P: If you tell the captain you found those, we'll all lose our jobs! Which sort of proves Singer's point, that the bourgeoisie don't care about the well-being of the workers, but - 
+			P: Please, Detective! I'm begging you to keep those a secret!
+		[Ask something else]
+	[Knight's Service Record]
+		P: So the war hero is actually a war herO? Good to know.
+		[Pressure]
+			Y: He was at the Battle of Rosenfeldt.
+			N: {i}Newport's eyes widen.{/i}
+			P: I heard about that. So many dead. Miss Osgoode down the road from my parents lost her son Danny.
+			N: {i}Newport gasps{/i}
+			P: What if that's why he did it? What if he wanted revenge on the man who built the blimps? What if he wants revenge on all blimps?
+			P: Detective, you have to lock him up, right away!
+		[Ask something else]
+	[Rook's Body]
+		N: {i}Newport gasps{/i}
+		P: Another murder? What if it's one of those slasher madmen like the one that terrorized Chapel Street last year? They never caught him!
+		[Pressure]
+			Y: I am inclined to believe these killings have sensible motives, Miss. Like, for instance, a desire to effect a change to the management of Royaume & Sons Airship Lines...
+			P: Do you...? Are you saying I killed him?
+			P: Of course it's the poor girl who gets the rap! I - I'm gonna go to prison! If I ever get out, I'll never find respectable work again! I'll have to work at the grommet foundry for eighteen hours a day just to put watery gruel on the table! Just like my kid brothers!
+			[END]
+		[Ask something else]
+
+[Ask about another suspect.]
+	[Queen]
+		P: She's as much a terror as her husband! They're rich, they've got servants at home. Why not bring them with them? Some of us have work to do, can't be running every errand that enters her head!
+		[Pressure]
+			Y: Do you think she could have any connection to the murder?
+			P: I dunno. She didn't travel with us as much as her husband, thank goodness. Seems like they weren't that close, though. Heard them fighting before. Seemed like just a typical married couple row, though.
+		[Ask something else]
+	[Rook]
+		P: Mr. de la Rocque? I saw him whenever Mr. Royaume travelled with us. They were inseperable. Always had his head in a ledger. I didn't mind. He was much less demanding than Mr. Royaume.
+		[Pressure]
+			Y: Can you think of a reason Mr. de la Rocque might have had to murder Mr. Royaume?
+			P: Royaume was a hard man to work under. I found him tough to put up with only seeing him a few days a year. I can't imagine what it was like every day of the week!
+		[Ask something else]
+	[Knight]
+		P: Never met Sergeant-Major Ritter before. At least he's polite and tidies up after himself. 
+		[Pressure]
+			Y: Could he possibly have had anything against Mr. Royaume?
+			P: Wouldn't know, me. Doesn't seem like the Sergeant-Major talks much.
+		[Ask something else]
+	[Bishop]
+		P: I've heard some of Rector Esgob's speeches on the televox. Seems like he knows how harsh it is, what the workers go through. Doesn't seem like he's had much success actually changing things, though. Asking nicely doesn't work too well, who'd have thought?
+		[Pressure]
+			Y: Can you think why a man like that would have reason to commit murder?
+			P: Well, him and Mr. Royaume did get in a terrible row at dinner. Difference of politics, I'd expect. I was working, mostly hoping they didn't break any of the good dishes. I didn't really listen in, sorry.
+		[Ask something else]

@@ -33,7 +33,7 @@ init -999 python: # Game class must be given first priority to load
         GALLEY_PIPE = "Bloody Pipe"
         GALLEY_BOOK = "Political Tracts"
         CABINS_EMPTY = "Hiding Places"
-        
+        ROOK_BODY = "Rook's Body"
 
         # You as a speaker
         YOU = None

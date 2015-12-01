@@ -29,6 +29,9 @@
 		C: Anyone surviving Rosenfeldt got sent home with medals. I doubt it's enough.
 	[Hiding Places]
 		C: I've had my men search all the usual contraband stashes. Nothing. Means there's one out there I don't know about. It {i}didn't{/i} go over the side, I can be sure of that. My instruments would have told me if we lost interior pressure. No worries there.
+	[Rook's body]
+		C: A damn shame. I've asked my men. No one heard anything. I don't have enough people to watch these people and fly the ship! Blast it!
+		C: ... I'm sorry, Detective. I know you're doing your best. But please hurry. With the murderer on the loose, we're all in danger.
 		
 [Ask about the passengers.]
 	C: Given the prestige of our passengers, I've had the... pleasure of speaking with them personally.

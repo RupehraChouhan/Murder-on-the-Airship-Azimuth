@@ -22,7 +22,7 @@
 			Y: You seem to know a lot about this.
 			K: I was a soldier, Detective. I've seen killing. War's not clean, like they make it look in the paintings.
 			N: {i}Ritter gives you a long, level stare.{/i}
-			R: I didn't kill him, Detective. I didn't even know him.
+			K: I didn't kill him, Detective. I didn't even know him.
 		[Ask something else.]
 	[Time of Death]
 		K: Between 8:30 and 9 I was in my cabin. Alone.
