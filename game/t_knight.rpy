@@ -1,3 +1,6 @@
+init 0 python: # knight conversation related state
+    Game.state[Game.CONV_KNIGHT_WHAT] = False
+
 label t_knight:
     stop music fadeout 2
     python:
@@ -63,6 +66,8 @@ label t_knight_vic:
         
 label t_knight_saw:
     python:
+        Game.state[Game.CONV_KNIGHT_WHAT] = True
+    
         character.speakADV("I left the dining table at eight o'clock precisely. I recovered a book from my luggage in the hold, then returned to my cabin, where I remained until 9:30.")
         character.speakADV("At that time, I visited the observation deck near the cockpit, where I encountered Lady Royaume. We observed the night sky in silence until Airman Newport discovered the body.")
         choices = [ "Pressure", "Ask something else" ]

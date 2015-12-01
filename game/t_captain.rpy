@@ -1,5 +1,6 @@
-﻿# Ren'Py automatically loads all script files ending with .rpy. To use this
-# file, define a label and jump to it from another file.
+﻿init 0 python: # captain conversation related state
+    Game.state[Game.CONV_CAPTAIN_WHAT] = False
+
 label t_captain:
     stop music fadeout 2
     python:
@@ -56,6 +57,7 @@ label t_captain_vic:
 
 label t_captain_saw:
     python:
+        Game.state[Game.CONV_CAPTAIN_WHAT] = True
         character.speakADV("We flew through a stormcloud, so I didn't leave the wheel from half-past-seven until almost nine. It's all there in my logbook, and my crew can attest to that. If anyone came through the observation deck during that time, I wouldn't have noticed. After it blew over, I had a word with Mr. de la Rocque. Routine scheduling and maintenance discussion. I glanced up after 9:30 and saw Lady Eleanora and Sergeant-Major Ritter taking in the view.")
         Game.jump(character.label + "_loop")
 

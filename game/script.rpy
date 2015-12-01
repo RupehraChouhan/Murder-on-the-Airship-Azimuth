@@ -120,4 +120,4 @@ label look_notepad:
 
 label solve_case:
     python:
-        Game.jump("start")
+        Game.jump("finale")
