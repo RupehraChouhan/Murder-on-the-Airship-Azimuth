@@ -10,26 +10,27 @@ init 0 python: # set up clues and commands in room
 label i_dining:
     scene bg diningImage
     with fade
-    stop music fadeout 2
 
     python:
+        # The room you are in
         room = Game.rooms[Game.ROOM_DINING]
-        Game.narrateADV("Here we are in the [room.name] where everyone had supper at 7pm. The king was last seen alive here.")
-        Game.narrateADV("Dining is a massive room with big windows on the side providing a very beautiful view of the outside.")
-        Game.narrateADV("The dining tables are covered with graceful white cloth where the passengers are served in one of the most expensive crockery. The floor is installed with soft and beautifully textured carpet. ")
-        Game.narrateADV("What do you want to do?")
+        
+        # Opening description of the room
+        Game.narrateADV("The dining room, where everyone had supper at 7pm. The king was last seen alive here.")
+        Game.narrateADV("It is a massive room with big windows on the side providing a very beautiful view of the outside.")
+        Game.narrateADV("The dining tables are covered with graceful white cloth where the passengers are served in one of the most expensive crockery. The floor is installed with soft and beautifully textured carpet.")
         Game.jump(room.label + "_in")
         
 label i_dining_in:        
     python:
         # assumption: if all functions of clues are narrateADV, then we can loop through this
+        Game.prevNarrate = "What do you want to do?"
         Game.inputADV( Game.prevNarrate )
-        Game.checkQuit()
+        Game.checkQuit(room.label + "_in")
         
-        if Game.input != "":
-            try:
-                room.do(Game.input)
-            except:
-                Game.narrateADV("I don't know what \"[Game.input]\" means.")
+        try:
+            room.do(Game.input)
+        except:
+            Game.narrateADV("I don't know what \"[Game.input]\" means.")
         
         Game.jump(room.label + "_in")

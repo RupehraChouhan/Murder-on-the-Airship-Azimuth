@@ -83,29 +83,27 @@ init 0 python: # set up clues and commands in room
 
 label i_engine:
     scene bg engineImage
-    with fade 
-    stop music fadeout 2
+    with fade
     
     python:
+        # The room you are in
         room = Game.rooms[Game.ROOM_ENGINE]
-
-        Game.narrateADV("Here we are in the [room.name]!")
+        
+        # Opening description of the room
         Game.narrateADV("The engine room, whoa it is hot and loud in here, and the smell of exhaust and grease is potent. . .")
         Game.narrateADV("These engines are huge, and they look brand new, no penny was wasted down here.")
-        Game.narrateADV("What do you want to do?")
-
         Game.jump(room.label + "_in")
         
 label i_engine_in:        
     python:
         # assumption: if all functions of clues are narrateADV, then we can loop through this
+        Game.prevNarrate = "What do you want to do?"
         Game.inputADV( Game.prevNarrate )
-        Game.checkQuit()
+        Game.checkQuit(room.label + "_in")
         
-        if Game.input != "":
-            try:
-                room.do(Game.input)
-            except:
-                Game.narrateADV("I don't know what \"[Game.input]\" means.")
+        try:
+            room.do(Game.input)
+        except:
+            Game.narrateADV("I don't know what \"[Game.input]\" means.")
         
         Game.jump(room.label + "_in")

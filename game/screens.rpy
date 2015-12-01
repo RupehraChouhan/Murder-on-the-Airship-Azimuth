@@ -209,8 +209,7 @@ screen main_menu():
         has vbox
 
         textbutton _("Start Game") action Start()
-        textbutton _("Load Game") action ShowMenu("load")
-        textbutton _("Preferences") action ShowMenu("preferences")
+        textbutton _("Options") action ShowMenu("preferences")
         textbutton _("Help") action Help()
         textbutton _("Quit") action Quit(confirm=False)
 
@@ -243,11 +242,9 @@ screen navigation():
         has vbox
 
         textbutton _("Return") action Return()
-        textbutton _("Preferences") action ShowMenu("preferences")
-        textbutton _("Save Game") action ShowMenu("save")
-        textbutton _("Load Game") action ShowMenu("load")
-        textbutton _("Main Menu") action MainMenu()
+        textbutton _("Options") action ShowMenu("preferences")
         textbutton _("Help") action Help()
+        textbutton _("Quit to Main Menu") action MainMenu()
         textbutton _("Quit") action Quit()
 
 init -2:
@@ -274,57 +271,58 @@ screen file_picker():
         style "file_picker_frame"
 
         has vbox
+        text "GAME PAUSED"
 
         # The buttons at the top allow the user to pick a
         # page of files.
-        hbox:
-            style_group "file_picker_nav"
+#        hbox:
+#           style_group "file_picker_nav"
 
-            textbutton _("Previous"):
-                action FilePagePrevious()
+#            textbutton _("Previous"):
+#                action FilePagePrevious()
 
-            textbutton _("Auto"):
-                action FilePage("auto")
+#            textbutton _("Auto"):
+#                action FilePage("auto")
 
-            textbutton _("Quick"):
-                action FilePage("quick")
+#            textbutton _("Quick"):
+#                action FilePage("quick")
 
-            for i in range(1, 9):
-                textbutton str(i):
-                    action FilePage(i)
+#            for i in range(1, 9):
+#                textbutton str(i):
+#                    action FilePage(i)
 
-            textbutton _("Next"):
-                action FilePageNext()
+#            textbutton _("Next"):
+#                action FilePageNext()
 
-        $ columns = 2
-        $ rows = 5
+#        $ columns = 2
+#        $ rows = 5
 
         # Display a grid of file slots.
-        grid columns rows:
-            transpose True
-            xfill True
-            style_group "file_picker"
+#        grid columns rows:
+#            transpose True
+#            xfill True
+#            style_group "file_picker"
 
             # Display ten file slots, numbered 1 - 10.
-            for i in range(1, columns * rows + 1):
+#            for i in range(1, columns * rows + 1):
 
                 # Each file slot is a button.
-                button:
-                    action FileAction(i)
-                    xfill True
+#                button:
+#                    action FileAction(i)
+#                    xfill True
 
-                    has hbox
+#                    has hbox
 
                     # Add the screenshot.
-                    add FileScreenshot(i)
+#                    add FileScreenshot(i)
 
-                    $ file_name = FileSlotName(i, columns * rows)
-                    $ file_time = FileTime(i, empty=_("Empty Slot."))
-                    $ save_name = FileSaveName(i)
+#                    $ file_name = FileSlotName(i, columns * rows)
+#                    $ file_time = FileTime(i, empty=_("Empty Slot."))
+#                    $ save_name = FileSaveName(i)
 
-                    text "[file_name]. [file_time!t]\n[save_name!t]"
+#                    text "[file_name]. [file_time!t]\n[save_name!t]"
 
-                    key "save_delete" action FileDelete(i)
+#                    key "save_delete" action FileDelete(i)
 
 
 screen save():
@@ -394,11 +392,11 @@ screen preferences():
                 label _("Text Speed")
                 bar value Preference("text speed")
 
-            frame:
-                style_group "pref"
-                has vbox
+#            frame:
+#                style_group "pref"
+#                has vbox
 
-                textbutton _("Joystick...") action Preference("joystick")
+#                textbutton _("Joystick...") action Preference("joystick")
 
 
         vbox:

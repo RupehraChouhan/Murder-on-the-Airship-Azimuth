@@ -1,8 +1,8 @@
 ﻿# Declare all images
 image bg detectiveImage = "DetectiveSketch1.jpg"
 image bg notepadImage = "NotepadSketch1.jpg"
-image bg whiteImage = "white.jpg"
-image bg blackImage = "#000"
+image bg whiteImage = "#ffffff"
+image bg blackImage = "#000000"
 
 image bg map = "map.jpg"
 image bg cabinImage = "PassengerCabinsSketch.jpg"
@@ -15,8 +15,12 @@ image bg cargoHoldImage = "CargoHoldSketch.jpg"
 image bg cockPitImage = "CockpitSketch.jpg"
 image bg engineImage = "EngineRoomSketch.jpg"
 
-image queen = "queen2.jpg"
-image pawn = "servant.jpg"
+image queen = "queen_clean.png"
+image bishop = "bishop_clean.png"
+image knight = "knight_clean.png"
+image rook = "rook_clean.png"
+image pawn = "pawn_clean.png"
+image captain = "captain_clean.png"
 
 # The game starts here
 label start:
@@ -27,17 +31,22 @@ label start:
     
     # background image for the main page 
     scene bg detectiveImage
-    with fade 
+    if Game.fadeStart:
+        with fade
+        $ Game.fadeStart = False
     
     # play music
-    play music Game.MUSIC_INTRO fadeout 2 fadein 2
+    if Game.musicStart:
+        play music Game.MUSIC_INTRO fadeout 2 fadein 2
+        $ Game.musicStart = False
     
     python:
             
         prompt = "What would you like to do?\n"
-        choices = ["Investigate a room", "Talk to a suspect", "Look at your notepad", "Solve the case"]
+        choices = ["Investigate a room", "Talk to a passenger", "Look at your notepad", "Solve the case"]
         
         Game.inputNVL(prompt, choices)
+        Game.checkQuit("start")
         
         try:
             option = int(Game.input) - 1
@@ -56,6 +65,7 @@ label start:
         Game.jump("start")
 
 label investigate_room:
+    $ Game.fadeStart = True
     scene bg map
    
     python:
@@ -65,8 +75,8 @@ label investigate_room:
             choices.append(room.name);
         
         Game.inputNVL(prompt, choices)
-        Game.checkQuit()
-        
+        Game.checkQuit("investigate_room")
+
         # check for integer input
         try:
             index = int(Game.input) - 1
@@ -83,8 +93,10 @@ label investigate_room:
         Game.jump("investigate_room")
 
 label talk_suspect:
+    $ Game.fadeStart = True
+    
     python:
-        prompt = "Which suspect would you like to talk to?\n"
+        prompt = "Who would you like to talk to?\n"
         choices = []
         
         for npc in Game.npcs:
@@ -92,7 +104,7 @@ label talk_suspect:
                 choices.append(npc.name)
         
         Game.inputNVL(prompt, choices)
-        Game.checkQuit()
+        Game.checkQuit("talk_suspect")
         
         try:
             index = int(Game.input) - 1
@@ -105,11 +117,11 @@ label talk_suspect:
             if n.match(Game.input) and n.label and n.alive: # If matching, must have a label and be alive
                 Game.incrementMoves() # Talking to a suspect counts as a move
                 Game.jump(n.label)
-        Game.narrateNVL("I don't know which suspect \"[Game.input]\" is.")
+        Game.narrateNVL("I don't know who \"[Game.input]\" is.")
         Game.jump("talk_suspect")
 
 label look_notepad:
-    
+    $ Game.fadeStart = True
     scene bg notepadImage
     
     python:
@@ -119,5 +131,7 @@ label look_notepad:
         Game.jump("start")
 
 label solve_case:
+    $ Game.fadeStart = True
+    
     python:
         Game.jump("start")
