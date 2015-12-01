@@ -1,0 +1,37 @@
+TO DO LIST
+
+[Endings]
+	[Wrong Arrest Ending]
+		N: {i}A satisfied smile spreads across your face as an airman escorts the accused away. The rest of the passengers look on you with awe and admiration.{/i}
+		C: Detective... what can I say. Thank you. Your reputation is well-deserved.
+		N: {i}The mood of the rest of the voyage is uneventful. Soon enough, the Azimuth docks with the aerodrome in Endsville.{/i}
+		N: {i}As promised, the Metropolitan Police are on hand. You explain the details of the case and your brilliant deductions to the inspector while Captain Winfarthing's burliest airmen transfer custody of the accused to the constables.{/i}
+		N: {i}The inspector thanks you, all the passengers and crew thank you again, and you spare a few words for the newspaper reporters that hang around the aftermath of these sorts of thing.{/i}
+		N: With the adoring public satisfied, you engage a hansom to take you and your bags to your hotel, where you manage to finally get back to sleep.{/i}
+		N: {i}A few days into your vacation (a self-guided walking tour of Endsville's historic Watchmaker's District), you read a troubling headline.{/i}
+		N: 'WAR HERO FOUND DEAD, ADMITS TO MURDERS'
+		N: {i}Apparently, Sergeant-Major Ritter, unable to clear the guilt of murder from his conscience, took his own life.{/i}
+		N: {i}What bothers you more, though, is the drop head underneath the main headline.{/i}
+		N: 'GREAT DETECTIVE GETS IT WRONG -- DOZENS OF CASES CALLED INTO QUESTION'
+
+	[Right Arrest Ending]
+		N: {i}A satisfied smile spreads across your face as an airman escorts Ritter away. The rest of the passengers look on you with awe and admiration.{/i}
+		C: Detective... what can I say. Thank you. Your reputation is well-deserved.
+		N: {i}The mood of the rest of the voyage is uneventful. Soon enough, the Azimuth docks with the aerodrome in Endsville.{/i}
+		N: {i}As promised, the Metropolitan Police are on hand. You explain the details of the case and your brilliant deductions to the inspector while Captain Winfarthing's burliest airmen transfer custody of the sergeant-major to the constables.{/i}
+		N: {i}The inspector thanks you, all the passengers and crew thank you again, and you spare a few words for the newspaper reporters that hang around the aftermath of these sorts of thing.{/i}
+		N: With the adoring public satisfied, you engage a hansom to take you and your bags to your hotel, where you finally manage get back to sleep.{/i}
+	[No Arrest Ending]
+		N: {i}The rest of the voyage passes with the passengers - yourself included - under guard, while the ship sails with a skeleton crew.{/i}
+		N: {i}Upon arriving in Endsville, all of the passengers - again, yourself included - spend a long time being questioned by inspectors of the Metropolitan Police.{/i}
+		N: {i}They are as unconvinced by your deductions as Captain Winfarthing was. {/i}
+[Events]
+	[Rook's murder]
+		[On Turn 14] N: {i}The engines go quiet for a moment - a common occurance when the winds are in your favour. In the silence, you hear a crash and thud from the passenger cabins. It sounds like a body hitting the floor!{/i}
+		[What else changes? - Lines are already in the dialogue. There's a new clue in the passenger cabins - LOOK ROOM B finds the body. LOOK BODY gives you: "The strangled corpse of Charles Westinghouse de la Rocque. It looks like the killer has struck again."
+	[Time's up]
+		[On turn 21] N: {i}Captain Winfarthing finds you.{/i}
+		C: Detective, we're approaching the Endsville aerodrome. I have assembled the passengers in the lounge - guarded by all the airmen I could spare. Are you ready to identify the killer?
+		Y: Of course, Captain! All will be revealed. Lead the way.
+		[Go to the Finale]
+[Rooms and Clues]
