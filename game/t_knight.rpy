@@ -1,8 +1,7 @@
 label t_knight:
     scene bg diningImage
     show knight
-    with fade 
-    stop music fadeout 2
+    with fade
     
     python:
         # character you are talking to

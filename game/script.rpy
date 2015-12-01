@@ -31,10 +31,14 @@ label start:
     
     # background image for the main page 
     scene bg detectiveImage
-    with fade 
+    if Game.fadeStart:
+        with fade
+        $ Game.fadeStart = False
     
     # play music
-    play music Game.MUSIC_INTRO fadeout 2 fadein 2
+    if Game.musicStart:
+        play music Game.MUSIC_INTRO fadeout 2 fadein 2
+        $ Game.musicStart = False
     
     python:
             
@@ -60,6 +64,7 @@ label start:
         Game.jump("start")
 
 label investigate_room:
+    $ Game.fadeStart = True
     scene bg map
    
     python:
@@ -87,6 +92,8 @@ label investigate_room:
         Game.jump("investigate_room")
 
 label talk_suspect:
+    $ Game.fadeStart = True
+    
     python:
         prompt = "Who would you like to talk to?\n"
         choices = []
@@ -113,7 +120,7 @@ label talk_suspect:
         Game.jump("talk_suspect")
 
 label look_notepad:
-    
+    $ Game.fadeStart = True
     scene bg notepadImage
     
     python:
@@ -123,5 +130,7 @@ label look_notepad:
         Game.jump("start")
 
 label solve_case:
+    $ Game.fadeStart = True
+    
     python:
         Game.jump("start")

@@ -5,11 +5,13 @@ init -999 python: # Game class must be given first priority to load
         prevPrompt = "" # Stores the previous prompt from input
         prevNarrate = "" # Stores the previous narration from narrate
         introDone = False
+        fadeStart = True # Whether we need to fade in the start or not
+        musicStart = True # Whether we need to start up the music again or not
+        
         __moves = 0 # Numbers of moves player has made
         __startTime = [0, 0]
         __moveTime = [0, 10]
-        notes = [] # List of states player has reached, for determining game progress and notebook entries
-        zeppelinName = "Azimuth"
+        zeppelinName = "{i}Azimuth{/i}"
         
         # Dictionary for tracking state
         # some things may not need to be shared here, just give them unique enough names
@@ -76,12 +78,12 @@ init -999 python: # Game class must be given first priority to load
 
             # NPC defined in NPC.rpy
             Game.npcs[Game.NPC_KING] = NPC("King", None, "#ffffff", [], suspect=False, alive=False) # White, dead
-            Game.npcs[Game.NPC_QUEEN] = NPC("Eleanora Francesca van Koenigen Royaume", "t_queen", "#ff0000", []) # Red
-            Game.npcs[Game.NPC_BISHOP] = NPC("Rector Nathaniel Esgob", "t_bishop", "#00ff00", []) # Green
-            Game.npcs[Game.NPC_KNIGHT] = NPC("Sergeant-Major Angus P. Ritter", "t_knight", "#0000ff", []) # Blue
-            Game.npcs[Game.NPC_ROOK] = NPC("Charles Westinghouse de la Rocque, Esq.", "t_rook", "#ffff00", []) # Yellow
-            Game.npcs[Game.NPC_PAWN] = NPC("Polly Newport", "t_pawn", "#00ffff", []) # Cyan
-            Game.npcs[Game.NPC_CAPTAIN] = NPC("Captain Elizabeth Winfarthing", "t_captain", "#ff00ff", [], suspect=False) # Magenta
+            Game.npcs[Game.NPC_QUEEN] = NPC("Eleanora Francesca van Koenigen Royaume", "t_queen", "#ff0000", ["Eleanora", "Francesca", "Koenigen", "Royaume"]) # Red
+            Game.npcs[Game.NPC_BISHOP] = NPC("Rector Nathaniel Esgob", "t_bishop", "#00ff00", ["Rector", "Nathaniel", "Esgob"]) # Green
+            Game.npcs[Game.NPC_KNIGHT] = NPC("Sergeant-Major Angus P. Ritter", "t_knight", "#0000ff", ["Sergeant-Major", "Sergeant", "Major", "Angus", "Ritter"]) # Blue
+            Game.npcs[Game.NPC_ROOK] = NPC("Charles Westinghouse de la Rocque, Esq.", "t_rook", "#ffff00", ["Charles", "Westinghouse", "Rocque"]) # Yellow
+            Game.npcs[Game.NPC_PAWN] = NPC("Polly Newport", "t_pawn", "#00ffff", ["Polly", "Newport"]) # Cyan
+            Game.npcs[Game.NPC_CAPTAIN] = NPC("Captain Elizabeth Winfarthing", "t_captain", "#ff00ff", ["Captain", "Elizabeth", "Winfarthing"], suspect=False) # Magenta
             
             # Room defined in Room.rpy
             Game.rooms[Game.ROOM_CABIN] = Room("Passenger Cabins", "i_cabin", 0, 0, ["Cabins", "Cabin"])
@@ -173,6 +175,10 @@ init -999 python: # Game class must be given first priority to load
         # Increment the number of moves, and check if anything needs to happen
         @staticmethod
         def incrementMoves():
+            # Music is stopped whenever we jump to somewhere that increments moves
+            renpy.music.stop("music", 2.0)
+            Game.musicStart = True
+            
             Game.__moves += 1
             # checks would be done here
             

@@ -1,8 +1,7 @@
 label t_rook:
     scene bg diningImage
     show rook
-    with fade 
-    stop music fadeout 2
+    with fade
     
     python:
         # character you are talking to

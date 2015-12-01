@@ -1,8 +1,7 @@
 ﻿label t_captain:
     scene bg cockPitImage
     show captain
-    with fade 
-    stop music fadeout 2
+    with fade
     
     python:
         # character you are talking to

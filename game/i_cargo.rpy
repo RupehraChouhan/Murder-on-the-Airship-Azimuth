@@ -27,18 +27,19 @@ init 0 python: # set up clues and commands in room
 label i_cargo:
     scene bg cargoHoldImage
     with fade
-    stop music fadeout 2
 
     python:
+        # The room you are in
         room = Game.rooms[Game.ROOM_CARGO]
-        Game.narrateADV("Here we are in the [room.name]!")
+        
+        # Opening description of the room
         Game.narrateADV("You will find a lot of storage here. It contains food supplies, baggages and some extra stock.")
-        Game.narrateADV("What do you want to do?")
         Game.jump(room.label + "_in")
         
 label i_cargo_in:        
     python:
         # assumption: if all functions of clues are narrateADV, then we can loop through this
+        Game.prevNarrate = "What do you want to do?"
         Game.inputADV( Game.prevNarrate )
         Game.checkQuit()
         

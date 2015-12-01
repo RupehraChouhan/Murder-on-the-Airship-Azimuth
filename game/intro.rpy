@@ -8,7 +8,7 @@
     scene bg cabinImage
     with fade
     python:
-        Game.narrateADV("You take stock of your surroundings. You are aboard the skyship {i}Azimuth{/i}, owned and operated by Royaume & Sons Airshipping Lines and Manufactoria. You are in a small but luxuriously-appointed cabin. You turn up the galvanic lamp to consult your pocketwatch. It is forty-two minutes after nine in the evening.")
+        Game.narrateADV("You take stock of your surroundings. You are aboard the skyship [Game.zeppelinName], owned and operated by Royaume & Sons Airshipping Lines and Manufactoria. You are in a small but luxuriously-appointed cabin. You turn up the galvanic lamp to consult your pocketwatch. It is forty-two minutes after nine in the evening.")
         Game.narrateADV("You recall the events of the previous afternoon. You embarked at the aerodrome in Aron at 5:35 this afternoon bound for Endsville. You were invited to dine with the other passengers shortly after departure. After a quick survey of them, you determined that none of them were at all interesting enough to bother spending precious minutes of your vacation with, so you declined supper, sequestered yourself in your cabin, and went immediately to sleep.")
         Game.narrateADV("That's the kind of idiosyncratic behaviour people expect from a famously-eccentric - but brilliant - amateur detective, after all.")
         

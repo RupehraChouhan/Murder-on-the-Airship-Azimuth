@@ -40,20 +40,21 @@ init 0 python: # set up clues and commands in room
 label i_baths:
     scene bg bathImage
     with fade
-    stop music fadeout 2
 
     python:
+        # The room you are in
         room = Game.rooms[Game.ROOM_BATHS]
-        Game.narrateADV("Here we are in the [room.name]!")
-        Game.narrateADV("One of the most expensive places on this Zeppelin is this big bath. This was created especially on queen's demand. . . ")
+        
+        # Opening description of the room
+        Game.narrateADV("One of the most expensive places on the [Game.zeppelinName] is this big bath. This was created especially on queen's demand. . . ")
         Game.narrateADV("The ceilings are brilliantly modelled with light bulbs and design patterns with four pillars giving a very royal look to the pool while providing support to the ceiling. . .")
         Game.narrateADV("It is contained with a lot good smelling candle lights, towels and and multiple doors on the sides to give a palace look.")
-        Game.narrateADV("What do you want to do?")
         Game.jump(room.label + "_in")
         
 label i_baths_in:        
     python:
         # assumption: if all functions of clues are narrateADV, then we can loop through this
+        Game.prevNarrate = "What do you want to do?"
         Game.inputADV( Game.prevNarrate )
         Game.checkQuit()
         
