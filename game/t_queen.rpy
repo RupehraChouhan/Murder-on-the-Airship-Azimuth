@@ -2,28 +2,29 @@ init 0 python: # initialize queen related conversation states
     Game.state[Game.CONV_QUEEN_WHAT] = False
 
 label t_queen:
-    scene bg whiteImage
+    scene bg diningImage
     show queen
-    with fade 
-    stop music fadeout 2
+    with fade
     
     python:
         # character you are talking to
         character = Game.npcs[Game.NPC_QUEEN]
         
         # NPC speaks
+        Game.prevNarrate = "What would you like to talk about?"
         Game.jump(character.label + "_loop")
         
 label t_queen_loop:
     python:
         # define line and give options
-        line = "What would you like to talk about?"
+        # in this case, the line is whatever the character last said.
+        line = Game.prevNarrate
         choices = ["Tell me about yourself.", "What is your connection to the victim?", "Describe what you saw this evening", "Ask about a discovery", "Ask about another suspect", "Leave"]
         
         # say line and give options
         #character.speakADV(line)
         character.inputADV(line, choices)
-        Game.checkQuit()
+        Game.checkQuit(character.label + "_loop")
         
         index = int(Game.input) - 1
         if index == 0:
@@ -207,7 +208,7 @@ label t_queen_other:
         choices = []
         
         for npc in Game.npcs:
-            if npc != character and npc.alive:
+            if npc != character and npc.suspect and npc.alive:
                 choices.append(npc.name)
                 
         # say line and give options

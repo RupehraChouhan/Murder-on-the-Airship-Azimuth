@@ -4,26 +4,26 @@ init 0 python: # set up clues and commands in room
 label i_cabin:
     scene bg cabinImage
     with fade
-    stop music fadeout 2
 
     python:
+        # The room you are in
         room = Game.rooms[Game.ROOM_CABIN]
-        Game.narrateADV("Here we are in the [room.name]!")
+        
+        # Opening description of the room
         Game.narrateADV("Each room is designed in the same manner as of that of the king's. The mattress as you can see is covered with luxurious silk sheets. . .")
         Game.narrateADV("The ceilings are carefully crafted with shining gold accents and thick plush carpets that caress your feet as you walk.")
-        Game.narrateADV("What do you want to do?")
         Game.jump(room.label + "_in")
         
 label i_cabin_in:        
     python:
         # assumption: if all functions of clues are narrateADV, then we can loop through this
+        Game.prevNarrate = "What do you want to do?"
         Game.inputADV( Game.prevNarrate )
-        Game.checkQuit()
+        Game.checkQuit(room.label + "_in")
         
-        if Game.input != "":
-            try:
-                room.do(Game.input)
-            except:
-                Game.narrateADV("I don't know what \"[Game.input]\" means.")
+        try:
+            room.do(Game.input)
+        except:
+            Game.narrateADV("I don't know what \"[Game.input]\" means.")
         
         Game.jump(room.label + "_in")

@@ -1,14 +1,14 @@
 label t_pawn:
-    scene bg whiteImage
+    scene bg diningImage
     show pawn
-    with fade 
-    stop music fadeout 2
+    with fade
+    
     python:
         # character you are talking to
         character = Game.npcs[Game.NPC_PAWN]
         
         # NPC speaks
-        Game.prevNarrate = "What do you want me to say"
+        Game.prevNarrate = "What would you like to talk about?"
         Game.jump(character.label + "_loop")
         
 label t_pawn_loop:
@@ -21,7 +21,7 @@ label t_pawn_loop:
         # say line and give options
         #character.speakADV(line)
         character.inputADV(line, choices)
-        Game.checkQuit()
+        Game.checkQuit(character.label + "_loop")
         
         try:
             index = int(Game.input) - 1
@@ -241,7 +241,7 @@ label t_pawn_other:
         choices = []
         
         for npc in Game.npcs:
-            if npc != character and npc.alive:
+            if npc != character and npc.suspect and npc.alive:
                 choices.append(npc.name)
                 
         # say line and give options
