@@ -33,14 +33,16 @@ label finale_main:
         # address each in turn and evaluate motives and opportunity
         line = "Who do would you like to talk about?"
         choices = []
+        labels = []
         for i in range(0, len(Game.npcs)):
             if i in potentials and potentials[i]:
                 choices.append(Game.npcs[i].name)
+                labels.append(Game.npcs[i].label)
     
         Game.inputADV(line, choices, True)
         index = int(Game.input) - 1
-        choice = choices[index]
-        Game.jump("finale_address_" + choice.lower())
+        label = labels[index]
+        Game.jump("finale_address_" + label)
         
 label finale_address_queen:
     python:
@@ -162,8 +164,11 @@ label finale_no_arrest:
     python:
         Game.narrateADV("{i}The rest of the voyage passes with the passengers - yourself included - under guard, while the ship sails with a skeleton crew.{/i}")
         Game.narrateADV("{i}Upon arriving in Endsville, all of the passengers - again, yourself included - spend a long time being questioned by inspectors of the Metropolitan Police.{/i}")
-        Game.narrateADV("{i}They are as unconvinced by your deductions as Captain Winfarthing was. {/i}")
-
+        Game.narrateADV("{i}They are as unconvinced by your deductions as Captain Winfarthing was.{/i}")
+        Game.narrateADV("{i}Eventually, you are released, but your vacation is ruined - especially when you see the headline in the morning paper.{/i}")
+        Game.narrateADV("MURDER ON THE SKYSHIP {i}AZIMUTH!{/i} - GREAT DETECTIVE BAFFLED!")
+        Game.narrateADV("Your good name, your reputation for brilliance, all gone in an instant.")
+        
         Game.jump("the_end")
         
 label the_end:

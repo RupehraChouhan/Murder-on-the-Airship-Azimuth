@@ -1,7 +1,7 @@
 init 0 python: # initialize queen related conversation states
     Game.state[Game.CONV_QUEEN_WHAT] = False
 
-label t_queen:
+label queen:
     scene bg diningImage
     show queen
     with fade
@@ -14,7 +14,7 @@ label t_queen:
         Game.prevNarrate = "What would you like to talk about?"
         Game.jump(character.label + "_loop")
         
-label t_queen_loop:
+label queen_loop:
     python:
         # define line and give options
         # in this case, the line is whatever the character last said.
@@ -40,11 +40,11 @@ label t_queen_loop:
         elif index == 5:
             Game.jump("start")
         
-label t_queen_you:
+label queen_you:
     python:
         character.speakADV("You have the honour of addressing Her Ladyship Eleanora Francesca van Koenigen Royaume. The Widow Royaume, I suppose I shall have to become accustomed to being called.")
         Game.jump(character.label + "_loop")
-label t_queen_vic:
+label queen_vic:
     python:
         line = "My 'connection'? We are - were -  married fourteen years."
         choices = [ "Pressure", "Ask something else" ]
@@ -57,7 +57,7 @@ label t_queen_vic:
         elif index == 1:
             pass
         Game.jump(character.label + "_loop")
-label t_queen_saw:
+label queen_saw:
     python:
         Game.state[Game.CONV_QUEEN_WHAT] = True
         
@@ -76,7 +76,7 @@ label t_queen_saw:
             pass
         
         Game.jump(character.label + "_loop")
-label t_queen_found:
+label queen_found:
     python:
         line = "Ask about what?"
         choices = [ ]
@@ -202,25 +202,26 @@ label t_queen_found:
         
         Game.jump(character.label + "_loop")
         
-label t_queen_other:
+label queen_other:
     python:
         line = "Who?"
         choices = []
+        labels = []
         
         for npc in Game.npcs:
             if npc != character and npc.suspect and npc.alive:
                 choices.append(npc.name)
+                labels.append(npc.label)
                 
         # say line and give options
         Game.inputADV(line, choices, True)
-        Game.checkQuit()
         
         index = int(Game.input) - 1
-        choice = choices[index].lower()
+        label = labels[index].lower()
             
-        Game.jump(character.label + "_" + choice)
+        Game.jump(character.label + "_" + label)
 
-label t_queen_bishop:
+label queen_bishop:
     python:
         character.speakADV("Rector Esgob, the social reformer? A pitiable man. Why these organizations of {i}tradespeople{/i} have seen fit to fund his speaking tour of Her Infallible Majesty's dominions is beyond me. You should have heard his mawkish anecdotes about \"the plights of the working classes\" at dinner. An unseemly topic for a polite occasion.")
         character.speakADV("Normally, I'm {i}wearied{/i} when Henry starts a row at dinner, but in this case, it was warranted.")
@@ -234,7 +235,7 @@ label t_queen_bishop:
         elif index == 1:
             pass
         Game.jump(character.label + "_loop")
-label t_queen_knight:
+label queen_knight:
     python:
         character.speakADV("Ritter, the Sergeant-Major? Such a gentleman! Somewhat taciturn, but better that than boorish.")
         
@@ -247,7 +248,7 @@ label t_queen_knight:
         elif index == 1:
             pass
         Game.jump(character.label + "_loop")
-label t_queen_pawn:
+label queen_pawn:
     python:
         character.speakADV("Who's Polly Newport? Oh, the steward? A disgrace. I recommended Henry have her let go after she refused - refused! - to fetch my hatbox from the hold. I'm not interested if it's \"lashed up tight\" or whatever colourful idiom she used - you're in service, so you serve.")
         
@@ -260,7 +261,7 @@ label t_queen_pawn:
         elif index == 1:
             pass
         Game.jump(character.label + "_loop")
-label t_queen_rook:
+label queen_rook:
     python:
         character.speakADV("de la Rocque? My husband's solicitor and business partner. From how I understand it, Henry handled the large-scale direction and public image of the firm, while Mr. de la Rocque fussed with sums and the tiresome minutiae.")
         character.speakADV("They've been colleagues for years. Often times Mr. de la Rocque would see more of Henry than I would. These past weeks have certainly been one of those times, what with this government contract and all.")

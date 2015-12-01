@@ -1,7 +1,7 @@
 init 0 python: # bishop conversation related state
     Game.state[Game.CONV_BISHOP_WHAT_PRESS] = False
 
-label t_bishop:
+label bishop:
     scene bg diningImage
     show bishop
     with fade
@@ -14,7 +14,7 @@ label t_bishop:
         Game.prevNarrate = "What would you like to talk about?"
         Game.jump(character.label + "_loop")
         
-label t_bishop_loop:
+label bishop_loop:
     python:
         # define line and give options
         # in this case, the line is whatever the character last said.
@@ -48,7 +48,7 @@ label t_bishop_loop:
         
         Game.jump(character.label + "_loop")
         
-label t_bishop_you:
+label bishop_you:
     python:
         Game.narrateADV("{i}Esgob steadies himself. His face is flushed and he reeks of liquor. Despite this, his eyes are lucid and frightened. Perhaps the shock has sobered him up.{/i}")
         character.speakADV("Rector Nathaniel Esgob, of the Compassionate Reform Crusade.")
@@ -56,7 +56,7 @@ label t_bishop_you:
         character.speakADV("It's a social movement. We're seeking, well, um, compassionate reform. Particularly in our nation's industrial sites. Seeking to ban child labour, encouraging temperance, that kind of thing.")
         Game.jump(character.label + "_loop")
 
-label t_bishop_vic:
+label bishop_vic:
     python:
         character.speakADV("We hadn't met in person before. I've written him many letters, talking about the deplorable conditions in his factories... I always received very noncommittal replies, usually from the desk of Mr. de la Rocque.")
         character.speakADV("I doubt Royaume even read them.")
@@ -72,7 +72,7 @@ label t_bishop_vic:
             pass
         Game.jump(character.label + "_loop")
 
-label t_bishop_saw:
+label bishop_saw:
     python:
         character.speakADV("After dinner, I - uh, I retired to my room for a spell. Then I went back to the dining room. I, um, had forgot my reading glasses. That was about 8:30. Then I must have got turned around, I ended up in the bar at 9. The steward was tidying up when I arrived. She invited me for coffee and cigars in the dining room at 9:30, which I had just sat down to enjoy when I heard her scream! Mr. de la Rocque and I went running, and we found her staring in shock at that poor man...")
         choices = ["Pressure","Ask something else"]
@@ -98,7 +98,7 @@ label t_bishop_saw:
             pass
         Game.jump(character.label + "_loop")
 
-label t_bishop_found:
+label bishop_found:
     python:
         line = "Ask about what?"
         choices = [ ]
@@ -244,25 +244,26 @@ label t_bishop_found:
             character.speakADV("I don't know what you're talking about.")
         Game.jump(character.label + "_loop")
 
-label t_bishop_other:
+label bishop_other:
     python:
         line = "Who?"
         choices = []
+        labels = []
         
         for npc in Game.npcs:
             if npc != character and npc.suspect and npc.alive:
                 choices.append(npc.name)
+                labels.append(npc.label)
                 
         # say line and give options
         Game.inputADV(line, choices, True)
-        Game.checkQuit()
         
         index = int(Game.input) - 1
-        choice = choices[index].lower()
+        label = labels[index].lower()
             
-        Game.jump(character.label + "_" + choice)
+        Game.jump(character.label + "_" + label)
 
-label t_bishop_rook:
+label bishop_rook:
     python:
         character.speakADV("Not to speak ill of the dead, but de la Rocque is much more agreeable than Mr. Royaume. Very diplomatic. I gather he didn't care much for me, but he at least took the time to listen. I had thought... Never mind.")
         
@@ -276,7 +277,7 @@ label t_bishop_rook:
             pass
         Game.jump(character.label + "_loop")
 
-label t_bishop_knight:
+label bishop_knight:
     python:
         character.speakADV("I don't know much about Sergeant-Major Ritter. We'd never met before, and he's quite taciturn.")
 
@@ -290,7 +291,7 @@ label t_bishop_knight:
             pass
         Game.jump(character.label + "_loop")
 
-label t_bishop_pawn:
+label bishop_pawn:
     python:
         character.speakADV("I can't believe Miss Newport is under investigation. She's as dedicated as any on this crew. She was putting in extra effort to see we were well cared-for.")
         
@@ -306,7 +307,7 @@ label t_bishop_pawn:
             pass
         Game.jump(character.label + "_loop")
 
-label t_bishop_queen:
+label bishop_queen:
     python:
         character.speakADV("Lady Eleanora is charming, of course, but has no conception of the plights of the masses, as most of her aristocratic peers don't.")
        

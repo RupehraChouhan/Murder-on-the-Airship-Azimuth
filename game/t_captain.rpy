@@ -1,7 +1,7 @@
 init 0 python: # captain conversation related state
     Game.state[Game.CONV_CAPTAIN_WHAT] = False
 
-label t_captain:
+label captain:
     stop music fadeout 2
     scene bg cockPitImage
     show captain
@@ -15,7 +15,7 @@ label t_captain:
         Game.prevNarrate = "What would you like to talk about?"
         Game.jump(character.label + "_loop")
         
-label t_captain_loop:
+label captain_loop:
     python:
         # define line and give options
         # in this case, the line is whatever the character last said.
@@ -49,23 +49,23 @@ label t_captain_loop:
         
         Game.jump(character.label + "_loop")
         
-label t_captain_you:
+label captain_you:
     python:
         character.speakADV("I'm the skipper of the {i}Azimuth{/i}. Sixteen years before the gasbag.")
         Game.jump(character.label + "_loop")
 
-label t_captain_vic:
+label captain_vic:
     python:
         character.speakADV("He built this ship and owns the line, so he does pay my wages. That said, since I welcomed him and his party on board, we haven't spoken. I and my crew have been busy non-stop keeping us aloft. Except for my steward, Miss Newport - she's been away from her post a fair bit lately.")
         Game.jump(character.label + "_loop")
 
-label t_captain_saw:
+label captain_saw:
     python:
         Game.state[Game.CONV_CAPTAIN_WHAT] = True
         character.speakADV("We flew through a stormcloud, so I didn't leave the wheel from half-past-seven until almost nine. It's all there in my logbook, and my crew can attest to that. If anyone came through the observation deck during that time, I wouldn't have noticed. After it blew over, I had a word with Mr. de la Rocque. Routine scheduling and maintenance discussion. I glanced up after 9:30 and saw Lady Eleanora and Sergeant-Major Ritter taking in the view.")
         Game.jump(character.label + "_loop")
 
-label t_captain_found:
+label captain_found:
     python:
         line = "Ask about what?"
         choices = []
@@ -122,7 +122,7 @@ label t_captain_found:
             character.speakADV("I don't know what you're talking about.")        
         Game.jump(character.label + "_loop")
 
-label t_captain_other:
+label captain_other:
     python:
         character.speakADV("Given the prestige of our passengers, I've had the... pleasure of speaking with them personally.")
         character.speakADV("As for Royaume, the, ah, victim, I don't know anything more than what you read in the papers. He owns this ship, he owns the whole airship line. He was headed to Endsville to sign the biggest contract Her Infallible Majesty's government has ever offered, selling war zeppelins to the Brigades.")

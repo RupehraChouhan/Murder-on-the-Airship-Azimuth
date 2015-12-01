@@ -1,7 +1,7 @@
 init 0 python: # knight conversation related state
     Game.state[Game.CONV_KNIGHT_WHAT] = False
 
-label t_knight:
+label knight:
     scene bg diningImage
     show knight
     with fade
@@ -14,7 +14,7 @@ label t_knight:
         Game.prevNarrate = "What would you like to talk about?"
         Game.jump(character.label + "_loop")
         
-label t_knight_loop:
+label knight_loop:
     python:
         # define line and give options
         # in this case, the line is whatever the character last said.
@@ -48,12 +48,12 @@ label t_knight_loop:
         
         Game.jump(character.label + "_loop")
         
-label t_knight_you:
+label knight_you:
     python:
         character.speakADV("Sergeant-Major Angus P. Ritter, Her Infallible Majesty's Ninth Overland Rifle Brigade, retired. ")
         Game.jump(character.label + "_loop")
         
-label t_knight_vic:
+label knight_vic:
     python:
         line = "I was invited by Mr. Royaume's solicitor, Mr. de la Rocque, to consult on the finer points of Royaume's contracts with the Admiralty. Mr. Royaume was surprised by my presence. It seems Mr. de la Rocque handles the business. I had never met Mr. Royaume before this voyage."
         choices = [ "Pressure", "Ask something else" ]
@@ -67,7 +67,7 @@ label t_knight_vic:
             pass
         Game.jump(character.label + "_loop")
         
-label t_knight_saw:
+label knight_saw:
     python:
         Game.state[Game.CONV_KNIGHT_WHAT] = True
     
@@ -87,7 +87,7 @@ label t_knight_saw:
         
         Game.jump(character.label + "_loop")
 
-label t_knight_found:
+label knight_found:
     python:
         line = "Ask about what?"
         choices = [ ]
@@ -233,25 +233,26 @@ label t_knight_found:
             character.speakADV("I don't know what you're talking about.")
             
         Game.jump(character.label + "_loop")
-label t_knight_other:
+label knight_other:
     python:
         line = "Who?"
         choices = []
+        labels = []
         
         for npc in Game.npcs:
             if npc != character and npc.suspect and npc.alive:
                 choices.append(npc.name)
+                labels.append(npc.label)
                 
         # say line and give options
         Game.inputADV(line, choices, True)
-        Game.checkQuit()
         
         index = int(Game.input) - 1
-        choice = choices[index].lower()
+        label = labels[index].lower()
             
-        Game.jump(character.label + "_" + choice)
+        Game.jump(character.label + "_" + label)
 
-label t_knight_bishop:
+label knight_bishop:
     python:
         character.speakADV("Rector Esgob, the social reformer? A principled man. Willing to defend those principles, if suppertime's heated debate was any indication.")
         choices = [ "Pressure", "Ask something else" ]
@@ -265,7 +266,7 @@ label t_knight_bishop:
             pass
         Game.jump(character.label + "_loop")
         
-label t_knight_rook:
+label knight_rook:
     python:
         character.speakADV("de la Rocque, the solicitor? A diligent man. What about him?")
         choices = [ "Pressure", "Ask something else" ]
@@ -280,7 +281,7 @@ label t_knight_rook:
             pass
         Game.jump(character.label + "_loop")
         
-label t_knight_pawn:
+label knight_pawn:
     python:
         character.speakADV("The steward? She seems dutiful enough. She insisted on attending to her duties even in the face of the Royaumes' demands for personal attention.")
         choices = [ "Pressure", "Ask something else" ]
@@ -294,7 +295,7 @@ label t_knight_pawn:
             pass
         Game.jump(character.label + "_loop")
         
-label t_knight_queen:
+label knight_queen:
     python:
         character.speakADV("The Lady Eleanora? I've only just met her. She seems the picture of decorum.")
         choices = [ "Pressure", "Ask something else" ]

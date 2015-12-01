@@ -1,4 +1,4 @@
-label t_pawn:
+label pawn:
     scene bg diningImage
     show pawn
     with fade
@@ -11,7 +11,7 @@ label t_pawn:
         Game.prevNarrate = "What would you like to talk about?"
         Game.jump(character.label + "_loop")
         
-label t_pawn_loop:
+label pawn_loop:
     python:
         # define line and give options
         # in this case, the line is whatever the character last said.
@@ -45,11 +45,11 @@ label t_pawn_loop:
         
         Game.jump(character.label + "_loop")
         
-label t_pawn_you:
+label pawn_you:
     python:
         character.speakADV("Name's Polly, Detective. Polly Newport. I'm the ships steward - have been for eight months.")
         Game.jump(character.label + "_loop")
-label t_pawn_vic:
+label pawn_vic:
     python:
         character.speakADV("Mr. Royaume owns this ship. Owns a whole fleet of them. He flies on them plenty. For free of course.")
         Game.YOU.speakADV("So you've met him before.")
@@ -68,7 +68,7 @@ label t_pawn_vic:
             pass
         Game.jump(character.label + "_loop")
 
-label t_pawn_saw:
+label pawn_saw:
     python:
         character.speakADV("After dinner, I tried to tidy up, but Mr. Royaume had me waiting on him. Kept demanding I bring him this and that - brandy, cigars, whatever. We serve coffee and cigars at 9:30, but he had to have it right away. I finally got away after about half an hour, had to make my report to Captain Winfarthing, but she was fighting that storm. I tried to lend a hand on the bridge until it blew over, but then I had to get back to work back in service.")
         character.speakADV("A bit later, I went off to tell everyone that coffee and cigars were served. I couldn't find everyone, so I tried the baths. That's when I... found him.")
@@ -86,7 +86,7 @@ label t_pawn_saw:
             pass
         Game.jump(character.label + "_loop")
         
-label t_pawn_found:
+label pawn_found:
     python:
         line = "Ask about what?"
         choices = [ ]
@@ -235,25 +235,26 @@ label t_pawn_found:
             character.speakADV("I don't know what you're talking about.")
         Game.jump(character.label + "_loop")
         
-label t_pawn_other:
+label pawn_other:
     python:
         line = "Who?"
         choices = []
+        labels = []
         
         for npc in Game.npcs:
             if npc != character and npc.suspect and npc.alive:
                 choices.append(npc.name)
+                labels.append(npc.label)
                 
         # say line and give options
         Game.inputADV(line, choices, True)
-        Game.checkQuit()
         
         index = int(Game.input) - 1
-        choice = choices[index].lower()
+        label = labels[index].lower()
+            
+        Game.jump(character.label + "_" + label)
         
-        Game.jump(character.label + "_" + choice)
-        
-label t_pawn_bishop:
+label pawn_bishop:
     python:
         character.speakADV ("I've heard some of Rector Esgob's speeches on the televox. Seems like he knows how harsh it is, what the workers go through. Doesn't seem like he's had much success actually changing things, though. Asking nicely doesn't work too well, who'd have thought?")
         choices = [ "Pressure", "Ask something else" ]
@@ -267,7 +268,7 @@ label t_pawn_bishop:
             pass
         Game.jump(character.label + "_loop")
         
-label t_pawn_knight:
+label pawn_knight:
     python:
         character.speakADV("Never met Sergeant-Major Ritter before. At least he's polite and tidies up after himself.")
         choices = [ "Pressure", "Ask something else" ]
@@ -280,7 +281,7 @@ label t_pawn_knight:
         elif index == 1:
             pass
         Game.jump(character.label + "_loop")
-label t_pawn_rook:
+label pawn_rook:
     python:
         character.speakADV("Mr. de la Rocque? I saw him whenever Mr. Royaume travelled with us. They were inseperable. Always had his head in a ledger. I didn't mind. He was much less demanding than Mr. Royaume.")
         choices = [ "Pressure", "Ask something else" ]
@@ -294,7 +295,7 @@ label t_pawn_rook:
             pass
         Game.jump(character.label + "_loop")
         
-label t_pawn_queen:
+label pawn_queen:
     python:
         character.speakADV("She's as much a terror as her husband! They're rich, they've got servants at home. Why not bring them with them? Some of us have work to do, can't be running every errand that enters her head!")
         choices = [ "Pressure", "Ask something else" ]

@@ -11,7 +11,7 @@ label t_rook:
         Game.prevNarrate = "What would you like to talk about?"
         Game.jump(character.label + "_loop")
         
-label t_rook_loop:
+label rook_loop:
     python:
         # define line and give options
         # in this case, the line is whatever the character last said.
@@ -45,11 +45,11 @@ label t_rook_loop:
         
         Game.jump(character.label + "_loop")
         
-label t_rook_you:
+label rook_you:
     python:
         character.speakADV("My name is Charles Westinghouse de la Rocque, Esq. Please, how can I help you find the murderer?")
         Game.jump(character.label + "_loop")
-label t_rook_vic:
+label rook_vic:
     python:
         character.speakADV("I'm his business partner as well as his personal solicitor. The two of us made Royaume & Sons what it is today. I can't believe he's dead.")
         choices = [ "Pressure", "Ask something else" ]
@@ -64,7 +64,7 @@ label t_rook_vic:
         elif index == 1:
             pass
         Game.jump(character.label + "_loop")
-label t_rook_saw:
+label rook_saw:
     python:
         character.speakADV("After dinner, that storm was still raging, so I went to see how the crew was coping. It's one thing to read an engineer's blueprint, another to see it in action, you know? I wanted to have a word with the captain, but she was not in a position to speak at the time. She had the vessel well in hand, though.")
         character.speakADV("I retired to the passenger lounge and went over some papers until the storm passed. At 9, the storm had blown over, and I spoke with Captain Winfarthing. She will, of course, corroborate this. I then enjoyed the nuts and coffee in the dining room with Rector Esgob - much more composed, thankfully - until we heard that dreadful scream and went running.")
@@ -79,7 +79,7 @@ label t_rook_saw:
             pass
         Game.jump(character.label + "_loop")
 
-label t_rook_found:
+label rook_found:
     python:
         line = "Ask about what?"
         choices = []
@@ -198,25 +198,26 @@ label t_rook_found:
             character.speakADV("I don't know what you're talking about.")        
         Game.jump(character.label + "_loop")
 
-label t_rook_other:
+label rook_other:
     python:
         line = "Who?"
         choices = []
+        labels = []
         
         for npc in Game.npcs:
             if npc != character and npc.suspect and npc.alive:
                 choices.append(npc.name)
+                labels.append(npc.label)
                 
         # say line and give options
         Game.inputADV(line, choices, True)
-        Game.checkQuit()
         
         index = int(Game.input) - 1
-        choice = choices[index].lower()
+        label = labels[index].lower()
             
-        Game.jump(character.label + "_" + choice)
+        Game.jump(character.label + "_" + label)
         
-label t_rook_bishop:
+label rook_bishop:
     python:
         character.speakADV("This is confidential, yes? I have a dim view of Rector Nathaniel Esgob's reputation. His calls for compassionate reform, so-called, have led to pickets and stoppages at some of our factories. But we have to maintain the appearance that we entertain his outlandish schemes to coddle our workers. Otherwise, the Singerists get involved, and instead of pickets and stoppages, it's sabotage and firebombings. Madness.")
         character.speakADV("Anyway, a dozen or more tradesmen's federations put up the money to fund him on a speaking tour of the industrial towns down south, and we simply {i}had{/i} to agree. Naturally, though, it wasn't long before he started spouting his noxious opinions, and Henry had to set him straight.")
@@ -232,7 +233,7 @@ label t_rook_bishop:
             pass
         Game.jump(character.label + "_loop")
   
-label t_rook_knight:
+label rook_knight:
     python:
         character.speakADV("I asked Sergeant-Major Ritter to attend personally. He wrote to my office when he heard rumour of our dealings with the government. We are in the final stages of drafting this contract for Her Infallible Majesty's Admiralty, and I thought the advice of a decorated military man in dealing with those officers could prove useful, so I invited him along.")
         character.speakADV("Actually, if it's not too much trouble, could you permit him to join me here? We didn't finish our review of the contracts before dinner, and I'd quite like to reach the end before we land.")
@@ -249,7 +250,7 @@ label t_rook_knight:
         elif index == 1:
             pass
         Game.jump(character.label + "_loop")
-label t_rook_pawn:
+label rook_pawn:
     python:
         character.speakADV("The steward? I understand from speaking with Captain Winfarthing she's been chronically away from her post during this voyage. Though some of that time she was waiting on the Royaumes. Henry never liked bringing his domestics along when travelling on his own vessels. Thought it was a frivolous expense. He paid the wages of these airmen, after all, he'd say.")
         
@@ -263,7 +264,7 @@ label t_rook_pawn:
         elif index == 1:
             pass
         Game.jump(character.label + "_loop")
-label t_rook_queen:
+label rook_queen:
     python:
         character.speakADV("Ah, the Lady Eleanora? Lovely woman, lovely woman. She was a perfect match for Henry. We'd never be where we are today if it weren't for her. Those royals can be such snobs. Even though we make ten times what they do in a year, they still turn up their noses at us. Eleanora gave Henry the respectability he needed to meet contacts in Her Infallible Majesty's government.")
        
