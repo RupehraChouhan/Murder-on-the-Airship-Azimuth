@@ -76,12 +76,12 @@ init -999 python: # Game class must be given first priority to load
 
             # NPC defined in NPC.rpy
             Game.npcs[Game.NPC_KING] = NPC("King", None, "#ffffff", [], suspect=False, alive=False) # White, dead
-            Game.npcs[Game.NPC_QUEEN] = NPC("Queen", "t_queen", "#ff0000", []) # Red
-            Game.npcs[Game.NPC_BISHOP] = NPC("Bishop", "t_bishop", "#00ff00", []) # Green
-            Game.npcs[Game.NPC_KNIGHT] = NPC("Knight", "t_knight", "#0000ff", []) # Blue
-            Game.npcs[Game.NPC_ROOK] = NPC("Rook", "t_rook", "#ffff00", []) # Yellow
-            Game.npcs[Game.NPC_PAWN] = NPC("Pawn", "t_pawn", "#00ffff", []) # Cyan
-            Game.npcs[Game.NPC_CAPTAIN] = NPC("Captain", "t_captain", "#ff00ff", [], suspect=False) # Magenta
+            Game.npcs[Game.NPC_QUEEN] = NPC("Eleanora Francesca van Koenigen Royaume", "t_queen", "#ff0000", []) # Red
+            Game.npcs[Game.NPC_BISHOP] = NPC("Rector Nathaniel Esgob", "t_bishop", "#00ff00", []) # Green
+            Game.npcs[Game.NPC_KNIGHT] = NPC("Sergeant-Major Angus P. Ritter", "t_knight", "#0000ff", []) # Blue
+            Game.npcs[Game.NPC_ROOK] = NPC("Charles Westinghouse de la Rocque, Esq.", "t_rook", "#ffff00", []) # Yellow
+            Game.npcs[Game.NPC_PAWN] = NPC("Polly Newport", "t_pawn", "#00ffff", []) # Cyan
+            Game.npcs[Game.NPC_CAPTAIN] = NPC("Captain Elizabeth Winfarthing", "t_captain", "#ff00ff", [], suspect=False) # Magenta
             
             # Room defined in Room.rpy
             Game.rooms[Game.ROOM_CABIN] = Room("Passenger Cabins", "i_cabin", 0, 0, ["Cabins", "Cabin"])

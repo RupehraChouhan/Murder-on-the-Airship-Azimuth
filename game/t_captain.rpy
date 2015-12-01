@@ -9,7 +9,7 @@
         character = Game.npcs[Game.NPC_CAPTAIN]
         
         # NPC speaks
-        Game.prevNarrate = "What do you want me to say"
+        Game.prevNarrate = "What would you like to talk about?"
         Game.jump(character.label + "_loop")
         
 label t_captain_loop:

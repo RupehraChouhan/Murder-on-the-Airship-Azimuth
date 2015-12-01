@@ -9,12 +9,14 @@ label t_queen:
         character = Game.npcs[Game.NPC_QUEEN]
         
         # NPC speaks
+        Game.prevNarrate = "What would you like to talk about?"
         Game.jump(character.label + "_loop")
         
 label t_queen_loop:
     python:
         # define line and give options
-        line = "What would you like to talk about?"
+        # in this case, the line is whatever the character last said.
+        line = Game.prevNarrate
         choices = ["Tell me about yourself.", "What is your connection to the victim?", "Describe what you saw this evening", "Ask about a discovery", "Ask about another suspect", "Leave"]
         
         # say line and give options
