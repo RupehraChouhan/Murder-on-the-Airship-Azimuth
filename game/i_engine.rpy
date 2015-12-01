@@ -1,6 +1,7 @@
 init 0 python: # set up clues and commands in room
     room = Game.rooms[Game.ROOM_ENGINE]
     Game.state["engine_left_machine_open"] = False
+    Game.state[Game.STATE_ENGINE_MISSING_PIPE] = False
     
     def look():
         Game.narrateADV( "There are three plaques in the room: left, right, and middle" )    
@@ -27,6 +28,7 @@ init 0 python: # set up clues and commands in room
     def open():
         Game.narrateADV( "There is a crazy tangle of pipes inside. You find that the whistle is coming from where a 2 foot length of pipe is missing." )
         Game.state["engine_left_machine_open"] = True
+        Game.state[Game.STATE_ENGINE_MISSING_PIPE] = True
     leftMachine = Clue("left machine", [ "look", "open" ], [ look, open ] )
     
     def look():

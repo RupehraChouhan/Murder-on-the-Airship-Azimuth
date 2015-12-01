@@ -1,3 +1,6 @@
+init 0 python: # initialize queen related conversation states
+    Game.state[Game.CONV_QUEEN_WHAT] = False
+
 label t_queen:
     scene bg diningImage
     show queen
@@ -56,6 +59,8 @@ label t_queen_vic:
         Game.jump(character.label + "_loop")
 label t_queen_saw:
     python:
+        Game.state[Game.CONV_QUEEN_WHAT] = True
+        
         character.speakADV("After Henry and Rector Nathaniel had that wearisome row at dinner, I repaired to the bar for a glass of the only barely-passable brandy this undignified air-carriage has to offer.")
         character.speakADV("The steward was nowhere bo be found; I had to serve myself, can you believe that? At least until Rector Esgob showed up moments later. He was more than happy to top me up in between each three or four glasses he downed himself.")
         character.speakADV("His company quickly became tiring. I withdrew to the galley of all places at around half-past-eight so I might enjoy some solitude. At about nine, I heard someone approaching - likely the staff, finally getting back to work - so I relocated to the passenger lounge for about half an hour. I intended to enjoy a bite of torte in the dining room before retiring, but I was dragged into yet another conversation with Esgob there.")

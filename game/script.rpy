@@ -134,4 +134,4 @@ label solve_case:
     $ Game.fadeStart = True
     
     python:
-        Game.jump("start")
+        Game.jump("finale")

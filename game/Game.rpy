@@ -21,6 +21,7 @@ init -999 python: # Game class must be given first priority to load
         CONV_BISHOP_WHAT_PRESS = "conv_bishop_what_press"
         CONV_KNIGHT_WHAT = "conv_knight_what"
         CONV_CAPTAIN_WHAT = "conv_captain_what"
+        STATE_ENGINE_MISSING_PIPE = "engine_missing_pipe"
         
         # Dictionary for tracking clues
         # Name should be the one displayed

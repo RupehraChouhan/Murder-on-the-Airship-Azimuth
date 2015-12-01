@@ -1,3 +1,6 @@
+init 0 python: # bishop conversation related state
+    Game.state[Game.CONV_BISHOP_WHAT_PRESS] = False
+
 label t_bishop:
     scene bg diningImage
     show bishop
@@ -77,6 +80,8 @@ label t_bishop_saw:
 
         index = int(Game.input) - 1
         if index ==0:
+            Game.state[Game.CONV_BISHOP_WHAT_PRESS] = True
+            
             Game.YOU.speakADV("Anything you'd like to add?")
             character.speakADV("I'm not sure what you mean.")
             Game.YOU.speakADV("I don't think you're telling me everything.")
