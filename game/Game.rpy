@@ -162,15 +162,17 @@ init -999 python: # Game class must be given first priority to load
         def jump(label):
             renpy.jump(label)
         
-        # Automatically check last player input against predetermined quit commands, and jump to label if one matches
-        # Default label is the start menu of the game
+        # Automatically check last player input against predetermined quit commands, and jump to quit if one matches
+        # If an empty string, jump to label
+        # Default quit is the start menu of the game
         @staticmethod
-        def checkQuit(label="start"):
+        def checkQuit(label, quit="start"):
             target = Game.input.lower()
-            if target == "q": Game.jump(label)
-            if target == "quit": Game.jump(label)
-            if target == "e": Game.jump(label)
-            if target == "exit": Game.jump(label)
+            if target == "": Game.jump(label)
+            if target == "q": Game.jump(quit)
+            if target == "quit": Game.jump(quit)
+            if target == "e": Game.jump(quit)
+            if target == "exit": Game.jump(quit)
             
         # Increment the number of moves, and check if anything needs to happen
         @staticmethod

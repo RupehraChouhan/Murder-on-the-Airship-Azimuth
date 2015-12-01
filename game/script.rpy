@@ -46,6 +46,7 @@ label start:
         choices = ["Investigate a room", "Talk to a passenger", "Look at your notepad", "Solve the case"]
         
         Game.inputNVL(prompt, choices)
+        Game.checkQuit("start")
         
         try:
             option = int(Game.input) - 1
@@ -74,8 +75,8 @@ label investigate_room:
             choices.append(room.name);
         
         Game.inputNVL(prompt, choices)
-        Game.checkQuit()
-        
+        Game.checkQuit("investigate_room")
+
         # check for integer input
         try:
             index = int(Game.input) - 1
@@ -103,7 +104,7 @@ label talk_suspect:
                 choices.append(npc.name)
         
         Game.inputNVL(prompt, choices)
-        Game.checkQuit()
+        Game.checkQuit("talk_suspect")
         
         try:
             index = int(Game.input) - 1

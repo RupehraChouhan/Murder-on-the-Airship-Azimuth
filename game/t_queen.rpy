@@ -21,7 +21,7 @@ label t_queen_loop:
         # say line and give options
         #character.speakADV(line)
         character.inputADV(line, choices)
-        Game.checkQuit()
+        Game.checkQuit(character.label + "_loop")
         
         index = int(Game.input) - 1
         if index == 0:

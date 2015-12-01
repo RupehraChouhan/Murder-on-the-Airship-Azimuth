@@ -21,7 +21,7 @@ label t_bishop_loop:
         # say line and give options
         #character.speakADV(line)
         character.inputADV(line, choices)
-        Game.checkQuit()
+        Game.checkQuit(character.label + "_loop")
         
         try:
             index = int(Game.input) - 1

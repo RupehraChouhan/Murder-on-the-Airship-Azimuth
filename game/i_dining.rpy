@@ -26,12 +26,11 @@ label i_dining_in:
         # assumption: if all functions of clues are narrateADV, then we can loop through this
         Game.prevNarrate = "What do you want to do?"
         Game.inputADV( Game.prevNarrate )
-        Game.checkQuit()
+        Game.checkQuit(room.label + "_in")
         
-        if Game.input != "":
-            try:
-                room.do(Game.input)
-            except:
-                Game.narrateADV("I don't know what \"[Game.input]\" means.")
+        try:
+            room.do(Game.input)
+        except:
+            Game.narrateADV("I don't know what \"[Game.input]\" means.")
         
         Game.jump(room.label + "_in")
