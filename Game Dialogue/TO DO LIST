@@ -24,7 +24,10 @@ TO DO LIST
 	[No Arrest Ending]
 		N: {i}The rest of the voyage passes with the passengers - yourself included - under guard, while the ship sails with a skeleton crew.{/i}
 		N: {i}Upon arriving in Endsville, all of the passengers - again, yourself included - spend a long time being questioned by inspectors of the Metropolitan Police.{/i}
-		N: {i}They are as unconvinced by your deductions as Captain Winfarthing was. {/i}
+		N: {i}They are as unconvinced by your deductions as Captain Winfarthing was.{/i}
+		N: {i}Eventually, you are released, but your vacation is ruined - especially when you see the headline in the morning paper.{/i}
+		N: MURDER ON THE SKYSHIP {i}AZIMUTH!{/i} - GREAT DETECTIVE BAFFLED!
+		N: Your good name, your reputation for brilliance, all gone in an instant.
 [Events]
 	[Rook's murder]
 		[On Turn 14] N: {i}The engines go quiet for a moment - a common occurance when the winds are in your favour. In the silence, you hear a crash and thud from the passenger cabins. It sounds like a body hitting the floor!{/i}
