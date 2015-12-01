@@ -1,4 +1,3 @@
-
 init 0 python: # captain conversation related state
     Game.state[Game.CONV_CAPTAIN_WHAT] = False
 
