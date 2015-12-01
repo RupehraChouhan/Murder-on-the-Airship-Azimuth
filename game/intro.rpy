@@ -21,6 +21,7 @@
         Game.narrateADV("You pull on your clothes and step out into the hall. A nervous-looking uniformed airman escorts you to the cockpit.")
     
     scene bg cockPitImage
+    show captain
     with fade
     python:
         captain = Game.npcs[Game.NPC_CAPTAIN]

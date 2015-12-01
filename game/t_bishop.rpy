@@ -1,6 +1,9 @@
 label t_bishop:
-    
+    scene bg diningImage
+    show bishop
+    with fade 
     stop music fadeout 2
+    
     python:
         # character you are talking to
         character = Game.npcs[Game.NPC_BISHOP]

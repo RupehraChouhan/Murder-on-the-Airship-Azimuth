@@ -1,5 +1,5 @@
 label t_queen:
-    scene bg whiteImage
+    scene bg diningImage
     show queen
     with fade 
     stop music fadeout 2

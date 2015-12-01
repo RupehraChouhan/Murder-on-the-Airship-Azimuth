@@ -1,5 +1,9 @@
 label t_knight:
+    scene bg diningImage
+    show knight
+    with fade 
     stop music fadeout 2
+    
     python:
         # character you are talking to
         character = Game.npcs[Game.NPC_KNIGHT]

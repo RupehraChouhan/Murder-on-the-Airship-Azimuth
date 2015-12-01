@@ -1,7 +1,9 @@
-﻿# Ren'Py automatically loads all script files ending with .rpy. To use this
-# file, define a label and jump to it from another file.
-label t_captain:
+﻿label t_captain:
+    scene bg cockPitImage
+    show captain
+    with fade 
     stop music fadeout 2
+    
     python:
         # character you are talking to
         character = Game.npcs[Game.NPC_CAPTAIN]

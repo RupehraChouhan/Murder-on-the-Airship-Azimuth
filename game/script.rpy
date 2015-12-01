@@ -1,8 +1,8 @@
 ﻿# Declare all images
 image bg detectiveImage = "DetectiveSketch1.jpg"
 image bg notepadImage = "NotepadSketch1.jpg"
-image bg whiteImage = "white.jpg"
-image bg blackImage = "#000"
+image bg whiteImage = "#ffffff"
+image bg blackImage = "#000000"
 
 image bg map = "map.jpg"
 image bg cabinImage = "PassengerCabinsSketch.jpg"
@@ -15,8 +15,12 @@ image bg cargoHoldImage = "CargoHoldSketch.jpg"
 image bg cockPitImage = "CockpitSketch.jpg"
 image bg engineImage = "EngineRoomSketch.jpg"
 
-image queen = "queen2.jpg"
-image pawn = "servant.jpg"
+image queen = "queen_clean.png"
+image bishop = "bishop_clean.png"
+image knight = "knight_clean.png"
+image rook = "rook_clean.png"
+image pawn = "pawn_clean.png"
+image captain = "captain_clean.png"
 
 # The game starts here
 label start:
