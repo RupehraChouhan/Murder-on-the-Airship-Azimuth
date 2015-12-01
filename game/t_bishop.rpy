@@ -243,7 +243,7 @@ label t_bishop_other:
         choices = []
         
         for npc in Game.npcs:
-            if npc != character and npc.alive:
+            if npc != character and npc.suspect and npc.alive:
                 choices.append(npc.name)
                 
         # say line and give options

@@ -35,7 +35,7 @@ label start:
     python:
             
         prompt = "What would you like to do?\n"
-        choices = ["Investigate a room", "Talk to a suspect", "Look at your notepad", "Solve the case"]
+        choices = ["Investigate a room", "Talk to a passenger", "Look at your notepad", "Solve the case"]
         
         Game.inputNVL(prompt, choices)
         
@@ -84,7 +84,7 @@ label investigate_room:
 
 label talk_suspect:
     python:
-        prompt = "Which suspect would you like to talk to?\n"
+        prompt = "Who would you like to talk to?\n"
         choices = []
         
         for npc in Game.npcs:
@@ -105,7 +105,7 @@ label talk_suspect:
             if n.match(Game.input) and n.label and n.alive: # If matching, must have a label and be alive
                 Game.incrementMoves() # Talking to a suspect counts as a move
                 Game.jump(n.label)
-        Game.narrateNVL("I don't know which suspect \"[Game.input]\" is.")
+        Game.narrateNVL("I don't know who \"[Game.input]\" is.")
         Game.jump("talk_suspect")
 
 label look_notepad:

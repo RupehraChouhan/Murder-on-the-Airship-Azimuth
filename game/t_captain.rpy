@@ -123,3 +123,4 @@ label t_captain_other:
         character.speakADV("His wife, Baroness Eleanora is on board as well. Things are chilly between them, but if you keep up with the society pages, you'll know that's nothing new.")
         character.speakADV("Travelling with them is Mr. de la Rocque who is - was - Royaume's solicitor and business partner. We also have Colonel Angus Ritter, the war hero, and Rector Nathaniel Esgob, the social reformer. I understand he's on a speaking tour.")
         character.speakADV("Finally, though I hate to think it, one of my crew was not accounted for early this evening. My steward, Newport, was not at her post last night. I've taken the liberty of confining her to the passenger quarters with the other suspects. I hope you can resolve this swiftly and discreetly.")
+        Game.jump(character.label + "_loop")
