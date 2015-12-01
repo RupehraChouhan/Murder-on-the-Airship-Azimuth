@@ -106,6 +106,10 @@ label t_captain_found:
             Game.narrateADV("{i}Captain Winfarthing shudders.{/i}")
             character.speakADV("Anyone surviving Rosenfeldt got sent home with medals. I doubt it's enough.")
 
+        elif clueName == Game.ROOK_BODY:
+            character.speakADV("A damn shame. I've asked my men. No one heard anything. I don't have enough people to watch these people and fly the ship! Blast it!")
+            character.speakADV("... I'm sorry, Detective. I know you're doing your best. But please hurry. With the murderer on the loose, we're all in danger.")
+
         elif clueName == "Ask something else":
             pass
         else:

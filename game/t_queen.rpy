@@ -176,7 +176,18 @@ label t_queen_found:
                 character.speakADV("I did not. Perhaps you should speak to him about this.")
             elif index == 1:
                 pass
-        #elif clueName == TODO add rook body
+        elif clueName == Game.ROOK_BODY:
+            character.speakADV("A grave tragedy. To lose my husband and a dear family friend all in one evening. Detective, I implore you, find this killer. I fear I may be next.")
+            
+            choices = ["Pressure", "Ask something else"]
+            character.inputADV(Game.prevNarrate, choices)
+            index = int(Game.input) - 1
+            if index == 0:
+                Game.YOU.speakADV("With your husband and his business partner now dead, I understand control of Mr. Royaume's company falls to you...")
+                character.speakADV("Your implications are frankly insulting, Detective! I have entertained your tedious questions long enough! Go and earn your reputation instead of pestering your betters. Leave my presence at once!")
+                Game.jump(character.label + "_loop")
+            elif index == 1:
+                pass
         
         elif clueName == "Ask something else":
             pass

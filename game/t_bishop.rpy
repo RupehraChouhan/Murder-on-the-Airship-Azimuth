@@ -214,11 +214,29 @@ label t_bishop_found:
             elif index == 1:
                 pass
 
+        elif clueName == Game.ROOK_BODY:
+            character.speakADV("My heavens! Not de la Rocque! He was... a more temperate man than his late partner. I had thought... never mind that. Am I in danger?")
+            
+            choices = ["Pressure", "Ask something else"]
+            character.inputADV(Game.prevNarrate, choices)
+            index = int(Game.input) - 1
+            if index == 0:
+                Game.YOU.speakADV("I doubt it. You're a healthy enough specimen. Why, I'd wager you could overpower de la Rocque. He wasn't an athletic man, nor was he in his prime.")
+                Game.narrateADV("{i}Esgob looks queasy{/i}")
+                character.speakADV("The suggestion is repulsive, detective! I - I'm not capable of such a sin! The very idea - sickening!")
+                Game.narrateADV("{i}Nausea threatens to overcome him.{/i}")
+                character.speakADV("Perhaps... come back later? When I'm a bit more *urk* composed.")
+                Game.jump(character.label + "_loop")
+            elif index == 1:
+                pass
+
         elif clueName == "Ask something else":
             pass
+
         else:
             character.speakADV("I don't know what you're talking about.")
         Game.jump(character.label + "_loop")
+
 label t_bishop_other:
     python:
         line = "Who?"
