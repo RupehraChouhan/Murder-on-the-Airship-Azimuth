@@ -11,7 +11,7 @@ init 0 python: # set up clues and commands in room
     room.addClue( bottle )
     
     def look():
-        Game.narrateADV( "It's a bar, full of bottles" )
+        Game.narrateADV( "The wall is almost full of a large assortment of fine wine and brandy {b}bottle{/b}s. The bartender who was serving here must have retired to bed when the passengers were confined to their cabins.")
     room.addCommand( "look", look )
     
     # clean up namespace

@@ -5,12 +5,16 @@ init 0 python: # set up clues and commands in room
     Game.state["galley_vent_open"] = False
     
     def look():
+        Game.narrateADV("The galley hums as assorted contraptions wash the dishes from the evening's meal. However, some details jump out to your keen detective senses. There is a {b}book{/b} lying on the counter, and something seems off about one of the {b}vent{/b}s above the stove.")
+    room.addCommand("look", look)
+    
+    def look():
         Game.narrateADV( "There appears to be a screw missing from the vent." )
     def open():
         Game.state["galley_vent_open"] = True
         Game.narrateADV( "Inside the vent there is a bloody pipe!!!!" )
         Game.cluesFound[Game.GALLEY_PIPE] = True
-    vent = Clue( "vent", [ "look", "open" ], [ look, open ] )
+    vent = Clue( "vent", [ "look", "open", "unscrew" ], [ look, open, open ] )
     
     def look():
         if Game.state["galley_vent_open"]:

@@ -1,5 +1,9 @@
 init 0 python: # set up clues and commands in room
     room = Game.rooms[Game.ROOM_COCKPIT]
+    
+    def look():
+        Game.narrateADV("The cockpit is filled with lights and mechanical gizmos. Captain Elizabeth Winfarthing maneuvering expertly among the controls. You are in good hands, up here")
+    room.addCommand("look", look)
 
 label i_cockpit:
     scene bg cockPitImage

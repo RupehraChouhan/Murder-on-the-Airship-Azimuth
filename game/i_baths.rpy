@@ -5,20 +5,24 @@ init 0 python: # set up clues and commands in room
     Game.state["baths_body_turned"] = False
     
     def look():
-        Game.narrateADV( "The body of Henry Augustus Algernon Royaume is in a pool of blood from the wound on his head. He is still in his evening wear, lying face down. " )
+        Game.narrateADV( "The {b}body{/b} of Henry Augustus Algernon Royaume is in a pool of blood from the {b}wound{/b} on his head." )
+        if Game.state["baths_body_turned"]:
+            Game.narrateADV("He is still in his evening wear, now flipped onto his back, his dead eyes staring eerily")
+        else:
+            Game.narrateADV("He is still in his evening wear, lying face down.")
     def turn():
         Game.state["baths_body_turned"] = True
-        Game.narrateADV( "You flip over the body. It looks like there is something in his pocket." )
+        Game.narrateADV( "You flip over the {b}body{/b}. It looks like there is something in his {b}pocket{/b}." )
     body = Clue( "body", [ "look", "turn" ], [ look, turn ] )
     
     def look():
         Game.cluesFound[Game.BATHS_WOUND] = True
-        Game.narrateADV( "The wound appears to be caused by a heavy metal object." )
+        Game.narrateADV( "The {b}wound{/b} appears to be caused by a heavy metal object." )
     wound = Clue( "wound" , [ "look" ], [ look ])
     
     def look():
         if Game.state["baths_body_turned"]:
-            Game.narrateADV( "There is something small and round in his pocket, and possibly some glass shards" )
+            Game.narrateADV( "There is something small and round in his {b}pocket{/b}, and possibly some glass shards" )
     def open():
         if Game.state["baths_body_turned"]:
             Game.cluesFound[Game.BATHS_TIME_OF_DEATH] = True
@@ -30,7 +34,11 @@ init 0 python: # set up clues and commands in room
     room.addClue(pocket)
     
     def look():
-        Game.narrateADV( "There's the body" )
+        Game.narrateADV( "The {b}body{/b} of Henry Augustus Algernon Royaume is in a pool of blood from the {b}wound{/b} on his head." )
+        if Game.state["baths_body_turned"]:
+            Game.narrateADV("He is still in his evening wear, now flipped onto his back, his dead eyes staring eerily")
+        else:
+            Game.narrateADV("He is still in his evening wear, lying face down.")
     room.addCommand( "look", look )
     
     # clean namespace

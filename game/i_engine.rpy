@@ -4,20 +4,27 @@ init 0 python: # set up clues and commands in room
     Game.state[Game.STATE_ENGINE_MISSING_PIPE] = False
     
     def look():
-        Game.narrateADV( "There are three plaques in the room: left, right, and middle" )    
-    plaque = Clue("plaque", [ "look", "read" ], [ look, look ] )
+        Game.narrateADV("The entire room is alive with noise and light. There are three large {b}machine{/b}s in the room, each with a brass {b}plaque{/b} mounted beside them.")
+    room.addCommand("look", look)
     
+    def look():
+        Game.narrateADV( "There are three {b}plaque{/b}s in the room: {b}left{/b}, {b}right{/b}, and {b}middle{/b}" )    
+    plaque = Clue("plaque", [ "look", "read" ], [ look, look ] )
+   
     def look():
         Game.narrateADV( "RESPONSONOMIC BARO-DEREGULATOR" )
     leftPlaque = Clue("left plaque", [ "look", "read" ], [ look, look ] )
+    plaqueLeft = Clue("plaque left", [ "look", "read" ], [ look, look ] )
     
     def look():
         Game.narrateADV( "TRANSTHERMAL DYNACOUPLING" )
     rightPlaque = Clue("right plaque", [ "look", "read" ], [ look, look ] )
+    plaqueRight = Clue("plaque right", [ "look", "read" ], [ look, look ] )
     
     def look():
         Game.narrateADV( "GALVANIC POLYAGGREGATOR" )
     middlePlaque = Clue("middle plaque", [ "look", "read" ], [ look, look ] )
+    plaqueMiddle = Clue("plaque middle", [ "look", "read" ], [ look, look ] )
     
     def look():
         Game.narrateADV( "There are three machines: left, right, and middle" )
@@ -26,20 +33,23 @@ init 0 python: # set up clues and commands in room
     def look():
         Game.narrateADV( "It's a big machine with a bunch of pipes coming out the top. There's a whistling noise coming from inside." )
     def open():
-        Game.narrateADV( "There is a crazy tangle of pipes inside. You find that the whistle is coming from where a 2 foot length of pipe is missing." )
+        Game.narrateADV( "There is a crazy tangle of {b}pipes{/b} inside. You find that the whistle is coming from where a 2 foot length of pipe is missing." )
         Game.state["engine_left_machine_open"] = True
         Game.state[Game.STATE_ENGINE_MISSING_PIPE] = True
     leftMachine = Clue("left machine", [ "look", "open" ], [ look, open ] )
+    machineLeft = Clue("machine left", [ "look", "open" ], [ look, open ] )
     
     def look():
-        Game.narrateADV( "This big, mysterious machine emanates an infernal heat." )
+        Game.narrateADV( "This big, mysterious {b}machine{/b} emanates an infernal heat." )
     # something else to do
     rightMachine = Clue("right machine", [ "look" ], [ look ] )
+    machineRight = Clue("machine right", [ "look" ], [ look ] )
     
     def look():
         Game.narrateADV( "Electricity crackles between two silver spheres protruding from the top of this machine" )
     # fluff
     middleMachine = Clue("middle machine", [ "look" ], [ look ] )
+    machineMiddle = Clue("machine middle", [ "look" ], [ look ] )
     
     def look():
         line = "A rack of neatly sorted wrenches appear to be perfectly in place. Nothing seems to be missing."
@@ -51,7 +61,7 @@ init 0 python: # set up clues and commands in room
     
     def look():
         if Game.state["engine_left_machine_open"]:
-            line = "One of the steam pipes inside this machine is missing, causing it to emit a shrill whistle."
+            line = "One of the steam {b}pipes{/b} inside this machine is missing, causing it to emit a shrill whistle."
             if Game.cluesFound[Game.BATHS_WOUND]:
                 line += " This could very well be the murder weapon."
             Game.narrateADV(line)
@@ -63,10 +73,16 @@ init 0 python: # set up clues and commands in room
     room.addClue(leftPlaque)
     room.addClue(rightPlaque)
     room.addClue(middlePlaque)
+    room.addClue(plaqueLeft)
+    room.addClue(plaqueRight)
+    room.addClue(plaqueMiddle)
     room.addClue(machine)
     room.addClue(leftMachine)
     room.addClue(rightMachine)
     room.addClue(middleMachine)
+    room.addClue(machineLeft)
+    room.addClue(machineRight)
+    room.addClue(machineMiddle)
     room.addClue(tools)
     room.addClue(pipes)
     
@@ -74,10 +90,16 @@ init 0 python: # set up clues and commands in room
     del leftPlaque
     del rightPlaque
     del middlePlaque
+    del plaqueLeft
+    del plaqueRight
+    del plaqueMiddle
     del machine
     del leftMachine
     del rightMachine
     del middleMachine
+    del machineLeft
+    del machineRight
+    del machineMiddle
     del tools
     del pipes
     del look

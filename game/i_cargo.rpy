@@ -4,6 +4,10 @@ init 0 python: # set up clues and commands in room
     Game.state["cargo_trunk_open"] = False
     
     def look():
+        Game.narrateADV("The cargo hold if filled with supplies, as well as the {b}trunk{/b}s of the other passengers")
+    room.addCommand("look", look)
+    
+    def look():
         Game.narrateADV( "A well maintained red steamer trunk. It is embossed with the initials A.R." )
     def open():
         Game.narrateADV( "There are neatly pressed clothes with a pile of official looking papers tied with string." )
@@ -11,9 +15,11 @@ init 0 python: # set up clues and commands in room
     redTrunk = Clue( "trunk", [ "look", "open" ], [ look, open ] )
     
     def look():
-        # if trunk opens
-        Game.narrateADV( "It is Colonel Ritter's record of service. It details his commendation for valor at the Details Details Details" )
-        Game.cluesFound[Game.CARGO_RECORD] = True
+        if Game.state["cargo_trunk_open"]:
+            Game.narrateADV( "It is Colonel Ritter's record of service. It details his commendation for valor at the Details Details Details" )
+            Game.cluesFound[Game.CARGO_RECORD] = True
+        else:
+            raise Error()
     papers = Clue( "papers", [ "look", "read" ], [ look, look ] )
     
     room.addClue(redTrunk)

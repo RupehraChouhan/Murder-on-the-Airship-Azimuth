@@ -43,7 +43,7 @@ label start:
     python:
             
         prompt = "What would you like to do?\n"
-        choices = ["Investigate a room", "Talk to a passenger", "Look at your notepad", "Solve the case"]
+        choices = ["Investigate a room", "Talk to a passenger", "Look at your pocketwatch", "Solve the case"]
         
         Game.inputNVL(prompt, choices)
         Game.checkQuit("start")
@@ -127,7 +127,13 @@ label look_notepad:
     python:
         moves = Game.getMoves()
         time = Game.timeString()
-        Game.narrateNVL("You've made [moves] move(s). It is now [time].")
+        line = "Your watch reads [time]."
+        if Game.cluesFound[Game.BATHS_TIME_OF_DEATH]:
+            line += " You know the murder happened at 8:42."
+        else:
+            line += " The murder happened somewhere between 8:30 and 9:00."
+            
+        Game.narrateADV("Your watch reads [time].")
         Game.jump("start")
 
 label solve_case:

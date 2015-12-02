@@ -41,7 +41,7 @@
         captain.speakADV("Then, I sent for you. Forgive me for imposing, but your reputation does precede you. Your resolution of those ghastly murders in Huntingdon Court last year... and how you tracked down the Archduke of Cordovia's rubies? Very impressive. I've followed your career in the headlines with interest.")
         Game.YOU.speakADV("Not a career, my good captain, just a bit of a hobby.")
         captain.speakADV("Yes, of course. I've made a televox transmission to the Endsville Metropolitan Police. They'll be waiting for us when we land. We're due at 1:30 in the morning. I do hope you can find the killer by then, Detective - or before, if possible. What if the murderer strikes again?")
-        Game.narrateADV("{i}Well, it won't come to that, you're sure. Not with a detetctive of your skills on the case!{/i}")
+        Game.narrateADV("{i}Well, it won't come to that, you're sure. Not with a detective of your skills on the case!{/i}")
         captain.speakADV("And... I'm sure you know, having dealt with high society before, but they can be quite touchy about some subjects. If you pressure them too much on... delicate subjects, they might refuse to speak with you.")
         Game.narrateADV("{i}You have until 1:30 to catch the killer. Investigate rooms and interview suspects to find clues. Each room you search and suspect you interview will take ten minutes. If you want to try to solve the mystery early, select 'Solve the Case'.{/i}")
          

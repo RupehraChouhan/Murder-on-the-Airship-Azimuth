@@ -1,5 +1,11 @@
 init 0 python: # set up clues and commands in room
     room = Game.rooms[Game.ROOM_CABIN]
+    Game.cluesFound[Game.CABINS_EMPTY] = False
+    
+    def look():
+        Game.cluesFound[Game.CABINS_EMPTY] = True
+        Game.narrateADV("Searching among the cabins of the other passengers, you find nothing of interest. The murder weapon must have been stashed somewhere else on the ship.")
+    room.addCommand("look", look)
     
 label i_cabin:
     scene bg cabinImage
