@@ -2,7 +2,6 @@ init 0 python: # captain conversation related state
     Game.state[Game.CONV_CAPTAIN_WHAT] = False
 
 label captain:
-    stop music fadeout 2
     scene bg cockPitImage
     show captain
     with fade
