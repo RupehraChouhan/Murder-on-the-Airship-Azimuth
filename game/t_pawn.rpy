@@ -1,3 +1,7 @@
+init 0 python: # pawn conversation state
+    Game.state[Game.CONV_PAWN_WHAT] = False
+    Game.state[Game.CONV_PAWN_WHAT_PRESS] = False
+
 label pawn:
     scene bg diningImage
     show pawn
@@ -70,13 +74,15 @@ label pawn_vic:
 
 label pawn_saw:
     python:
+        Game.state[Game.CONV_PAWN_WHAT] = True
         character.speakADV("After dinner, I tried to tidy up, but Mr. Royaume had me waiting on him. Kept demanding I bring him this and that - brandy, cigars, whatever. We serve coffee and cigars at 9:30, but he had to have it right away. I finally got away after about half an hour, had to make my report to Captain Winfarthing, but she was fighting that storm. I tried to lend a hand on the bridge until it blew over, but then I had to get back to work back in service.")
         character.speakADV("A bit later, I went off to tell everyone that coffee and cigars were served. I couldn't find everyone, so I tried the baths. That's when I... found him.")
         choices = [ "Pressure", "Ask something else" ]
         character.inputADV(Game.prevNarrate, choices)
         
         index = int(Game.input) - 1
-        if index == 0:
+        if index == 0:        
+            Game.state[Game.CONV_PAWN_WHAT_PRESS] = True
             Game.YOU.speakADV("There are some gaps in your story, Miss.")
             character.speakADV("Wh- what do you mean?")
             Game.YOU.speakADV("Well, for instance, where did you go when you left the cockpit?")

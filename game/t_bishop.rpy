@@ -1,4 +1,5 @@
 init 0 python: # bishop conversation related state
+    Game.state[Game.CONV_BISHOP_WHAT] = False
     Game.state[Game.CONV_BISHOP_WHAT_PRESS] = False
 
 label bishop:
@@ -74,6 +75,8 @@ label bishop_vic:
 
 label bishop_saw:
     python:
+        Game.state[Game.CONV_BISHOP_WHAT] = True
+    
         character.speakADV("After dinner, I - uh, I retired to my room for a spell. Then I went back to the dining room. I, um, had forgot my reading glasses. That was about 8:30. Then I must have got turned around, I ended up in the bar at 9. The steward was tidying up when I arrived. She invited me for coffee and cigars in the dining room at 9:30, which I had just sat down to enjoy when I heard her scream! Mr. de la Rocque and I went running, and we found her staring in shock at that poor man...")
         choices = ["Pressure","Ask something else"]
         character.inputADV(Game.prevNarrate, choices)

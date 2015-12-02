@@ -99,11 +99,11 @@ Y: Now, I will address each of you in turn, determine your whereabouts from your
 				[Keep Mr. de la Rocque under suspicion]
 				[Accuse Mr. de la Rocque]
 					Y: For these reasons, I have no choice but to accuse you, Mr. Charles Westinghouse de la Rocque, for the murder of your client and business partner, Henry Augustus Algernon Royaume. 
-				R: What? That's outrageous! What possible reason could I have for killing him?
+                    R: What? That's outrageous! What possible reason could I have for killing him?
 				[Money]
 					Y: The death of your business parter enriches you greatly, sir. You were already the brains behind Royaume & Sons, and without Royaume's impulsiveness causing you trouble, you figured your shrewd mind could further grow your firm's profits - without a partner to split them with, no less. But you didn't gamble on encountering a yet-shrewder mind, eh?
 					Y: Captain, take him to the brig!
-					Q: What? This is preposertous! It wasn't me! All that's true, yes, but I didn't kill him! I'm being set up! You have to believe me!
+					R: What? This is preposertous! It wasn't me! All that's true, yes, but I didn't kill him! I'm being set up! You have to believe me!
 					[Wrong arrest ending]
 				[Resentment]
 					Y: You were constantly living in Royaume's shadow. You did all the work, while he got all the credit. His name on the company! His name in the papers! His marriage to an aristocratic bride! All thanks to your tireless efforts! With him dead, and you on your way to the most lucrative business deal of your career, it would be {i}you{/i} who finally gets the recognition you deserve! {i}You{/i} whose name is signed just below the seal of Her Infallible Majesty's Grand Admiral!
@@ -294,7 +294,7 @@ Y: Now, I will address each of you in turn, determine your whereabouts from your
 					[Wrong arrest ending]
 	[Pawn]
 		Y: Steward Polly Newport.
-		Q: Uhh, yes?
+		P: Uhh, yes?
 		[IF asked P's whereabouts][What you said]
 			Y: Miss Newport, you claim you saw the guests off after dinner, and then waited on Mr. Royaume in the lounge until you slipped away at 8:30, is that right?
 			P: Yes it is.

@@ -18,9 +18,13 @@ init -999 python: # Game class must be given first priority to load
         state = {}
         
         CONV_QUEEN_WHAT = "conv_queen_what"
+        CONV_ROOK_WHAT = "conv_rook_what"
+        CONV_BISHOP_WHAT = "conv_bishop_what"
         CONV_BISHOP_WHAT_PRESS = "conv_bishop_what_press"
         CONV_KNIGHT_WHAT = "conv_knight_what"
         CONV_CAPTAIN_WHAT = "conv_captain_what"
+        CONV_PAWN_WHAT = "conv_pawn_what"
+        CONV_PAWN_WHAT_PRESS = "conv_pawn_what_press"
         STATE_ENGINE_MISSING_PIPE = "engine_missing_pipe"
         
         # Dictionary for tracking clues

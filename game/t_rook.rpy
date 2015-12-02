@@ -1,3 +1,6 @@
+init 0 python: # rook conversation state
+    Game.state[Game.CONV_ROOK_WHAT] = False
+
 label t_rook:
     scene bg diningImage
     show rook
@@ -66,6 +69,8 @@ label rook_vic:
         Game.jump(character.label + "_loop")
 label rook_saw:
     python:
+        Game.state[Game.CONV_ROOK_WHAT] = True
+    
         character.speakADV("After dinner, that storm was still raging, so I went to see how the crew was coping. It's one thing to read an engineer's blueprint, another to see it in action, you know? I wanted to have a word with the captain, but she was not in a position to speak at the time. She had the vessel well in hand, though.")
         character.speakADV("I retired to the passenger lounge and went over some papers until the storm passed. At 9, the storm had blown over, and I spoke with Captain Winfarthing. She will, of course, corroborate this. I then enjoyed the nuts and coffee in the dining room with Rector Esgob - much more composed, thankfully - until we heard that dreadful scream and went running.")
         choices = ["Pressure","Ask something else"]
