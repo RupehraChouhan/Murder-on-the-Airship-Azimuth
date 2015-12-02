@@ -480,11 +480,12 @@ label finale_incorrect:
         Game.narrateADV("{i}As promised, the Metropolitan Police are on hand. You explain the details of the case and your brilliant deductions to the inspector while Captain Winfarthing's burliest airmen transfer custody of the accused to the constables.{/i}")
         Game.narrateADV("{i}The inspector thanks you, all the passengers and crew thank you again, and you spare a few words for the newspaper reporters that hang around the aftermath of these sorts of thing.{/i}")
         Game.narrateADV("{i}With the adoring public satisfied, you engage a hansom to take you and your bags to your hotel, where you manage to finally get back to sleep.{/i}")
-        Game.narrateADV("{i}A few days into your vacation (a self-guided walking tour of Endsville's historic Watchmaker's District), you read a troubling headline.{/i}")
-        Game.narrateADV("'WAR HERO FOUND DEAD, ADMITS TO MURDERS'")
-        Game.narrateADV("{i}Apparently, Sergeant-Major Ritter, unable to clear the guilt of murder from his conscience, took his own life.{/i}")
-        Game.narrateADV("{i}What bothers you more, though, is the drop head underneath the main headline.{/i}")
+        Game.narrateADV("{i}A few days into your vacation (a self-guided walking tour of Endsville's historic Watchmaker's District), you read a troubling headline in the local newspaper.{/i}")
+        Game.narrateADV("'REAL {i}AZIMUTH{/i} KILLER CONFESSES!'")
+        Game.narrateADV("{i}You don't even bother to read the details. Your gaze is fixed on the secondary headline:{/i}")
         Game.narrateADV("'GREAT DETECTIVE GETS IT WRONG -- DOZENS OF CASES CALLED INTO QUESTION'")
+        Game.narrateADV("Your good name, your reputation for brilliance, all gone.")
+
         
         Game.jump("the_end")
         
