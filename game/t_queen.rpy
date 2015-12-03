@@ -2,7 +2,7 @@ init 0 python: # initialize queen related conversation states
     Game.state[Game.CONV_QUEEN_WHAT] = False
 
 label queen:
-    scene bg diningImage
+    scene bg cabinImage
     show queen
     with fade
     

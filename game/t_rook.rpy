@@ -2,7 +2,7 @@ init 0 python: # rook conversation state
     Game.state[Game.CONV_ROOK_WHAT] = False
 
 label rook:
-    scene bg diningImage
+    scene bg cabinImage
     show rook
     with fade
     

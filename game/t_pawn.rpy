@@ -3,7 +3,7 @@ init 0 python: # pawn conversation state
     Game.state[Game.CONV_PAWN_WHAT_PRESS] = False
 
 label pawn:
-    scene bg diningImage
+    scene bg cabinImage
     show pawn
     with fade
     

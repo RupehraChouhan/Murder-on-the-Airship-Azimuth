@@ -3,7 +3,7 @@ init 0 python: # bishop conversation related state
     Game.state[Game.CONV_BISHOP_WHAT_PRESS] = False
 
 label bishop:
-    scene bg diningImage
+    scene bg cabinImage
     show bishop
     with fade
     

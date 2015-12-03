@@ -2,7 +2,7 @@ init 0 python: # knight conversation related state
     Game.state[Game.CONV_KNIGHT_WHAT] = False
 
 label knight:
-    scene bg diningImage
+    scene bg cabinImage
     show knight
     with fade
     
