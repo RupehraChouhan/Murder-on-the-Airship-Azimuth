@@ -115,11 +115,11 @@ label captain_found:
             character.speakADV("... I'm sorry, Detective. I know you're doing your best. But please hurry. With the murderer on the loose, we're all in danger.")
 
         elif clueName == "Ask something else.":
-            pass
+            Game.jump(character.label + "_loop")
             
         else:
             character.speakADV("I don't know what you're talking about.")        
-        Game.jump(character.label + "_loop")
+        Game.jump(character.label + "_found")
 
 label captain_other:
     python:

@@ -112,7 +112,7 @@ label knight_found:
         if clueName == Game.BATHS_WOUND:
             while True:
                 line = "From the look I got, I'd agree. A decent length of steel, you don't need much strength to crack a man's skull."
-                choices = [ "Pressure.", "Ask someone else." ]
+                choices = [ "Pressure.", "Ask about another discovery." ]
                 character.inputADV(line, choices, True)
                 if Game.input != "":
                     break
@@ -129,7 +129,7 @@ label knight_found:
         elif clueName == Game.BATHS_TIME_OF_DEATH:
             while True:
                 line = "Between 8:30 and 9 I was in my cabin. Alone."
-                choices = [ "Pressure.", "Ask someone else." ]
+                choices = [ "Pressure.", "Ask about another discovery." ]
                 character.inputADV(line, choices, True)
                 if Game.input != "":
                     break
@@ -144,7 +144,7 @@ label knight_found:
         elif clueName == Game.GALLEY_PIPE:
             while True:
                 line = "Found it, did you?"
-                choices = [ "Pressure.", "Ask someone else." ]
+                choices = [ "Pressure.", "Ask about another discovery." ]
                 character.inputADV(line, choices, True)
                 if Game.input != "":
                     break
@@ -159,7 +159,7 @@ label knight_found:
         elif clueName == Game.CABINS_EMPTY:
             while True:
                 line = "I will say this for Royaume's ships - they are efficient. Very little wasted space and material, even in these ostentatious luxury decks. I haven't noticed anywere one could hide a weapon, Detective, I'm sorry."
-                choices = [ "Pressure.", "Ask someone else." ]
+                choices = [ "Pressure.", "Ask about another discovery." ]
                 character.inputADV(line, choices, True)
                 if Game.input != "":
                     break
@@ -174,7 +174,7 @@ label knight_found:
         elif clueName == Game.DINING_SPECTACLES:
             while True:
                 line = "Esgob's spectacles. What of them?"
-                choices = [ "Pressure.", "Ask someone else." ]
+                choices = [ "Pressure.", "Ask about another discovery." ]
                 character.inputADV(line, choices, True)
                 if Game.input != "":
                     break
@@ -189,7 +189,7 @@ label knight_found:
         elif clueName == Game.LOUNGE_CONTRACTS:
             while True:
                 line = "I've already seen these. Mr. de la Rocque asked me to consult on the language, you know. He thought the sponsorship of a decorated soldier might aid him in dealing with the Admiralty."
-                choices = [ "Pressure.", "Ask someone else." ]
+                choices = [ "Pressure.", "Ask about another discovery." ]
                 character.inputADV(line, choices, True)
                 if Game.input != "":
                     break
@@ -206,7 +206,7 @@ label knight_found:
         elif clueName == Game.GALLEY_BOOK:
             while True:
                 line = "I don't get involved in politics. I have dedicated my life to service of Her Infallible Majesty's government, whatever that government may be."
-                choices = [ "Pressure.", "Ask someone else." ]
+                choices = [ "Pressure.", "Ask about another discovery." ]
                 character.inputADV(line, choices, True)
                 if Game.input != "":
                     break
@@ -222,7 +222,7 @@ label knight_found:
         elif clueName == Game.CARGO_RECORD:
             while True:
                 line = "My whole life is in there. Does that help answer your questions?"
-                choices = [ "Pressure.", "Ask someone else." ]
+                choices = [ "Pressure.", "Ask about another discovery." ]
                 character.inputADV(line, choices, True)
                 if Game.input != "":
                     break
@@ -242,7 +242,7 @@ label knight_found:
         elif clueName == Game.ROOK_BODY:
             while True:
                 line = "Thank you for your concern, Detective, but I am unharmed. If the killer comes for me next, I am prepared to defend myself."
-                choices = [ "Pressure.", "Ask someone else." ]
+                choices = [ "Pressure.", "Ask about another discovery." ]
                 character.inputADV(line, choices, True)
                 if Game.input != "":
                     break
@@ -256,11 +256,11 @@ label knight_found:
                 pass
                 
         elif clueName == "Ask something else.":
-            pass
+            Game.jump(character.label + "_loop")
                 
         else:
             character.speakADV("I don't know what you're talking about.")
-        Game.jump(character.label + "_loop")
+        Game.jump(character.label + "_found")
         
 label knight_other:
     python:
@@ -288,7 +288,7 @@ label knight_bishop:
     python:
         while True:
             line = "Rector Esgob, the social reformer? A principled man. Willing to defend those principles, if suppertime's heated debate was any indication."
-            choices = [ "Pressure.", "Ask someone else." ]
+            choices = [ "Pressure.", "Ask about someone else." ]
             character.inputADV(line, choices, True)
             if Game.input != "":
                 break
@@ -299,13 +299,13 @@ label knight_bishop:
             character.speakADV("I doubt it. The man's many things, but he's no hypocrite. That said, he did have a lot to drink. If he'd had a few more, there's no predicting what he'd do. ")
         elif index == 1:
             pass
-        Game.jump(character.label + "_loop")
+        Game.jump(character.label + "_other")
         
 label knight_rook:
     python:
         while True:
             line = "de la Rocque, the solicitor? A diligent man. What about him?"
-            choices = [ "Pressure.", "Ask someone else." ]
+            choices = [ "Pressure.", "Ask about someone else." ]
             character.inputADV(line, choices, True)
             if Game.input != "":
                 break
@@ -317,13 +317,13 @@ label knight_rook:
             character.speakADV("I suppose. He's worked long in Royaume's shadow without a trace of ambition. But perhaps branching out into arms dealing has soured his morals some.")
         elif index == 1:
             pass
-        Game.jump(character.label + "_loop")
+        Game.jump(character.label + "_other")
         
 label knight_pawn:
     python:
         while True:
             line = "The steward? She seems dutiful enough. She insisted on attending to her duties even in the face of the Royaumes' demands for personal attention."
-            choices = [ "Pressure.", "Ask someone else." ]
+            choices = [ "Pressure.", "Ask about someone else." ]
             character.inputADV(line, choices, True)
             if Game.input != "":
                 break
@@ -334,13 +334,13 @@ label knight_pawn:
             character.speakADV("Doubtful, in my opinion. She's rank-and-file. She's accustomed to those in charge not knowing what they're doing and giving her orders anyway. ")
         elif index == 1:
             pass
-        Game.jump(character.label + "_loop")
+        Game.jump(character.label + "_other")
         
 label knight_queen:
     python:
         while True:
             line = "The Lady Eleanora? I've only just met her. She seems the picture of decorum."
-            choices = [ "Pressure.", "Ask someone else." ]
+            choices = [ "Pressure.", "Ask about someone else." ]
             character.inputADV(line, choices, True)
             if Game.input != "":
                 break
@@ -351,4 +351,4 @@ label knight_queen:
             character.speakADV("She clearly did not love him. And I imagine she stands to inherit a fortune. Many more men have died for worse reasons.")
         elif index == 1:
             pass
-        Game.jump(character.label + "_loop")
+        Game.jump(character.label + "_other")

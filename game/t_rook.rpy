@@ -110,7 +110,7 @@ label rook_found:
         if clueName == Game.BATHS_WOUND:
             while True:
                 line = "Something heavy, eh? Unless a passenger brought the weapon aboard, it would have to be one of the pipe wrenches. They keep them in the engine room, and they're {i}supposed{/i} to all be locked up when not in use. Aside from that, I can't think of anything that fits the description. No extra weight on a Royaume ship! Well, except..."
-                choices = [ "Pressure.", "Ask someone else." ]
+                choices = [ "Pressure.", "Ask about another discovery." ]
                 character.inputADV(line, choices, True)
                 if Game.input != "":
                     break
@@ -127,7 +127,7 @@ label rook_found:
         elif clueName == Game.BATHS_TIME_OF_DEATH:
             while True:
                 line = "Where was I between 8:30 and 9? I meant to be speaking with Captain Winfarthing, but she'd been busy with the storm, and I got caught up reviewing our contracts in the meantime."
-                choices = [ "Pressure.", "Ask someone else." ]
+                choices = [ "Pressure.", "Ask about another discovery." ]
                 character.inputADV(line, choices, True)
                 if Game.input != "":
                     break
@@ -143,7 +143,7 @@ label rook_found:
             Game.narrateADV("{i}de la Rocque's face twists uncomfortably{/i}")
             while True:
                 line = "How dreadful."
-                choices = [ "Pressure.", "Ask someone else." ]
+                choices = [ "Pressure.", "Ask about another discovery." ]
                 character.inputADV(line, choices, True)
                 if Game.input != "":
                     break
@@ -158,7 +158,7 @@ label rook_found:
         elif clueName == Game.CABINS_EMPTY:
             while True:
                 line = "I worked closely with the engineers to cut down on awkward nooks - to save on materials and discourage transporing contraband, both. You say you've searched the cabins? Then it must be in plain sight somewhere, I'd stake my reputation on it."
-                choices = [ "Pressure.", "Ask someone else." ]
+                choices = [ "Pressure.", "Ask about another discovery." ]
                 character.inputADV(line, choices, True)
                 if Game.input != "":
                     break
@@ -174,7 +174,7 @@ label rook_found:
         elif clueName == Game.DINING_SPECTACLES:
             while True:
                 line = "Esgob's spectacles. What about them?"
-                choices = [ "Pressure.", "Ask someone else." ]
+                choices = [ "Pressure.", "Ask about another discovery." ]
                 character.inputADV(line, choices, True)
                 if Game.input != "":
                     break
@@ -189,7 +189,7 @@ label rook_found:
         elif clueName == Game.LOUNGE_CONTRACTS:
             while True:
                 line = "Please, might I have those back? They're quite sensitive, you know. They pertain to imperial security."
-                choices = [ "Pressure.", "Ask someone else." ]
+                choices = [ "Pressure.", "Ask about another discovery." ]
                 character.inputADV(line, choices, True)
                 if Game.input != "":
                     break
@@ -206,7 +206,7 @@ label rook_found:
         elif clueName == Game.GALLEY_BOOK:
             while True:
                 line = "Where did you find those? We've made it quite clear that possession of Singer's writings is grounds for dismissal at any of our plants or on any of our vessels! Damn rabble-rouser. Singerists were responsible for a riot at our factory in the Esterlands last month. Had to hire some local help to break the strike."
-                choices = [ "Pressure.", "Ask someone else." ]
+                choices = [ "Pressure.", "Ask about another discovery." ]
                 character.inputADV(line, choices, True)
                 if Game.input != "":
                     break
@@ -221,7 +221,7 @@ label rook_found:
         elif clueName == Game.CARGO_RECORD:
             while True:
                 line = "Ritter is unsuaally tight-lipped about his escapades as an enlisted man. I'm sure it's fascinating reading, but is it relevant?"
-                choices = [ "Pressure.", "Ask someone else." ]
+                choices = [ "Pressure.", "Ask about another discovery." ]
                 character.inputADV(line, choices, True)
                 if Game.input != "":
                     break
@@ -234,11 +234,11 @@ label rook_found:
                 pass
 
         elif clueName == "Ask something else.":
-            pass
+            Game.jump(character.label + "_loop")
             
         else:
             character.speakADV("I don't know what you're talking about.")        
-        Game.jump(character.label + "_loop")
+        Game.jump(character.label + "_found")
 
 label rook_other:
     python:
@@ -267,7 +267,7 @@ label rook_bishop:
         character.speakADV("This is confidential, yes? I have a dim view of Rector Nathaniel Esgob's reputation. His calls for compassionate reform, so-called, have led to pickets and stoppages at some of our factories. But we have to maintain the appearance that we entertain his outlandish schemes to coddle our workers. Otherwise, the Singerists get involved, and instead of pickets and stoppages, it's sabotage and firebombings. Madness.")
         while True:
             line = "Anyway, a dozen or more tradesmen's federations put up the money to fund him on a speaking tour of the industrial towns down south, and we simply {i}had{/i} to agree. Naturally, though, it wasn't long before he started spouting his noxious opinions, and Henry had to set him straight."
-            choices = [ "Pressure.", "Ask someone else." ]
+            choices = [ "Pressure.", "Ask about someone else." ]
             character.inputADV(line, choices, True)
             if Game.input != "":
                 break
@@ -279,7 +279,7 @@ label rook_bishop:
             character.speakADV("I imagine the liquid courage helped some. For a man so supported in the temperance movement, he sure had a lot of wine with dinner, before shuffling off to the bar, no less.")
         elif index == 1:
             pass
-        Game.jump(character.label + "_loop")
+        Game.jump(character.label + "_other")
   
 label rook_knight:
     python:
@@ -289,7 +289,7 @@ label rook_knight:
         Game.narrateADV("{i}The gravity of the situation kills the momentary light in de la Rocque's eyes. He clears his throat and looks down at his shoes.{/i}")
         while True:
             line = "Quite right, quite right. Yes, of course."
-            choices = [ "Pressure.", "Ask someone else." ]
+            choices = [ "Pressure.", "Ask about someone else." ]
             character.inputADV(line, choices, True)
             if Game.input != "":
                 break
@@ -300,13 +300,13 @@ label rook_knight:
             character.speakADV("Before this voyage, they'd never met, as far as I know. I handled all correspondence with him personally. Henry... didn't take much of an interest in the day-to-day.")
         elif index == 1:
             pass
-        Game.jump(character.label + "_loop")
+        Game.jump(character.label + "_other")
         
 label rook_pawn:
     python:
         while True:
             line = "The steward? I understand from speaking with Captain Winfarthing she's been chronically away from her post during this voyage. Though some of that time she was waiting on the Royaumes. Henry never liked bringing his domestics along when travelling on his own vessels. Thought it was a frivolous expense. He paid the wages of these airmen, after all, he'd say."
-            choices = [ "Pressure.", "Ask someone else." ]
+            choices = [ "Pressure.", "Ask about someone else." ]
             character.inputADV(line, choices, True)
             if Game.input != "":
                 break
@@ -318,13 +318,13 @@ label rook_pawn:
             character.speakADV("We have to consider it. All these other so-called suspects are gentlemen, after all. I couldn't believe they would do such a thing. But her?")
         elif index == 1:
             pass
-        Game.jump(character.label + "_loop")
+        Game.jump(character.label + "_other")
         
 label rook_queen:
     python:
         while True:
             line = "Ah, the Lady Eleanora? Lovely woman, lovely woman. She was a perfect match for Henry. We'd never be where we are today if it weren't for her. Those royals can be such snobs. Even though we make ten times what they do in a year, they still turn up their noses at us. Eleanora gave Henry the respectability he needed to meet contacts in Her Infallible Majesty's government."
-            choices = [ "Pressure.", "Ask someone else." ]
+            choices = [ "Pressure.", "Ask about someone else." ]
             character.inputADV(line, choices, True)
             if Game.input != "":
                 break
@@ -337,4 +337,4 @@ label rook_queen:
             character.speakADV("Though, you are right. No one could accuse theirs of being a loving marriage. It was as political for her as it was for him; a lot of those old families are paying off generations worth of debts. And Henry - his personal fortune was quite large. Even though control of his company falls to me - I hate to think it, but Lady Eleanora could live out her days quite comfortably on her inheritance.")
         elif index == 1:
             pass
-        Game.jump(character.label + "_loop")
+        Game.jump(character.label + "_other")

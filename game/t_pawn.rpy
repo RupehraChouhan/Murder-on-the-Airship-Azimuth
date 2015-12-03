@@ -122,7 +122,7 @@ label pawn_found:
         if clueName == Game.BATHS_WOUND:
             while True:
                 line = "I - I already saw... that. Dunno where the murderer could've put hands on something big and heavy. All the tools in the engine room are locked up."
-                choices = [ "Pressure.", "Ask someone else." ]
+                choices = [ "Pressure.", "Ask about another discovery." ]
                 character.inputADV(line, choices, True)
                 if Game.input != "":
                     break
@@ -138,7 +138,7 @@ label pawn_found:
         elif clueName == Game.BATHS_TIME_OF_DEATH:
             while True:
                 line = "Between 8:30 and 9? Working, playing catchup. On the bridge or in the bar, don't rightly remember."
-                choices = [ "Pressure.", "Ask someone else." ]
+                choices = [ "Pressure.", "Ask about another discovery." ]
                 character.inputADV(line, choices, True)
                 if Game.input != "":
                     break
@@ -153,7 +153,7 @@ label pawn_found:
         elif clueName == Game.GALLEY_PIPE:
             while True:
                 line = "A pipe out one of those contraptions keeps us flying? Maybe it was someone in engineering. Everyone has to work triple shifts when we get a dignitary flight, not just us in service. Could get to anyone."
-                choices = [ "Pressure.", "Ask someone else." ]
+                choices = [ "Pressure.", "Ask about another discovery." ]
                 character.inputADV(line, choices, True)
                 if Game.input != "":
                     break
@@ -170,7 +170,7 @@ label pawn_found:
             character.speakADV("You figure the weapon has to be hidden somewhere on the ship? Makes sense, I guess. I do know an out-of-the-way corner in the kitchen. Behind the ovens, there's a vent with a missing screw. Try looking in there?")
             while True:
                 line = "Don't tell the captain I knew that."
-                choices = [ "Pressure.", "Ask someone else." ]
+                choices = [ "Pressure.", "Ask about another discovery." ]
                 character.inputADV(line, choices, True)
                 if Game.input != "":
                     break
@@ -187,7 +187,7 @@ label pawn_found:
         elif clueName == Game.DINING_SPECTACLES:
             while True:
                 line = "The Rector's glasses, sure."
-                choices = [ "Pressure.", "Ask someone else." ]
+                choices = [ "Pressure.", "Ask about another discovery." ]
                 character.inputADV(line, choices, True)
                 if Game.input != "":
                     break
@@ -202,7 +202,7 @@ label pawn_found:
         elif clueName == Game.LOUNGE_CONTRACTS:
             while True:
                 line = "That's all beyond me. I can read, not like most of my family, but that's a far cry from reading solicitor language."
-                choices = [ "Pressure.", "Ask someone else." ]
+                choices = [ "Pressure.", "Ask about another discovery." ]
                 character.inputADV(line, choices, True)
                 if Game.input != "":
                     break
@@ -218,7 +218,7 @@ label pawn_found:
             Game.narrateADV("{i}Newport visibly starts when you show her the pamphlets.{/i}")
             while True:
                 line = "N - Never seen those before. What are they?"
-                choices = [ "Pressure.", "Ask someone else." ]
+                choices = [ "Pressure.", "Ask about another discovery." ]
                 character.inputADV(line, choices, True)
                 if Game.input != "":
                     break
@@ -236,7 +236,7 @@ label pawn_found:
         elif clueName == Game.CARGO_RECORD:
             while True:
                 line = "So the war hero is actually a war hero? Good to know."
-                choices = [ "Pressure.", "Ask someone else." ]
+                choices = [ "Pressure.", "Ask about another discovery." ]
                 character.inputADV(line, choices, True)
                 if Game.input != "":
                     break
@@ -256,7 +256,7 @@ label pawn_found:
             Game.narrateADV("{i}Newport gasps{/i}")
             while True:
                 line = "Another murder? What if it's one of those slasher madmen like the one that terrorized Chapel Street last year? They never caught him!"
-                choices = [ "Pressure.", "Ask someone else." ]
+                choices = [ "Pressure.", "Ask about another discovery." ]
                 character.inputADV(line, choices, True)
                 if Game.input != "":
                     break
@@ -270,11 +270,11 @@ label pawn_found:
                 pass
             
         elif clueName == "Ask something else.":
-            pass
+            Game.jump(character.label + "_loop")
             
         else:
             character.speakADV("I don't know what you're talking about.")
-        Game.jump(character.label + "_loop")
+        Game.jump(character.label + "_found")
         
 label pawn_other:
     python:
@@ -302,7 +302,7 @@ label pawn_bishop:
     python:
         while True:
             line = "I've heard some of Rector Esgob's speeches on the televox. Seems like he knows how harsh it is, what the workers go through. Doesn't seem like he's had much success actually changing things, though. Asking nicely doesn't work too well, who'd have thought?"
-            choices = [ "Pressure.", "Ask someone else." ]
+            choices = [ "Pressure.", "Ask about someone else." ]
             character.inputADV(line, choices, True)
             if Game.input != "":
                 break
@@ -313,13 +313,13 @@ label pawn_bishop:
             character.speakADV("Well, him and Mr. Royaume did get in a terrible row at dinner. Difference of politics, I'd expect. I was working, mostly hoping they didn't break any of the good dishes. I didn't really listen in, sorry.")
         elif index == 1:
             pass
-        Game.jump(character.label + "_loop")
+        Game.jump(character.label + "_other")
         
 label pawn_knight:
     python:
         while True:
             line = "Never met Sergeant-Major Ritter before. At least he's polite and tidies up after himself."
-            choices = [ "Pressure.", "Ask someone else." ]
+            choices = [ "Pressure.", "Ask about someone else." ]
             character.inputADV(line, choices, True)
             if Game.input != "":
                 break
@@ -330,13 +330,13 @@ label pawn_knight:
             character.speakADV("Wouldn't know, me. Doesn't seem like the Sergeant-Major talks much.")
         elif index == 1:
             pass
-        Game.jump(character.label + "_loop")
+        Game.jump(character.label + "_other")
         
 label pawn_rook:
     python:
         while True:
             line = "Mr. de la Rocque? I saw him whenever Mr. Royaume travelled with us. They were inseperable. Always had his head in a ledger. I didn't mind. He was much less demanding than Mr. Royaume."
-            choices = [ "Pressure.", "Ask someone else." ]
+            choices = [ "Pressure.", "Ask about someone else." ]
             character.inputADV(line, choices, True)
             if Game.input != "":
                 break
@@ -347,13 +347,13 @@ label pawn_rook:
             character.speakADV("Royaume was a hard man to work under. I found him tough to put up with only seeing him a few days a year. I can't imagine what it was like every day of the week!")
         elif index == 1:
             pass
-        Game.jump(character.label + "_loop")
+        Game.jump(character.label + "_other")
         
 label pawn_queen:
     python:
         while True:
             line = "She's as much a terror as her husband! They're rich, they've got servants at home. Why not bring them with them? Some of us have work to do, can't be running every errand that enters her head!"
-            choices = [ "Pressure.", "Ask someone else." ]
+            choices = [ "Pressure.", "Ask about someone else." ]
             character.inputADV(line, choices, True)
             if Game.input != "":
                 break
@@ -364,4 +364,4 @@ label pawn_queen:
             character.speakADV("I dunno. She didn't travel with us as much as her husband, thank goodness. Seems like they weren't that close, though. Heard them fighting before. Seemed like just a typical married couple row, though.")
         elif index == 1:
             pass
-        Game.jump(character.label + "_loop")
+        Game.jump(character.label + "_other")
