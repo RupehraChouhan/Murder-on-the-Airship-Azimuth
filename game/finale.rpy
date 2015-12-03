@@ -31,7 +31,7 @@
 label finale_main:
     python:
         # address each in turn and evaluate motives and opportunity
-        line = "Who do would you like to talk about?"
+        line = "Who do would you like to talk about?\n"
         choices = []
         labels = []
         for i in range(0, len(Game.npcs)):
@@ -40,6 +40,8 @@ label finale_main:
                 labels.append(Game.npcs[i].label)
     
         Game.inputADV(line, choices, True)
+        Game.checkQuit("finale_main")
+        
         index = int(Game.input) - 1
         label = labels[index]
         Game.jump("finale_address_" + label)
@@ -66,11 +68,14 @@ label finale_address_queen:
             bishop.speakADV("That's right.")
             Game.YOU.speakADV("From the conclusion of dinner at eight o'clock for about half an hour, yes?")
             bishop.speakADV("That's correct.")
-            
-            
-        line = "Is she guilty?"
-        choices = ["Guilty", "Innocent", "Potential"]
-        Game.inputADV(line, choices, True)
+        
+        while True:
+            line = "Is she guilty?\n"
+            choices = ["Guilty", "Innocent", "Potential"]
+            Game.inputADV(line, choices, True)
+            if Game.input != "":
+                break
+        
         index = int(Game.input) - 1
         if index == 0:
             Game.jump("finale_accuse_queen")
@@ -80,7 +85,6 @@ label finale_address_queen:
         elif index == 2:
             Game.jump("finale_main")
         Game.jump("finale_main")
-        
         
 label finale_address_rook:
     python:
@@ -115,9 +119,13 @@ label finale_address_rook:
             rook.speakADV("Yes, but why would I share that with you if I were the killer?")
             Game.YOU.speakADV("Precisely so you could ask me that question when we arrived at this point.")
             
-        line = "Is he guilty?"
-        choices = ["Guilty", "Innocent", "Potential"]
-        Game.inputADV(line, choices, True)
+        while True:
+            line = "Is he guilty?\n"
+            choices = ["Guilty", "Innocent", "Potential"]
+            Game.inputADV(line, choices, True)
+            if Game.input != "":
+                break
+                
         index = int(Game.input) - 1
         if index == 0:
             Game.jump("finale_accuse_rook")
@@ -161,9 +169,13 @@ label finale_address_bishop:
             bishop.speakADV("Y-yes. Yes they do.")
             Game.YOU.speakADV("All we can surmise from this discovery is that you were in the dining room at some point after supper.")
             
-        line = "Is he guilty?"
-        choices = ["Guilty", "Innocent", "Potential"]
-        Game.inputADV(line, choices, True)
+        while True:
+            line = "Is he guilty?\n"
+            choices = ["Guilty", "Innocent", "Potential"]
+            Game.inputADV(line, choices, True)
+            if Game.input != "":
+                break
+                
         index = int(Game.input) - 1
         if index == 0:
             Game.jump("finale_accuse_bishop")
@@ -188,9 +200,13 @@ label finale_address_knight:
             Game.YOU.speakADV("And nobody saw you at all between dinner and 9:30, when you encountered Lady Eleanora on the observation deck?")
             queen.speakADV("Yes, that's correct.")
         
-        line = "Is he guilty?"
-        choices = ["Guilty", "Innocent", "Potential"]
-        Game.inputADV(line, choices, True)
+        while True:
+            line = "Is he guilty?\n"
+            choices = ["Guilty", "Innocent", "Potential"]
+            Game.inputADV(line, choices, True)
+            if Game.input != "":
+                break
+                
         index = int(Game.input) - 1
         if index == 0:
             Game.jump("finale_accuse_knight")
@@ -225,9 +241,13 @@ label finale_address_pawn:
             pawn.speakADV("But... I never... Why would I tell you about it, then?")
             Game.YOU.speakADV("Precisely so you could ask me that question. But I have not finished yet.")
             
-        line = "Is she guilty?"
-        choices = ["Guilty", "Innocent", "Potential"]
-        Game.inputADV(line, choices, True)
+        while True:
+            line = "Is she guilty?\n"
+            choices = ["Guilty", "Innocent", "Potential"]
+            Game.inputADV(line, choices, True)
+            if Game.input != "":
+                break
+                
         index = int(Game.input) - 1
         if index == 0:
             Game.jump("finale_accuse_pawn")
@@ -241,16 +261,19 @@ label finale_address_pawn:
 label finale_accuse_queen:
     python:
         Game.YOU.speakADV("For these reasons, I have no choice but to accuse you, Lady Eleanora Francesca van Koenigen Royaume, for the murder of your husband, Henry Augustus Algernon Royaume. ")
-        line = "What? That's outrageous! What possible reason could I have for killing him?"
-        queen.speakADV(line)
-        
-        choices = ["Money", "A lover", "Resentment"]
-        queen.inputADV(line, choices, True)
+        while True:
+            line = "What? That's outrageous! What possible reason could I have for killing him?"
+            choices = ["Money", "A lover", "Resentment"]
+            queen.inputADV(line, choices, True)
+            if Game.input != "":
+                break
+                
         index = int(Game.input) - 1
         if index == 0:
             Game.YOU.speakADV("The death of your husband enriches you greatly, Madame. It restores the fortunes of your fading aristocratic family - something which you place a great deal of value in. Henceforth, the van Koenigens will find themselves with wealth to match their station. That is, until this scandal makes the newspapers.")
             Game.YOU.speakADV("Captain, take her to the brig!")
             queen.speakADV("No, you can't! It wasn't me! All that's true, yes, but I didn't kill him! I'm being set up! You have to believe me!")
+            
             Game.jump("finale_incorrect")
             
         elif index == 1:
@@ -261,27 +284,29 @@ label finale_accuse_queen:
             captain.speakADV("I'm inclined to side with the Baroness, Detective. Without proof, I'm afraid I must confine all of you to your berths and let the Metropolitan Police sort this out.")
             Game.narrateADV("{i}Captain Winfarthing looks you straight in the eyes.{/i}")
             captain.speakADV("I apologize for placing my trust in this so-called detective.")
+            
             Game.jump("finale_no_arrest")
             
         elif index == 2:
             Game.YOU.speakADV("You were overcome with frustration at your boorish bourgeois husband. His indecorous behaviour at dinner was the last straw. You killed him, fuelled by aristocratic ardour. Well, I hope your quality table manners serve you well in prison! ")
             Game.YOU.speakADV("Captain! Take her to the brig!")
             queen.speakADV("No, you can't! It wasn't me! All that's true, yes, but I didn't kill him! I'm being set up! You have to believe me!")
+            
             Game.jump("finale_incorrect")
-        
         
 label finale_accuse_knight:
     python:
         Game.YOU.speakADV("For these reasons, I have no choice but to accuse you, Sergeant-Major Angus Ritter, for the murder of Henry Augustus Algernon Royaume.")
         Game.narrateADV("{i}Ritter doesn't even flinch.{/i}")
+        while True:
+            line = "That's absurd. What could possibly be my motive? I'd never even met the man before tonight."
+            choices = ["Money", "Revenge", "Principles"]
+            if Game.cluesFound[Game.CARGO_RECORD]:
+                choices.append("Saving Lives")
+            knight.inputADV(line, choices, True)
+            if Game.input != "":
+                break
         
-        line = "That's absurd. What could possibly be my motive? I'd never even met the man before tonight."
-        knight.speakADV(line)
-        
-        choices = ["Money", "Revenge", "Principles"]
-        if Game.cluesFound[Game.CARGO_RECORD]:
-            choices.append("Saving Lives")
-        knight.inputADV(line, choices, True)
         index = int(Game.input) - 1
         if index == 0:
             Game.YOU.speakADV("You stand to profit from his death.")
@@ -341,25 +366,29 @@ label finale_accuse_knight:
             Game.narrateADV("{i}Ritter fixes his eyes to yours in a level stare until the captain's airmen haul him away.")
             
             Game.jump("finale_correct")
+            
 label finale_accuse_rook:
     python:
         Game.YOU.speakADV("For these reasons, I have no choice but to accuse you, Mr. Charles Westinghouse de la Rocque, for the murder of your client and business partner, Henry Augustus Algernon Royaume.")
+        while True:
+            line = "What? That's outrageous! What possible reason could I have for killing him?"
+            choices = ["Money", "Resentment", "A lover"]
+            rook.inputADV(line, choices, True)
+            if Game.input != "":
+                break
         
-        line = "What? That's outrageous! What possible reason could I have for killing him?"
-        rook.speakADV(line)
-        
-        choices = ["Money", "Resentment", "A lover"]
-        rook.inputADV(line, choices, True)
         index = int(Game.input) - 1
         if index == 0:
             Game.YOU.speakADV("The death of your business parter enriches you greatly, sir. You were already the brains behind Royaume & Sons, and without Royaume's impulsiveness causing you trouble, you figured your shrewd mind could further grow your firm's profits - without a partner to split them with, no less. But you didn't gamble on encountering a yet-shrewder mind, eh?")
             Game.YOU.speakADV("Captain, take him to the brig!")
             rook.speakADV("What? This is preposertous! It wasn't me! All that's true, yes, but I didn't kill him! I'm being set up! You have to believe me!")
+            
             Game.jump("finale_incorrect")
             
         elif index == 1:
             Game.YOU.speakADV("You were constantly living in Royaume's shadow. You did all the work, while he got all the credit. His name on the company! His name in the papers! His marriage to an aristocratic bride! All thanks to your tireless efforts! With him dead, and you on your way to the most lucrative business deal of your career, it would be {i}you{/i} who finally gets the recognition you deserve! {i}You{/i} whose name is signed just below the seal of Her Infallible Majesty's Grand Admiral!")
             Game.YOU.speakADV("Well, you'll get your wish. You'll have your name in the papers. But not, I think, in the manner you desired. Captain! Take him to the brig!")
+            
             Game.jump("finale_incorrect")
             
         elif index == 2:
@@ -380,18 +409,19 @@ label finale_accuse_rook:
             captain.speakADV("I'm inclined to side with the gentleman, Detective. Without proof, I'm afraid I must confine all of you to your berths and let the Metropolitan Police sort this out.")
             Game.narrateADV("{i}Captain Winfarthing looks you straight in the eyes.{/i}")
             captain.speakADV("I apologize for placing my trust in this so-called detective.")
+            
             Game.jump("finale_no_arrest")
             
 label finale_accuse_bishop:
     python:
         Game.YOU.speakADV("For these reasons, I have no choice but to accuse you, Rector Nathaniel Esgob, for the murder of Henry Augustus Algernon Royaume.")
+        while True:
+            line = "What? That's outrageous! What possible reason could I have for killing him?"
+            choices = ["On request", "Passion", "Politics"]
+            bishop.inputADV(line, choices, True)
+            if Game.input != "":
+                break
         
-        line = "What? That's outrageous! What possible reason could I have for killing him?"
-        bishop.speakADV(line)
-        
-        bishop.inputADV(line, choices, True)
-        choices = ["On request", "Passion", "Politics"]
-        bishop.inputADV(line, choices, True)
         index = int(Game.input) - 1
         if index == 0:
             Game.YOU.speakADV("You murdered Royaume as directed by another! Your motives were purely mercenary.")
@@ -429,11 +459,13 @@ label finale_accuse_pawn:
     python:
         Game.YOU.speakADV("For these reasons, I have no choice but to accuse you, Miss Polly Newport, for the murder of your employer, Henry Augustus Algernon Royaume.")
         pawn.speakADV("What? I never did! This is just so you don't have to go to the trouble of arresting someone with money or power!")
-        line = "Not at all. I'll tell you why I'm accusing you."
-        Game.YOU.speakADV(line)
+        while True:
+            line = "Not at all. I'll tell you why I'm accusing you."
+            choices = ["Politics", "Revenge", "Resentment"]
+            Game.YOU.inputADV(line, choices, True)
+            if Game.input != "":
+                break
         
-        choices = ["Politics", "Revenge", "Resentment"]
-        Game.YOU.inputADV(line, choices, True)
         index = int(Game.input) - 1
         if index == 0:
             Game.YOU.speakADV("Based on your choice in literature, you have Singerist sympathies. You believe in the violent overthrow of the bourgeois industrialist class. Why not start with the most bourgeois industrialist of all, Henry Augustus Algernon Royaume?")
@@ -485,7 +517,6 @@ label finale_incorrect:
         Game.narrateADV("{i}You don't even bother to read the details. Your gaze is fixed on the secondary headline:{/i}")
         Game.narrateADV("'GREAT DETECTIVE GETS IT WRONG -- DOZENS OF CASES CALLED INTO QUESTION'")
         Game.narrateADV("Your good name, your reputation for brilliance, all gone.")
-
         
         Game.jump("the_end")
         
@@ -512,3 +543,5 @@ label finale_no_arrest:
         Game.jump("the_end")
         
 label the_end:
+    # TODO: Insert credits here!!!
+    return
