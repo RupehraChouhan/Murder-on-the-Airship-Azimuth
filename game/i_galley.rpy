@@ -5,30 +5,32 @@ init 0 python: # set up clues and commands in room
     Game.state["galley_vent_open"] = False
     
     def look():
-        Game.narrateADV("The galley hums as assorted contraptions wash the dishes from the evening's meal. However, some details jump out to your keen detective senses. There is a {b}book{/b} lying on the counter, and something seems off about one of the {b}vent{/b}s above the stove.")
+        Game.prevNarrate = "The galley hums as assorted contraptions wash the dishes from the evening's meal. However, some details jump out to your keen detective senses. There is a {b}book{/b} lying on the counter, and something seems off about one of the {b}vent{/b}s above the stove."
     room.addCommand("look", look)
     
     def look():
-        Game.narrateADV( "There appears to be a screw missing from the vent." )
+        Game.prevNarrate = "There appears to be a screw missing from the {b}vent{/b}."
     def open():
         Game.state["galley_vent_open"] = True
-        Game.narrateADV( "Inside the vent there is a bloody pipe!!!!" )
+        Game.prevNarrate = "Inside the vent there is a {b}bloody pipe{/b}!!!"
         Game.cluesFound[Game.GALLEY_PIPE] = True
     vent = Clue( "vent", [ "look", "open", "unscrew" ], [ look, open, open ] )
     
     def look():
         if Game.state["galley_vent_open"]:
-            Game.narrateADV( "The pipe is covered in fresh blood. Definitely our murder weapon." )
+            Game.prevNarrate = "The pipe is covered in fresh blood. Definitely our murder weapon."
     pipe = Clue( "pipe", [ "look" ], [ look ] )
+    bloody_pipe = Clue( "bloody pipe", [ "look" ], [ look ] )
     
     def look():
-        Game.narrateADV( "A revolutionary tract" )
+        Game.prevNarrate = "The title reads \"A Revolutionary Tract\"."
         Game.cluesFound[Game.GALLEY_BOOK] = True
     book = Clue( "book", [ "look", "read" ], [ look, look ] )
     
     room.addClue(vent)
     room.addClue(book)
     room.addClue(pipe)
+    room.addClue(bloody_pipe)
     
     del look
     del open
@@ -46,18 +48,20 @@ label i_galley:
         # Opening description of the room
         Game.narrateADV("All the food is prepared here. It is uncomfortably quiet right now but the smell of fresh food and spices consume the air.")
         Game.narrateADV("Each stove, countertop, pot, pan, and sink glows as the light shines on its expensive metals.")
+        Game.prevNarrate = "What do you want to do?"
         Game.jump(room.label + "_in")
         
 label i_galley_in:        
     python:
         # assumption: if all functions of clues are narrateADV, then we can loop through this
-        Game.prevNarrate = "What do you want to do?"
         Game.inputADV( Game.prevNarrate )
         Game.checkQuit(room.label + "_in")
         
         try:
             room.do(Game.input)
         except:
+            temp = Game.prevNarrate
             Game.narrateADV("I don't know what \"[Game.input]\" means.")
+            Game.prevNarrate = temp
         
         Game.jump(room.label + "_in")
