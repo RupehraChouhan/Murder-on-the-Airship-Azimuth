@@ -28,7 +28,7 @@ label i_cabin_in:
         Game.checkQuit(room.label + "_in")
         
         try:
-            room.do(Game.input)
+            room.do(Game.input.lower())
         except:
             temp = Game.prevNarrate
             Game.narrateADV("I don't know what \"[Game.input]\" means.")
