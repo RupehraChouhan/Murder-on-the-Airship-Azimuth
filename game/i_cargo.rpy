@@ -16,7 +16,7 @@ init 0 python: # set up clues and commands in room
     
     def look():
         if Game.state["cargo_trunk_open"]:
-            Game.prevNarrate = "It is Colonel Ritter's record of service. It details his commendation for valor at the Battle of Platypus Field, and other notable achievements."
+            Game.prevNarrate = "It is Colonel Ritter's record of service. It details his commendation for valor at the Battle of Rosenfeldt, and other notable achievements."
             Game.cluesFound[Game.CARGO_RECORD] = True
     papers = Clue( "papers", [ "look", "read" ], [ look, look ] )
     
