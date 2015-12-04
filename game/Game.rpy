@@ -9,7 +9,7 @@ init -999 python: # Game class must be given first priority to load
         musicStart = True # Whether we need to start up the music again or not
         
         __moves = 0 # Numbers of moves player has made
-        __startTime = [21, 42]
+        __startTime = [22, 0]
         __moveTime = [0, 10]
         zeppelinName = "{i}Azimuth{/i}"
         
