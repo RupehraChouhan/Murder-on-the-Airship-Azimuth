@@ -12,7 +12,7 @@ init 0 python: # set up clues and commands in room
         Game.narrateADV( "There appears to be a screw missing from the vent." )
     def open():
         Game.state["galley_vent_open"] = True
-        Game.narrateADV( "Inside the vent there is a bloody pipe!!!!" )
+        Game.narrateADV( "Inside the vent there is a length of pipe wrapped in a bloody towel!" )
         Game.cluesFound[Game.GALLEY_PIPE] = True
     vent = Clue( "vent", [ "look", "open", "unscrew" ], [ look, open, open ] )
     
@@ -22,7 +22,8 @@ init 0 python: # set up clues and commands in room
     pipe = Clue( "pipe", [ "look" ], [ look ] )
     
     def look():
-        Game.narrateADV( "A revolutionary tract" )
+        Game.narrateADV( "This is a copy of THE WORKER'S CALL TO ARMS - MEDITATIONS ON THE PLIGHT OF THE LABOURING CLASSES by Maximilian Singer." )
+        Game.narrateADV( "An infamous revolutionary political tract. Singerists have committed numerous acts of sabotage at industrial sites around the country. You have turned down more than your fair share of industrialists asking you to ferret out Singerists among their workforces." )
         Game.cluesFound[Game.GALLEY_BOOK] = True
     book = Clue( "book", [ "look", "read" ], [ look, look ] )
     

@@ -17,8 +17,12 @@ init 0 python: # set up clues and commands in room
     
     def look():
         Game.cluesFound[Game.BATHS_WOUND] = True
-        Game.narrateADV( "The {b}wound{/b} appears to be caused by a heavy metal object." )
+        Game.narrateADV( "Blunt trauma to the head. Based on the fracture pattern, you surmise the {b}wound{/b} was caused by a heavy metal object." )
     wound = Clue( "wound" , [ "look" ], [ look ])
+    
+    def look():
+        Game.narrateADV( "A sparse trail of blood leads from the body to a stack of towels. If this pile was as symmetrical as all the others are, one is missing." )
+    towels = Clue( "towels" , [ "look" ], [ look ])    
     
     def look():
         if Game.state["baths_body_turned"]:
@@ -54,9 +58,10 @@ label i_baths:
         room = Game.rooms[Game.ROOM_BATHS]
         
         # Opening description of the room
-        Game.narrateADV("One of the most expensive places on the [Game.zeppelinName] is this big bath. This was created especially on queen's demand. . . ")
-        Game.narrateADV("The ceilings are brilliantly modelled with light bulbs and design patterns with four pillars giving a very royal look to the pool while providing support to the ceiling. . .")
-        Game.narrateADV("It is contained with a lot good smelling candle lights, towels and and multiple doors on the sides to give a palace look.")
+        Game.narrateADV("One of the most expensive fittings on the [Game.zeppelinName] is this big bathing hall. Only the finest luxury airships have such a grand amenity.")
+        Game.narrateADV("Hot steam fills the air. The ceilings are brilliantly modelled with galvanic bulbs and baroque designs. Four ornamental pillars give a very regal look to the large central basin.")
+        Game.narrateADV("Sweet-smelling candles are dotted around, ample stacks of {b}towels{/b} and and multiple doors give a palatial look.")
+        Game.narrateADV("It would be stunningly impressive if it weren't for the dead man bleeding all over the tile.")        
         Game.jump(room.label + "_in")
         
 label i_baths_in:        

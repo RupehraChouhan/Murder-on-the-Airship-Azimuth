@@ -16,7 +16,10 @@ init 0 python: # set up clues and commands in room
     
     def look():
         if Game.state["cargo_trunk_open"]:
-            Game.narrateADV( "It is Colonel Ritter's record of service. It details his commendation for valor at the Details Details Details" )
+            Game.narrateADV( "This is Sergeant-Major Ritter's record of service. It covers his entire military career from enlisted man up to retired war hero." )
+            Game.narrateADV( "It seems he got his decorations - and his honourable discharge - from the Battle of Rosenfeldt. Rosenfeldt was a particularly infamous battle in the Third Rurovian Wars." )
+            Game.narrateADV( "Her Infallible Majesty's military squabbles never much interested you, but you seem to recall Rosenfeldt had something to do with zeppelins." )
+            Game.narrateADV( "Maybe someone who knows more about aviation can tell you more." )
             Game.cluesFound[Game.CARGO_RECORD] = True
         else:
             raise Error()

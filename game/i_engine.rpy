@@ -46,7 +46,7 @@ init 0 python: # set up clues and commands in room
     machineRight = Clue("machine right", [ "look" ], [ look ] )
     
     def look():
-        Game.narrateADV( "Electricity crackles between two silver spheres protruding from the top of this machine" )
+        Game.narrateADV( "Electricity crackles between two silver spheres protruding from the top of this complex-looking machine." )
     # fluff
     middleMachine = Clue("middle machine", [ "look" ], [ look ] )
     machineMiddle = Clue("machine middle", [ "look" ], [ look ] )
@@ -63,7 +63,7 @@ init 0 python: # set up clues and commands in room
         if Game.state["engine_left_machine_open"]:
             line = "One of the steam {b}pipes{/b} inside this machine is missing, causing it to emit a shrill whistle."
             if Game.cluesFound[Game.BATHS_WOUND]:
-                line += " This could very well be the murder weapon."
+                line += "This could very well be the murder weapon, wherever it is."
             Game.narrateADV(line)
         else:
             raise Error()
@@ -114,8 +114,9 @@ label i_engine:
         room = Game.rooms[Game.ROOM_ENGINE]
         
         # Opening description of the room
-        Game.narrateADV("The engine room, whoa it is hot and loud in here, and the smell of exhaust and grease is potent. . .")
+        Game.narrateADV("The engine room is overwhelmingly hot and loud, and the smell of exhaust and grease is potent.")
         Game.narrateADV("These engines are huge, and they look brand new, no penny was wasted down here.")
+        Game.narrateADV("Passengers aren't supposed to be here, but you have a job to do.")
         Game.jump(room.label + "_in")
         
 label i_engine_in:        

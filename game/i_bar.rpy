@@ -2,7 +2,8 @@ init 0 python: # set up clues and commands in room
     room = Game.rooms[Game.ROOM_BAR]
     
     def look():
-        Game.narrateADV( "It's a bottle of fine wine!" )
+        Game.narrateADV( "It's a bottle of fine brandy.")
+        Game.narrateADV( "Mostly empty.")
     def drink(): 
         Game.narrateADV( "Now is no time to drink, there's a murderer to catch!" )
     def eat():
@@ -29,7 +30,7 @@ label i_bar:
         room = Game.rooms[Game.ROOM_BAR]
         
         # Opening description of the room
-        Game.narrateADV("There is a wide collection of drinks here ranging from very expensive to very old bottles..")
+        Game.narrateADV("There is a wide collection of drinks here ranging from very expensive to very old bottles.")
         Game.narrateADV("There is also a big sitting area with tables and chairs very similar to the lounge. But remember it's time to work and find out the culprit!")
         Game.jump(room.label + "_in")
         
