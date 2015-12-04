@@ -120,7 +120,7 @@ label rook_found:
                 Game.YOU.speakADV("Except what?")
                 character.speakADV("The engineers did insist that we install some redundancy in one of the machines. The responso-something baro-whatever. The names those people come up with.")
                 Game.narrateADV("{i}Mr. de la Rocque shakes his head bemusedly.{/i}")
-                Game.YOU.speakADV("Anyway, that thing has a few more pipes than it needs to keep running. On the inside, though.")
+                character.speakADV("Anyway, that thing has a few more pipes than it needs to keep running. On the inside, though.")
             elif index == 1:
                 pass
                 

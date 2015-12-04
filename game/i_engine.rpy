@@ -35,7 +35,7 @@ init 0 python: # set up clues and commands in room
     def look():
         Game.prevNarrate = "You look at the {b}machine{/b} on the {b}left{/b}. It's a big machine with a bunch of pipes coming out the top. There's a whistling noise coming from inside."
     def open():
-        Game.prevNarrate = "There is a crazy tangle of {b}pipes{/b} inside. You find that the whistle is coming from where a 2 foot length of pipe is missing."
+        Game.prevNarrate = "There is a crazy tangle of {b}pipes{/b} inside. You find that the whistle is coming from where a two foot length of pipe is missing."
         Game.state["engine_left_machine_open"] = True
         Game.state[Game.STATE_ENGINE_MISSING_PIPE] = True
     leftMachine = Clue("left machine", [ "look", "open" ], [ look, open ] )
