@@ -7,6 +7,8 @@
     with fade
 
     python:
+        victory = False
+    
         queen = Game.npcs[Game.NPC_QUEEN]
         knight = Game.npcs[Game.NPC_KNIGHT]
         rook = Game.npcs[Game.NPC_ROOK]
@@ -536,6 +538,7 @@ label finale_correct:
         Game.narrateADV("{i}The inspector thanks you, all the passengers and crew thank you again, and you spare a few words for the newspaper reporters that hang around the aftermath of these sorts of thing.{/i}")
         Game.narrateADV("{i}With the adoring public satisfied, you engage a hansom to take you and your bags to your hotel, where you finally manage get back to sleep.{/i}")
         
+        victory = True
         Game.jump("the_end")
         
 label finale_no_arrest:
@@ -550,5 +553,23 @@ label finale_no_arrest:
         Game.jump("the_end")
         
 label the_end:
-    # TODO: Insert credits here!!!
+    nvl clear
+
+    # Credits
+    python:
+        line = ""
+        if victory:
+            line += "{b}You were successful in your investigation!{/b}"
+        else:
+            line += "{b}You failed in your investigation!{/b}"
+        line += "\n\nThanks for playing Murder on the Airship Azimuth!\n\nA game brought to you by:\n"
+        line += "\n   Zachary Selman Palmer"
+        line += "\n   Jian Le Tang"
+        line += "\n   Kale Hassen"
+        line += "\n   Alex Sampley"
+        line += "\n   Rupehra Chouhan"
+        line += "\n   Stuart Bildfell"
+    
+        Game.narrateNVL(line)
+
     return
