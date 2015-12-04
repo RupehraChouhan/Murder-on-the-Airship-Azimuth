@@ -31,7 +31,7 @@ label start:
         if not Game.introDone:
             Game.introDone = True
             Game.jump("intro")
-    
+            
     # background image for the main page 
     scene bg detectiveImage
     if Game.fadeStart:
@@ -43,8 +43,15 @@ label start:
         play music Game.MUSIC_INTRO fadeout 2 fadein 2
         $ Game.musicStart = False
     
+    # Player has taken too long, skip to ending sequence
+    if Game.getMoves() >= 21:
+        show captain
+        $ Game.narrateADV("{i}Captain Winfarthing finds you.{/i}")
+        $ Game.npcs[Game.NPC_CAPTAIN].speakADV("Detective, we're approaching the Endsville aerodrome. I have assembled the passengers in the lounge - guarded by all the airmen I could spare. Are you ready to identify the killer?")
+        $ Game.YOU.speakADV("Of course, Captain! All will be revealed. Lead the way.")
+        $ Game.jump("finale")
+    
     python:
-            
         prompt = "What would you like to do?\n"
         choices = ["Investigate a room", "Interview a suspect", "Check your findings", "Solve the case"]
         
