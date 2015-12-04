@@ -46,7 +46,7 @@ label start:
     python:
             
         prompt = "What would you like to do?\n"
-        choices = ["Investigate a room", "Talk to a passenger", "Look at your pocketwatch", "Solve the case"]
+        choices = ["Investigate a room", "Interview a suspect", "Check your findings", "Solve the case"]
         
         Game.inputNVL(prompt, choices)
         Game.checkQuit("start")
@@ -128,15 +128,32 @@ label look_notepad:
     scene bg notepadImage
     
     python:
-        moves = Game.getMoves()
-        time = Game.timeString()
-        line = "Your watch reads [time]."
-        if Game.cluesFound[Game.BATHS_TIME_OF_DEATH]:
-            line += " You know the murder happened at 8:42."
-        else:
-            line += " The murder happened somewhere between 8:30 and 9:00."
-            
-        Game.narrateADV("Your watch reads [time].")
+        startTime = Game.timeString(0)
+        currentTime = Game.timeString(Game.getMoves())
+        line = "Your watch reads [currentTime]. You started your investigation at [startTime]."
+        
+        for clueName, found in Game.cluesFound.items():
+            if found:
+                if clueName == Game.LOUNGE_CONTRACTS:
+                    line += "\n\n{b}[Game.LOUNGE_CONTRACTS]{/b}: In the lounge you found a Royaume & Sons government contract, signed off by Mr. de la Rocque but not Mr. Royaume."
+                elif clueName == Game.DINING_SPECTACLES:
+                    line += "\n\n{b}[Game.DINING_SPECTACLES]{/b}: Rector Esgob's, found on a dining room table."
+                elif clueName == Game.CARGO_RECORD:
+                    line += "\n\n{b}[Game.CARGO_RECORD]{/b}: In the cargo hold you found Ritter's service record, detailing among other things his honourable discharge after the Battle of Rosenfeldt."
+                elif clueName == Game.BATHS_WOUND:
+                    line += "\n\n{b}[Game.BATHS_WOUND]{/b}: The murder was likely caused by a heavy metal object."
+                elif clueName == Game.BATHS_TIME_OF_DEATH:
+                    line += "\n\n{b}[Game.BATHS_TIME_OF_DEATH]{/b}: 20:42, from the broken pocket watch."
+                elif clueName == Game.GALLEY_PIPE:
+                    line += "\n\n{b}[Game.GALLEY_PIPE]{/b}: Hidden in a galley vent and wrapped in a bloody towel."
+                elif clueName == Game.GALLEY_BOOK:
+                    line += "\n\n{b}[Game.GALLEY_BOOK]{/b}: Book found in galley, infamous and revolutionary."
+                elif clueName == Game.CABINS_EMPTY:
+                    line += "\n\n{b}[Game.CABINS_EMPTY]{/b}: The murder weapon is not in the cabins."
+                elif clueName == Game.ROOK_BODY:
+                    line += "\n\n{b}[Game.ROOK_BODY]{/b}: The murderer has struck again. You found Mr. de la Rocque's body in the passenger cabins."
+        
+        Game.narrateADV(line)
         Game.jump("start")
 
 label solve_case:

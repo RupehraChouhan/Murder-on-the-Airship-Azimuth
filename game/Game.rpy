@@ -9,7 +9,7 @@ init -999 python: # Game class must be given first priority to load
         musicStart = True # Whether we need to start up the music again or not
         
         __moves = 0 # Numbers of moves player has made
-        __startTime = [0, 0]
+        __startTime = [21, 42]
         __moveTime = [0, 10]
         zeppelinName = "{i}Azimuth{/i}"
         
@@ -210,19 +210,19 @@ init -999 python: # Game class must be given first priority to load
             
         # return the time as a pair [hour, minutes]
         @staticmethod
-        def time():
+        def time(moves):
             time = [0, 0]
             # calc hours
-            time[0] = (Game.__startTime[0] + time[0] + (moves * Game.__moveTime[0]) + (moves * Game.__moveTime[1] // 60) ) % 24
+            time[0] = (Game.__startTime[0] + time[0] + (moves * Game.__moveTime[0]) + ((moves * Game.__moveTime[1] + Game.__startTime[1]) // 60) ) % 24
             # calc minutes
-            time[1] = Game.__startTime[1] + time[1] + (moves * Game.__moveTime[1] % 60)
+            time[1] = (Game.__startTime[1] + time[1] + (moves * Game.__moveTime[1])) % 60
             
             return time
             
         # return the time as a string
         @staticmethod
-        def timeString():
-            time = Game.time()
+        def timeString(moves):
+            time = Game.time(moves)
             return "{hours:02d}:{minutes:02d}".format(hours=time[0], minutes=time[1])
     
 # initialize the game state after other classes
