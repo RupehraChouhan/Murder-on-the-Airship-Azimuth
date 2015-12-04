@@ -22,6 +22,9 @@ image rook = "rook_clean.png"
 image pawn = "pawn_clean.png"
 image captain = "captain_clean.png"
 
+image groupRook = "group_clean.png"
+image groupNoRook = "group_without_rook_clean.png"
+
 # The game starts here
 label start:
     python:

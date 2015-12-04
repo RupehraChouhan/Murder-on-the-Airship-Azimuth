@@ -1,4 +1,11 @@
 ﻿label finale:
+    scene bg cabinImage
+    if Game.npcs[Game.NPC_ROOK].alive:
+        show groupRook
+    else:
+        show groupNoRook
+    with fade
+
     python:
         queen = Game.npcs[Game.NPC_QUEEN]
         knight = Game.npcs[Game.NPC_KNIGHT]
@@ -7,7 +14,7 @@
         bishop = Game.npcs[Game.NPC_BISHOP]
         captain = Game.npcs[Game.NPC_CAPTAIN]
         
-        potentials = {Game.NPC_QUEEN:True, Game.NPC_KNIGHT:True, Game.NPC_BISHOP:True, Game.NPC_ROOK:True, Game.NPC_PAWN:True}
+        potentials = {Game.NPC_QUEEN:True, Game.NPC_KNIGHT:True, Game.NPC_BISHOP:True, Game.NPC_ROOK:rook.alive, Game.NPC_PAWN:True}
         
         # prelude, characters talking, you talking
         # establish the facts
