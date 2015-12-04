@@ -82,7 +82,7 @@ init -999 python: # Game class must be given first priority to load
             Game.YOU = NPC("You", None, "#777777", [], suspect=False, alive=False) # 50% Grey, dead for all purposes
 
             # NPC defined in NPC.rpy
-            Game.npcs[Game.NPC_KING] = NPC("King", None, "#ffffff", [], suspect=False, alive=False) # White, dead
+            Game.npcs[Game.NPC_KING] = NPC("Henry Augustus Algernon Royaume", None, "#ffffff", [], suspect=False, alive=False) # White, dead
             Game.npcs[Game.NPC_QUEEN] = NPC("Eleanora Francesca van Koenigen Royaume", "queen", "#ff0000", ["Eleanora", "Francesca", "Koenigen", "Royaume"]) # Red
             Game.npcs[Game.NPC_BISHOP] = NPC("Rector Nathaniel Esgob", "bishop", "#00ff00", ["Rector", "Nathaniel", "Esgob"]) # Green
             Game.npcs[Game.NPC_KNIGHT] = NPC("Sergeant-Major Angus P. Ritter", "knight", "#0000ff", ["Sergeant-Major", "Sergeant", "Major", "Angus", "Ritter"]) # Blue

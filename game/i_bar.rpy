@@ -2,31 +2,25 @@ init 0 python: # set up clues and commands in room
     room = Game.rooms[Game.ROOM_BAR]
     
     def look():
-<<<<<<< HEAD
-        Game.narrateADV( "It's a bottle of fine brandy.")
-        Game.narrateADV( "Mostly empty.")
-=======
         Game.prevNarrate = "The wall is almost full of a large assortment of fine wine and brandy {b}bottle{/b}s. The bartender who was serving here must have retired to bed when the passengers were confined to their cabins."
     room.addCommand( "look", look )
     
     def look():
-        Game.prevNarrate = "It's a {b}bottle{/b} of fine wine!"
->>>>>>> origin/master
+        Game.prevNarrate = "It's a {b}bottle{/b} of fine {b}brandy{/b}. Mostly empty."
     def drink(): 
         Game.prevNarrate = "Now is no time to drink, there's a murderer to catch!"
     def eat():
         Game.prevNarrate = "What are you, nuts?"
     bottle = Clue( "bottle", [ "look", "drink", "eat" ], [ look, drink, eat ] )
-    wine = Clue( "wine", [ "look", "drink", "eat" ], [ look, drink, eat ] )
+    brandy = Clue( "brandy", [ "look", "drink", "eat" ], [ look, drink, eat ] )
     
     room.addClue(bottle)
-    room.addClue(wine)
+    room.addClue(brandy)
     
     # clean up namespace
     del look
     del drink
     del eat
-    del bottle
 
 label i_bar:
     scene bg barImage
@@ -37,14 +31,8 @@ label i_bar:
         room = Game.rooms[Game.ROOM_BAR]
         
         # Opening description of the room
-<<<<<<< HEAD
         Game.narrateADV("There is a wide collection of drinks here ranging from very expensive to very old bottles.")
-        Game.narrateADV("There is also a big sitting area with tables and chairs very similar to the lounge. But remember it's time to work and find out the culprit!")
-=======
-        Game.narrateADV("There is a wide collection of drinks here ranging from very expensive to very old bottles. . .")
-        Game.narrateADV("There is also a big sitting area with tables and chairs very similar to the lounge. But remember, it's time to work and find out who the culprit is!")
-        Game.prevNarrate = "What do you want to do?"
->>>>>>> origin/master
+        Game.prevNarrate = "There is also a big sitting area with tables and chairs very similar to the lounge. But remember it's time to work and find out the culprit!"
         Game.jump(room.label + "_in")
         
 label i_bar_in:        

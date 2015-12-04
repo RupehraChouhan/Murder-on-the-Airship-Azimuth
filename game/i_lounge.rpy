@@ -20,9 +20,8 @@ init 0 python: # set up clues and commands in room
     room.addClue(documents)
     room.addClue(desk)
     
+    # clean up namespace
     del look
-    del documents
-    del desk
 
 label i_lounge:
     scene bg loungeImage
@@ -31,9 +30,9 @@ label i_lounge:
     python:
         # The room you are in
         room = Game.rooms[Game.ROOM_LOUNGE]
+        
         # Opening description of the room
-        Game.narrateADV("The lounge is the biggest room on the [Game.zeppelinName]. People come here to interact and relax. ")
-        Game.prevNarrate = "What do you want to do?"
+        Game.prevNarrate = "The lounge is the biggest room on the [Game.zeppelinName]. People come here to interact and relax."
         Game.jump(room.label + "_in")
         
 label i_lounge_in:        

@@ -49,18 +49,11 @@ init 0 python: # set up clues and commands in room
     machineRight = Clue("machine right", [ "look", "open" ], [ look, open ] )
     
     def look():
-<<<<<<< HEAD
-        Game.narrateADV( "Electricity crackles between two silver spheres protruding from the top of this complex-looking machine." )
-    # fluff
-    middleMachine = Clue("middle machine", [ "look" ], [ look ] )
-    machineMiddle = Clue("machine middle", [ "look" ], [ look ] )
-=======
-        Game.prevNarrate = "You look at the {b}machine{/b} in the {b}middle{/b}. Electricity crackles between two silver spheres protruding from the top of this machine."
+        Game.prevNarrate = "You look at the {b}machine{/b} in the {b}middle{/b}. Electricity crackles between two silver spheres protruding from the top of this complex-looking machine."
     def open():
         Game.prevNarrate = "It looks pretty dangerous, you probably shouldn't try to open it."
     middleMachine = Clue("middle machine", [ "look", "open" ], [ look, open ] )
     machineMiddle = Clue("machine middle", [ "look", "open" ], [ look, open ] )
->>>>>>> origin/master
     
     def look():
         line = "A rack of neatly sorted wrenches appear to be perfectly in place. Nothing seems to be missing."
@@ -75,15 +68,8 @@ init 0 python: # set up clues and commands in room
         if Game.state["engine_left_machine_open"]:
             line = "One of the steam {b}pipes{/b} inside this machine is missing, causing it to emit a shrill whistle."
             if Game.cluesFound[Game.BATHS_WOUND]:
-<<<<<<< HEAD
                 line += "This could very well be the murder weapon, wherever it is."
-            Game.narrateADV(line)
-        else:
-            raise Error()
-=======
-                line += " This could very well be the murder weapon."
             Game.prevNarrate = line
->>>>>>> origin/master
     pipes = Clue("pipes", [ "look" ], [ look ] )
     
     room.addClue(plaque)
@@ -109,22 +95,7 @@ init 0 python: # set up clues and commands in room
     room.addClue(tool_rack)
     room.addClue(pipes)
     
-    del plaque
-    del leftPlaque
-    del rightPlaque
-    del middlePlaque
-    del plaqueLeft
-    del plaqueRight
-    del plaqueMiddle
-    del machine
-    del leftMachine
-    del rightMachine
-    del middleMachine
-    del machineLeft
-    del machineRight
-    del machineMiddle
-    del tools
-    del pipes
+    # clean up namespace
     del look
     del open
 
@@ -139,11 +110,7 @@ label i_engine:
         # Opening description of the room
         Game.narrateADV("The engine room is overwhelmingly hot and loud, and the smell of exhaust and grease is potent.")
         Game.narrateADV("These engines are huge, and they look brand new, no penny was wasted down here.")
-<<<<<<< HEAD
-        Game.narrateADV("Passengers aren't supposed to be here, but you have a job to do.")
-=======
-        Game.prevNarrate = "What do you want to do?"
->>>>>>> origin/master
+        Game.prevNarrate = "Passengers aren't supposed to be here, but you have a job to do."
         Game.jump(room.label + "_in")
         
 label i_engine_in:        

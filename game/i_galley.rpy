@@ -12,39 +12,28 @@ init 0 python: # set up clues and commands in room
         Game.prevNarrate = "There appears to be a screw missing from the {b}vent{/b}."
     def open():
         Game.state["galley_vent_open"] = True
-<<<<<<< HEAD
-        Game.narrateADV( "Inside the vent there is a length of pipe wrapped in a bloody towel!" )
-=======
-        Game.prevNarrate = "Inside the vent there is a {b}bloody pipe{/b}!!!"
->>>>>>> origin/master
+        Game.prevNarrate = "Inside the vent there is a length of {b}pipe{/b} wrapped in a bloody towel!"
         Game.cluesFound[Game.GALLEY_PIPE] = True
     vent = Clue( "vent", [ "look", "open", "unscrew" ], [ look, open, open ] )
     
     def look():
         if Game.state["galley_vent_open"]:
-            Game.prevNarrate = "The pipe is covered in fresh blood. Definitely our murder weapon."
+            Game.prevNarrate = "The {b}pipe{/b} is covered in fresh blood. Definitely our murder weapon."
     pipe = Clue( "pipe", [ "look" ], [ look ] )
-    bloody_pipe = Clue( "bloody pipe", [ "look" ], [ look ] )
     
     def look():
-<<<<<<< HEAD
         Game.narrateADV( "This is a copy of THE WORKER'S CALL TO ARMS - MEDITATIONS ON THE PLIGHT OF THE LABOURING CLASSES by Maximilian Singer." )
-        Game.narrateADV( "An infamous revolutionary political tract. Singerists have committed numerous acts of sabotage at industrial sites around the country. You have turned down more than your fair share of industrialists asking you to ferret out Singerists among their workforces." )
-=======
-        Game.prevNarrate = "The title reads \"A Revolutionary Tract\"."
->>>>>>> origin/master
+        Game.prevNarrate = "An infamous revolutionary political tract. Singerists have committed numerous acts of sabotage at industrial sites around the country. You have turned down more than your fair share of industrialists asking you to ferret out Singerists among their workforces."
         Game.cluesFound[Game.GALLEY_BOOK] = True
     book = Clue( "book", [ "look", "read" ], [ look, look ] )
     
     room.addClue(vent)
-    room.addClue(book)
     room.addClue(pipe)
-    room.addClue(bloody_pipe)
+    room.addClue(book)
     
+    # clean up namespace
     del look
     del open
-    del pipe
-    del vent
 
 label i_galley:
     scene bg galleyImage
@@ -56,8 +45,7 @@ label i_galley:
         
         # Opening description of the room
         Game.narrateADV("All the food is prepared here. It is uncomfortably quiet right now but the smell of fresh food and spices consume the air.")
-        Game.narrateADV("Each stove, countertop, pot, pan, and sink glows as the light shines on its expensive metals.")
-        Game.prevNarrate = "What do you want to do?"
+        Game.prevNarrate = "Each stove, countertop, pot, pan, and sink glows as the light shines on its expensive metals."
         Game.jump(room.label + "_in")
         
 label i_galley_in:        
