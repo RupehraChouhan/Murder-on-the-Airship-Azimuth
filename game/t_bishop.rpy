@@ -1,9 +1,10 @@
 init 0 python: # bishop conversation related state
     Game.state[Game.CONV_BISHOP_WHAT] = False
     Game.state[Game.CONV_BISHOP_WHAT_PRESS] = False
+    redoDialogue = True
 
 label bishop:
-    scene bg diningImage
+    scene bg cabinImage
     show bishop
     with fade
     
@@ -12,15 +13,14 @@ label bishop:
         character = Game.npcs[Game.NPC_BISHOP]
         
         # NPC speaks
-        Game.prevNarrate = "What would you like to talk about?"
         Game.jump(character.label + "_loop")
         
 label bishop_loop:
     python:
         # define line and give options
         # in this case, the line is whatever the character last said.
-        line = Game.prevNarrate
-        choices = ["Tell me about yourself.", "What is your connection to the victim?", "Describe what you saw this evening", "Ask about a discovery", "Ask about another suspect", "Leave"]
+        line = "What would you like to talk about?"
+        choices = ["\"Tell me about yourself.\"", "\"What is your connection to the victim?\"", "\"Describe what you saw this evening.\"", "Ask about a discovery.", "Ask about another suspect.", "Leave."]
         
         # say line and give options
         #character.speakADV(line)
@@ -45,7 +45,7 @@ label bishop_loop:
                 raise ValueError("wrong choice")
 
         except ValueError:
-            character.speakADV("I don't know what you mean")
+            character.speakADV("I don't know what you mean.")
         
         Game.jump(character.label + "_loop")
         
@@ -59,16 +59,20 @@ label bishop_you:
 
 label bishop_vic:
     python:
-        character.speakADV("We hadn't met in person before. I've written him many letters, talking about the deplorable conditions in his factories... I always received very noncommittal replies, usually from the desk of Mr. de la Rocque.")
-        character.speakADV("I doubt Royaume even read them.")
-        choices = [ "Pressure", "Ask something else" ]
-        character.inputADV(line, choices)
+        if redoDialogue:
+            character.speakADV("We hadn't met in person before. I've written him many letters, talking about the deplorable conditions in his factories... I always received very noncommittal replies, usually from the desk of Mr. de la Rocque.")
+        line = "I doubt Royaume even read them."
+        choices = [ "Pressure.", "Ask something else." ]
+        character.inputADV(line, choices, True)
+        
+        redoDialogue = False
+        Game.checkQuit(character.label + "_vic")
+        redoDialogue = True
         
         index = int(Game.input) - 1
         if index == 0:
             Game.YOU.speakADV("That must have been frustrating.")
             character.speakADV("Detective, I see what you're implying! I didn't kill him. I-I couldn't ever even think of such a thing! I'm a pacifist, for heaven's sake! Ask me your questions when you're several degrees more sensible!")
-            Game.jump(character.label + "_loop")
         elif index == 1:
             pass
         Game.jump(character.label + "_loop")
@@ -77,9 +81,10 @@ label bishop_saw:
     python:
         Game.state[Game.CONV_BISHOP_WHAT] = True
     
-        character.speakADV("After dinner, I - uh, I retired to my room for a spell. Then I went back to the dining room. I, um, had forgot my reading glasses. That was about 8:30. Then I must have got turned around, I ended up in the bar at 9. The steward was tidying up when I arrived. She invited me for coffee and cigars in the dining room at 9:30, which I had just sat down to enjoy when I heard her scream! Mr. de la Rocque and I went running, and we found her staring in shock at that poor man...")
-        choices = ["Pressure","Ask something else"]
-        character.inputADV(Game.prevNarrate, choices)
+        line = "After dinner, I - uh, I retired to my room for a spell. Then I went back to the dining room. I, um, had forgot my reading glasses. That was about 8:30. Then I must have got turned around, I ended up in the bar at 9. The steward was tidying up when I arrived. She invited me for coffee and cigars in the dining room at 9:30, which I had just sat down to enjoy when I heard her scream! Mr. de la Rocque and I went running, and we found her staring in shock at that poor man..."
+        choices = [ "Pressure.", "Ask something else." ]
+        character.inputADV(line, choices, True)
+        Game.checkQuit(character.label + "_saw")
 
         index = int(Game.input) - 1
         if index ==0:
@@ -96,45 +101,51 @@ label bishop_saw:
             character.speakADV("Are you even attached at all to the police?")
             Game.YOU.speakADV("No, I am merely an accomplished amateur.")
             character.speakADV("Then I don't have to answer any more of your questions.")
-            Game.jump(character.label + "_loop")
         elif index ==1:
             pass
         Game.jump(character.label + "_loop")
 
 label bishop_found:
     python:
-        line = "Ask about what?"
+        line = "Ask about what?\n"
         choices = [ ]
         
         for clueName,found in Game.cluesFound.items():
             if found:
                 choices.append(clueName)
-        choices.append("Ask something else")
+        choices.append("Ask something else.")
         
         Game.inputADV(line, choices, True)
+        Game.checkQuit(character.label + "_found")
         
         index = int(Game.input) - 1
         clueName = choices[index]
         if clueName == Game.BATHS_WOUND:
-            line = "Oh, how dreadful. A heavy bludgeon, you say? Haven't seen anything like that."
-            choices = ["Pressure", "Ask someone else"]
+            while True:
+                line = "Oh, how dreadful. A heavy bludgeon, you say? Haven't seen anything like that."
+                choices = [ "Pressure.", "Ask about another discovery." ]
+                character.inputADV(line, choices, True)
+                if Game.input != "":
+                    break
 
-            character.inputADV(line,choices)
             index = int(Game.input) - 1
             if index == 0:
                 Game.YOU.speakADV("Are you quite certain? It's a large ship...")
                 character.speakADV("Yes, I'm certain!")
                 Game.narrateADV("{i}Esgob regains his composure and looks up at you, worriedly. He holds out a shaking hand.{/i}")
                 character.speakADV("Look at this, Detective. Shaking like a leaf. I've been a nervous wreck since we came aboard. First time flying. Do you think I have the strength to swing such a thing?")
-                Game.jump("start")
             elif index == 1:
                 pass
+                
         elif clueName == Game.BATHS_TIME_OF_DEATH:
-            character.speakADV("Between 8:30 and 9 I was in the dining room. I'd misplaced my spectacles. They - aheh - they took some finding.")
             Game.narrateADV("{i}Rector Esgob is not currently wearing spectacles.{/i}")
+            while True:
+                line = "Between 8:30 and 9 I was in the dining room. I'd misplaced my spectacles. They - aheh - they took some finding."
+                choices = [ "Pressure.", "Ask about another discovery." ]
+                character.inputADV(line, choices, True)
+                if Game.input != "":
+                    break
 
-            choices = ["Pressure", "Ask something else"]
-            character.inputADV(Game.prevNarrate, choices)
             index = int(Game.input) - 1
             if index == 0:
                 Game.YOU.speakADV("You're not wearing them now.")
@@ -142,30 +153,34 @@ label bishop_found:
                 character.speakADV("Oh, blast. Mislaid them again. Where could they be this time?")
                 Game.YOU.speakADV("Also, do you expect me to believe it takes a whole half-hour to find your spectacles?")
                 character.speakADV("I suspect some assiduous servant moved them. Somewhere. If you were half as assiduous, you'd be finding a killer, not haranguing me about my spectacles!")
-                Game.jump(character.label + "_loop")
-
             elif index == 1:
                 pass
+                
         elif clueName == Game.GALLEY_PIPE:
-            character.speakADV("Oh, how ghastly!")
+            while True:
+                line = "Oh, how ghastly!"
+                choices = [ "Pressure.", "Ask about another discovery." ]
+                character.inputADV(line, choices, True)
+                if Game.input != "":
+                    break
 
-            choices = ["Pressure", "Ask something else"]
-            character.inputADV(Game.prevNarrate, choices)
             index = int(Game.input) - 1
             if index == 0:
                 Game.YOU.speakADV("It was found in the galley. Any chance you passed by there earlier?")
                 character.speakADV("Detective, I've accounted for my whereabouts! Have I lied to you yet?")
                 Game.YOU.speakADV("Probably.")
                 character.speakADV("This isn't amusing, Detective. I have tried my best to help you do the right thing and you insist on bedeviling me! Return when you see fit to take this seriously!")
-                Game.jump(character.label + "_loop")
-
             elif index == 1:
                 pass
+                
         elif clueName == Game.CABINS_EMPTY:
-            character.speakADV("I'm afraid I'm not much use in finding hidden corners, Detective. I misplaced my spectacles earlier tonight.")
+            while True:
+                line = "I'm afraid I'm not much use in finding hidden corners, Detective. I misplaced my spectacles earlier tonight."
+                choices = [ "Pressure.", "Ask about another discovery." ]
+                character.inputADV(line, choices, True)
+                if Game.input != "":
+                    break
             
-            choices = ["Pressure", "Ask something else"]
-            character.inputADV(Game.prevNarrate, choices)
             index = int(Game.input) - 1
             if index == 0:
                 Game.YOU.speakADV("Indulge me for a moment, Rector. Imagine I'm the murderer. I strike Mr. Royaume in the baths, there's blood on my hands, I search around for a hiding place. Where do I look?")
@@ -174,37 +189,46 @@ label bishop_found:
                 pass
 
         elif clueName == Game.DINING_SPECTACLES:
-            character.speakADV("Ah, you found my spectacles! Thank you!")
+            while True:
+                line = "Ah, you found my spectacles! Thank you!"
+                choices = [ "Pressure.", "Ask about another discovery." ]
+                character.inputADV(line, choices, True)
+                if Game.input != "":
+                    break
             
-            choices = ["Pressure", "Ask something else"]
-            character.inputADV(Game.prevNarrate, choices)
             index = int(Game.input) - 1
             if index == 0:
                 Game.YOU.speakADV("I found them in the dining room. You said you already found them there.")
                 character.speakADV("Well, yes. Then I went back later. They were, ah, serving coffee. I must have... lost them again. Then. There.")
             elif index == 1:
                 pass
+                
         elif clueName == Game.LOUNGE_CONTRACTS:
-            character.speakADV("I'm afraid this sort of thing is beyond me. I've helped draft charters of labour rights, but I kept the language plain. You know. For the working classes.")
+            while True:
+                line = "I'm afraid this sort of thing is beyond me. I've helped draft charters of labour rights, but I kept the language plain. You know. For the working classes."
+                choices = [ "Pressure.", "Ask about another discovery." ]
+                character.inputADV(line, choices, True)
+                if Game.input != "":
+                    break
             
-            choices = ["Pressure", "Ask something else"]
-            character.inputADV(Game.prevNarrate, choices)
             index = int(Game.input) - 1
             if index == 0:
                 Game.YOU.speakADV("Is it fair for me to say you were against this deal?")
                 character.speakADV("Yes, all it means is more money in the pockets of Royaume while his workers suffer in intolerable conditions! Perhaps his partner, de la Rocque will be more amenable to reform...")
                 Game.narrateADV("{i}It dawns on Esgob what he is saying.{/i}")
                 character.speakADV("I - I didn't mean it like that! Maybe - maybe you should come back later, Detective. When I've had a chance to collect myself.")
-                Game.jump(character.label + "_loop")
             elif index == 1:
                 pass
 
         elif clueName == Game.GALLEY_BOOK:
             character.speakADV("I'm no Singerist! Of course we both want better conditions for workers, but revolution isn't the answer! Surely, by appealing to industrialists' sense of humanity, by showing them the conditions that exist in their factories...")
-            character.speakADV("That's beside the point. What does it have to do with the... killing, though?")
+            while True:
+                line = "That's beside the point. What does it have to do with the... killing, though?"
+                choices = [ "Pressure.", "Ask about another discovery." ]
+                character.inputADV(line, choices, True)
+                if Game.input != "":
+                    break
 
-            choices = ["Pressure", "Ask something else"]
-            character.inputADV(Game.prevNarrate, choices)
             index = int(Game.input) - 1
             if index == 0:
                 Game.YOU.speakADV("I was hoping you might tell me.")
@@ -213,10 +237,13 @@ label bishop_found:
                 pass
 
         elif clueName == Game.CARGO_RECORD:
-            character.speakADV("Very impressive, I'm sure. I value his service, even if I object to our involvement in foreign wars.")
+            while True:
+                line = "Very impressive, I'm sure. I value his service, even if I object to our involvement in foreign wars."
+                choices = [ "Pressure.", "Ask about another discovery." ]
+                character.inputADV(line, choices, True)
+                if Game.input != "":
+                    break
             
-            choices = ["Pressure", "Ask something else"]
-            character.inputADV(Game.prevNarrate, choices)
             index = int(Game.input) - 1
             if index == 0:
                 Game.YOU.speakADV("Ritter was at the battle of Rosenfeldt. Does that mean anything to you?")
@@ -225,10 +252,13 @@ label bishop_found:
                 pass
 
         elif clueName == Game.ROOK_BODY:
-            character.speakADV("My heavens! Not de la Rocque! He was... a more temperate man than his late partner. I had thought... never mind that. Am I in danger?")
+            while True:
+                line = "My heavens! Not de la Rocque! He was... a more temperate man than his late partner. I had thought... never mind that. Am I in danger?"
+                choices = [ "Pressure.", "Ask about another discovery." ]
+                character.inputADV(line, choices, True)
+                if Game.input != "":
+                    break
             
-            choices = ["Pressure", "Ask something else"]
-            character.inputADV(Game.prevNarrate, choices)
             index = int(Game.input) - 1
             if index == 0:
                 Game.YOU.speakADV("I doubt it. You're a healthy enough specimen. Why, I'd wager you could overpower de la Rocque. He wasn't an athletic man, nor was he in his prime.")
@@ -236,20 +266,19 @@ label bishop_found:
                 character.speakADV("The suggestion is repulsive, detective! I - I'm not capable of such a sin! The very idea - sickening!")
                 Game.narrateADV("{i}Nausea threatens to overcome him.{/i}")
                 character.speakADV("Perhaps... come back later? When I'm a bit more *urk* composed.")
-                Game.jump(character.label + "_loop")
             elif index == 1:
                 pass
 
-        elif clueName == "Ask something else":
-            pass
+        elif clueName == "Ask something else.":
+            Game.jump(character.label + "_loop")
 
         else:
             character.speakADV("I don't know what you're talking about.")
-        Game.jump(character.label + "_loop")
+        Game.jump(character.label + "_found")
 
 label bishop_other:
     python:
-        line = "Who?"
+        line = "Who?\n"
         choices = []
         labels = []
         
@@ -257,9 +286,12 @@ label bishop_other:
             if npc != character and npc.suspect and npc.alive:
                 choices.append(npc.name)
                 labels.append(npc.label)
-                
+        choices.append("Ask something else.")
+        labels.append("loop")
+        
         # say line and give options
         Game.inputADV(line, choices, True)
+        Game.checkQuit(character.label + "_other")
         
         index = int(Game.input) - 1
         label = labels[index].lower()
@@ -268,38 +300,47 @@ label bishop_other:
 
 label bishop_rook:
     python:
-        character.speakADV("Not to speak ill of the dead, but de la Rocque is much more agreeable than Mr. Royaume. Very diplomatic. I gather he didn't care much for me, but he at least took the time to listen. I had thought... Never mind.")
+        while True:
+            line = "Not to speak ill of the dead, but de la Rocque is much more agreeable than Mr. Royaume. Very diplomatic. I gather he didn't care much for me, but he at least took the time to listen. I had thought... Never mind."
+            choices = [ "Pressure.", "Ask about someone else." ]
+            character.inputADV(line, choices, True)
+            if Game.input != "":
+                break
         
-        choices = ["Pressure", "Ask something else"]
-        character.inputADV(Game.prevNarrate, choices)
         index = int(Game.input) - 1
         if index == 0:
             Game.YOU.speakADV("In your estimation, could he be responsible for the murder?")
             character.speakADV("You know, he could be! It takes a particularly immoral man to express sympathy at my letters about his workers' suffering but do nothing to alleviate it. I had thought it was just because he was the junior partner, without any real power, but now that you mention it... Hmmmm.")
         elif index == 1:
             pass
-        Game.jump(character.label + "_loop")
+        Game.jump(character.label + "_other")
 
 label bishop_knight:
     python:
-        character.speakADV("I don't know much about Sergeant-Major Ritter. We'd never met before, and he's quite taciturn.")
+        while True:
+            line = "I don't know much about Sergeant-Major Ritter. We'd never met before, and he's quite taciturn."
+            choices = [ "Pressure.", "Ask about someone else." ]
+            character.inputADV(line, choices, True)
+            if Game.input != "":
+                break
 
-        choices = ["Pressure", "Ask something else"]
-        character.inputADV(Game.prevNarrate, choices)
         index = int(Game.input) - 1
         if index == 0:
             Game.YOU.speakADV("In your estimation, is he capable of murder?")
             character.speakADV("Well. He is the only one here who has killed before. In service to the Crown, for sure, but... No. He's an honourable man, I'd say.")
         elif index == 1:
             pass
-        Game.jump(character.label + "_loop")
+        Game.jump(character.label + "_other")
 
 label bishop_pawn:
     python:
-        character.speakADV("I can't believe Miss Newport is under investigation. She's as dedicated as any on this crew. She was putting in extra effort to see we were well cared-for.")
+        while True:
+            line = "I can't believe Miss Newport is under investigation. She's as dedicated as any on this crew. She was putting in extra effort to see we were well cared-for."
+            choices = [ "Pressure.", "Ask about someone else." ]
+            character.inputADV(line, choices, True)
+            if Game.input != "":
+                break
         
-        choices = ["Pressure", "Ask something else"]
-        character.inputADV(Game.prevNarrate, choices)
         index = int(Game.input) - 1
         if index == 0:
             Game.YOU.speakADV("Maybe that wasn't dedication. Maybe that was fear.")
@@ -308,16 +349,21 @@ label bishop_pawn:
             character.speakADV("If she didn't wait on us upper-crust passengers, you mean? It's very possible. There's always more desperate souls looking for work that isn't the factories. I have no trouble believing Royaume would fire her in an instant if someone who'd do more work for less came along.")
         elif index == 1:
             pass
-        Game.jump(character.label + "_loop")
+        Game.jump(character.label + "_other")
 
 label bishop_queen:
     python:
-        character.speakADV("Lady Eleanora is charming, of course, but has no conception of the plights of the masses, as most of her aristocratic peers don't.")
+        while True:
+            line = "Lady Eleanora is charming, of course, but has no conception of the plights of the masses, as most of her aristocratic peers don't."
+            choices = [ "Pressure.", "Ask about someone else." ]
+            character.inputADV(line, choices, True)
+            if Game.input != "":
+                break
        
-        choices = ["Pressure", "Ask something else"]
-        character.inputADV(Game.prevNarrate, choices)
         index = int(Game.input) - 1
         if index == 0:
             Game.YOU.speakADV("Do you think she's capable of murder?")
             character.speakADV("Detective, if you'd asked me this afternoon, I'd have said none of us is capable of murder... Are we certain it wasn't an accident?")
-        Game.jump(character.label + "_loop")
+        elif index == 1:
+            pass
+        Game.jump(character.label + "_other")

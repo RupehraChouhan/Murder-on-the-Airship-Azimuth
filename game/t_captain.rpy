@@ -11,15 +11,14 @@ label captain:
         character = Game.npcs[Game.NPC_CAPTAIN]
         
         # NPC speaks
-        Game.prevNarrate = "What would you like to talk about?"
         Game.jump(character.label + "_loop")
         
 label captain_loop:
     python:
         # define line and give options
         # in this case, the line is whatever the character last said.
-        line = Game.prevNarrate
-        choices = ["Tell me about yourself.", "What is your connection to the victim?", "Describe what you saw this evening", "Ask about a discovery", "Ask about another suspect", "Leave"]
+        line = "What would you like to talk about?"
+        choices = ["\"Tell me about yourself.\"", "\"What is your connection to the victim?\"", "\"Describe what you saw this evening.\"", "Ask about a discovery.", "Ask about another suspect.", "Leave."]
         
         # say line and give options
         #character.speakADV(line)
@@ -44,7 +43,7 @@ label captain_loop:
                 raise ValueError("wrong choice")
 
         except ValueError:
-            character.speakADV("I don't know what you mean")
+            character.speakADV("I don't know what you mean.")
         
         Game.jump(character.label + "_loop")
         
@@ -66,21 +65,21 @@ label captain_saw:
 
 label captain_found:
     python:
-        line = "Ask about what?"
+        line = "Ask about what?\n"
         choices = []
 
         for clueName, found in Game.cluesFound.items():
             if found:
                 choices.append(clueName)
-        choices.append("Ask something else")
+        choices.append("Ask something else.")
 
         Game.inputADV(line, choices, True)
+        Game.checkQuit(character.label + "_found")
 
         index = int(Game.input) - 1
         clueName = choices[index]
-
         if clueName == Game.BATHS_WOUND:
-                character.speakADV("I run a tight ship. Nothing big and heavy should have been accessible to the passengers unless they smuggled it in under their clothes. If they went out-of-bounds, they might have found something in the engine room or the cargo bay.")
+            character.speakADV("I run a tight ship. Nothing big and heavy should have been accessible to the passengers unless they smuggled it in under their clothes. If they went out-of-bounds, they might have found something in the engine room or the cargo bay.")
 
         elif clueName == Game.BATHS_TIME_OF_DEATH:
             character.speakADV("Between 8:30 and 9 we were still in the grips of that storm. I was stuck to the wheel. If anyone came through, I wouldn't have noticed until the storm passed.")
@@ -115,11 +114,12 @@ label captain_found:
             character.speakADV("A damn shame. I've asked my men. No one heard anything. I don't have enough people to watch these people and fly the ship! Blast it!")
             character.speakADV("... I'm sorry, Detective. I know you're doing your best. But please hurry. With the murderer on the loose, we're all in danger.")
 
-        elif clueName == "Ask something else":
-            pass
+        elif clueName == "Ask something else.":
+            Game.jump(character.label + "_loop")
+            
         else:
             character.speakADV("I don't know what you're talking about.")        
-        Game.jump(character.label + "_loop")
+        Game.jump(character.label + "_found")
 
 label captain_other:
     python:

@@ -27,7 +27,7 @@ init -998 python: # Other classes are given first priority to load, after Game c
             self.clues[clue.name] = clue
             
         def addCommand(self, command, function):
-            self.functions[command] = function
+            self.functions[command.lower()] = function
         
         # take in a command, like "look bottle"
         # execute bottle.do("look")

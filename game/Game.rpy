@@ -118,6 +118,8 @@ init -999 python: # Game class must be given first priority to load
             done = False
             while not done:
                 Game.input = renpy.input(endPrompt)
+                if Game.input == "":
+                    break
                 
                 if forceValidNumber:
                     try:
@@ -148,6 +150,8 @@ init -999 python: # Game class must be given first priority to load
             done = False
             while not done:
                 Game.input = renpy.call_screen("nvl_input", endPrompt)
+                if Game.input == "":
+                    break
                 
                 if forceValidNumber:
                     try:
@@ -178,6 +182,7 @@ init -999 python: # Game class must be given first priority to load
             if target == "quit": Game.jump(quit)
             if target == "e": Game.jump(quit)
             if target == "exit": Game.jump(quit)
+            if target == "leave": Game.jump(quit)
             
         # Increment the number of moves, and check if anything needs to happen
         @staticmethod
