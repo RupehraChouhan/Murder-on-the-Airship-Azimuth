@@ -152,6 +152,7 @@ label rook_found:
             if index == 0:
                 Game.YOU.speakADV("The use of this weapon implies a familiarity with this vessel that not everyone here has...")
                 character.speakADV("Are you implying that I..? Detective, I've been nothing but helpful! I can't believe you'd... I think I'd like you to leave.[END]")
+                Game.jump("start")
             elif index == 1:
                 pass
                 
@@ -168,6 +169,7 @@ label rook_found:
                 Game.YOU.speakADV("Are you quite sure?")
                 Game.narrateADV("{i}de la Rocque narrows his eyes.{/i}")
                 character.speakADV("I would have thought the words, \"I'd stake my reputation on it\" were quite clear. After all, {i}your{/i} reputation is the only reason we're putting up with these invasive questions.[END]")
+                Game.jump("start")
             elif index == 1:
                 pass
                 
@@ -200,6 +202,7 @@ label rook_found:
                 character.speakADV("And?")
                 Game.YOU.speakADV("I wonder if the recognition Mr. Royaume was receiving for all your hard work might have irritated you.")
                 character.speakADV("Irritated me?! I'll tell you what irritates me! The implication from an amateur armchair sleuth such as yourself that I had anything to do with my colleague's murder! Yes, I did most of the work on this contract, and yes, I don't get invited to the same parties as Henry and Eleanora, and no, I'm not up for a knighthood for service to the Crown, but that doesn't mean I have to put up with your questions! [END]")
+                Game.jump("start")
             elif index == 1:
                 pass
                 

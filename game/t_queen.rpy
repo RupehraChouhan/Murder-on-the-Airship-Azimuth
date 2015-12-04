@@ -118,6 +118,7 @@ label queen_found:
             index = int(Game.input) - 1
             if index == 0:
                 character.speakADV("{i}Her demeanour becomes even icier than before.{/i} Detective, while it is no secret that my husband and I were very much not in love, if all it took was one social dinner turned awkward by his bluster for me to decide to end his life, he would not have survived our first month of marriage. Now cease this insulting line of inquiry, and leave me be.")
+                Game.jump("start")
             elif index == 1:
                 pass
                 
@@ -148,6 +149,7 @@ label queen_found:
             if index == 0:
                 Game.YOU.speakADV("If I could just - ")
                 character.speakADV("Detective, if you are being deliberately grotesque to provoke a reaction in me, I must say you have succeeded brilliantly. Good day.")
+                Game.jump("start")
             elif index == 1:
                 pass
                 
@@ -241,6 +243,7 @@ label queen_found:
             if index == 0:
                 Game.YOU.speakADV("With your husband and his business partner now dead, I understand control of Mr. Royaume's company falls to you...")
                 character.speakADV("Your implications are frankly insulting, Detective! I have entertained your tedious questions long enough! Go and earn your reputation instead of pestering your betters. Leave my presence at once!")
+                Game.jump("start")
             elif index == 1:
                 pass
         

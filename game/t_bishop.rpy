@@ -73,6 +73,7 @@ label bishop_vic:
         if index == 0:
             Game.YOU.speakADV("That must have been frustrating.")
             character.speakADV("Detective, I see what you're implying! I didn't kill him. I-I couldn't ever even think of such a thing! I'm a pacifist, for heaven's sake! Ask me your questions when you're several degrees more sensible!")
+            Game.jump("start")
         elif index == 1:
             pass
         Game.jump(character.label + "_loop")
@@ -101,6 +102,7 @@ label bishop_saw:
             character.speakADV("Are you even attached at all to the police?")
             Game.YOU.speakADV("No, I am merely an accomplished amateur.")
             character.speakADV("Then I don't have to answer any more of your questions.")
+            Game.jump("start")
         elif index ==1:
             pass
         Game.jump(character.label + "_loop")
@@ -153,6 +155,7 @@ label bishop_found:
                 character.speakADV("Oh, blast. Mislaid them again. Where could they be this time?")
                 Game.YOU.speakADV("Also, do you expect me to believe it takes a whole half-hour to find your spectacles?")
                 character.speakADV("I suspect some assiduous servant moved them. Somewhere. If you were half as assiduous, you'd be finding a killer, not haranguing me about my spectacles!")
+                Game.jump("start")
             elif index == 1:
                 pass
                 
@@ -170,6 +173,7 @@ label bishop_found:
                 character.speakADV("Detective, I've accounted for my whereabouts! Have I lied to you yet?")
                 Game.YOU.speakADV("Probably.")
                 character.speakADV("This isn't amusing, Detective. I have tried my best to help you do the right thing and you insist on bedeviling me! Return when you see fit to take this seriously!")
+                Game.jump("start")
             elif index == 1:
                 pass
                 
@@ -217,6 +221,7 @@ label bishop_found:
                 character.speakADV("Yes, all it means is more money in the pockets of Royaume while his workers suffer in intolerable conditions! Perhaps his partner, de la Rocque will be more amenable to reform...")
                 Game.narrateADV("{i}It dawns on Esgob what he is saying.{/i}")
                 character.speakADV("I - I didn't mean it like that! Maybe - maybe you should come back later, Detective. When I've had a chance to collect myself.")
+                Game.jump("start")
             elif index == 1:
                 pass
 
@@ -266,6 +271,7 @@ label bishop_found:
                 character.speakADV("The suggestion is repulsive, detective! I - I'm not capable of such a sin! The very idea - sickening!")
                 Game.narrateADV("{i}Nausea threatens to overcome him.{/i}")
                 character.speakADV("Perhaps... come back later? When I'm a bit more *urk* composed.")
+                Game.jump("start")
             elif index == 1:
                 pass
 

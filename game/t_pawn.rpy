@@ -132,6 +132,7 @@ label pawn_found:
                 Game.YOU.speakADV("But you have a key, no? Or could get one?")
                 character.speakADV("No, I'm in service, not engineering! Do you...? Are you saying I killed him?")
                 character.speakADV("I - I'm gonna go to prison! If I ever get out, I'll never find respectable work again! I'll have to work at the grommet foundry for eighteen hours a day just to put watery gruel on the table! Just like my kid brothers!")
+                Game.jump("start")
             elif index == 1:
                 pass
             
@@ -147,6 +148,7 @@ label pawn_found:
             if index == 0:
                 Game.YOU.speakADV("You don't {i}remember{/i}")
                 character.speakADV("Detective, I've been running ragged for over a full day, getting this ship in order to host the owner of the line and his honoured guests. It's all running together. Then I found a dead body. I'm... I'm not at my best right now. Would you mind coming back when I'm a little more... collected?")
+                Game.jump("start")
             elif index == 1:
                 pass
             
@@ -163,6 +165,7 @@ label pawn_found:
                 Game.YOU.speakADV("Of the suspects I am considering, you have the greatest knowledge of - and access to - this vessel...")
                 character.speakADV("Do you...? Are you saying I killed him?")
                 character.speakADV("Of course it's the poor girl who gets the rap! I - I'm gonna go to prison! If I ever get out, I'll never find respectable work again! I'll have to work at the grommet foundry for eighteen hours a day just to put watery gruel on the table! Just like my kid brothers!")
+                Game.jump("start")
             elif index == 1:
                 pass
                 
@@ -181,6 +184,7 @@ label pawn_found:
                 character.speakADV("Do you...? Are you saying I killed him?")
                 character.speakADV("I didn't have to tell you that! I helped you! I risked my job - if the captain finds out I knew where to stash contraband...")
                 character.speakADV("I'll never find respectable work again! I'll have to work at the grommet foundry for eighteen hours a day just to put watery gruel on the table! Just like my kid brothers!")
+                Game.jump("start")
             elif index == 1:
                 pass
                 
@@ -266,6 +270,7 @@ label pawn_found:
                 Game.YOU.speakADV("I am inclined to believe these killings have sensible motives, Miss. Like, for instance, a desire to effect a change to the management of Royaume & Sons Airship Lines...")
                 character.speakADV("Do you...? Are you saying I killed him?")
                 character.speakADV("Of course it's the poor girl who gets the rap! I - I'm gonna go to prison! If I ever get out, I'll never find respectable work again! I'll have to work at the grommet foundry for eighteen hours a day just to put watery gruel on the table! Just like my kid brothers!")
+                Game.jump("start")
             elif index == 1:
                 pass
             

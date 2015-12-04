@@ -168,6 +168,7 @@ label knight_found:
             if index == 0:
                 Game.YOU.speakADV("Indulge me for a moment, Sergeant-Major. Imagine I'm the murderer. I strike Mr. Royaume in the baths, there's blood on my hands, I search around for a hiding place. Where do I look?")
                 character.speakADV("I'm afraid I can't help you. Cowardly attacks such as this are not a soldier's specialty. I suggest you ask these questions of someone with something to gain from Mr. Royaume's death.")
+                Game.jump("start")
             elif index == 1:
                 pass
             
@@ -236,6 +237,7 @@ label knight_found:
                 Game.narrateADV("{i}Ritter speaks through gritted teeth.{/i}")
                 character.speakADV("Are you accusing me of murder, Detective?")
                 Game.YOU.speakADV("That remains to be seen.")
+                Game.jump("start")
             elif index == 1:
                 pass
             
@@ -252,6 +254,7 @@ label knight_found:
                 Game.YOU.speakADV("And if that killer is you, Sergeant-Major?")
                 Game.narrateADV("{i}There is a long pause. Ritter's face is calm.{/i}")
                 character.speakADV("Then I suppose you'd best lock me away, Detective. After you find some proof, that is.")
+                Game.jump("start")
             elif index == 1:
                 pass
                 
